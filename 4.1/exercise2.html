@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}		
+		ul{
+			height: 600px;
+			background-color: skyblue;
+			margin-top: 50px;
+			text-align: center;
+
+		}
+		ul li{
+			display: inline-block;
+			margin-top: 200px;
+			margin-left: 10px;			
+		}
+		ul li img{
+			width: 200px;
+			height: 200px;	
+			border: 5px solid white;
+			box-sizing: border-box; 		
+		}
+		ul li:nth-child(1){
+			transform: rotate(10deg);
+		}
+		ul li:nth-child(2){
+			transform: rotate(45deg);
+		}
+		ul li:nth-child(3){
+			transform: rotate(-50deg);
+		}
+		ul li:nth-child(4){
+			transform: rotate(60deg);
+		}
+		ul:hover li{
+			opacity: 0.5;
+		}
+		ul li:hover{
+			transform: rotate(0deg) scale(1.2);
+			z-index: 1;
+			opacity: 1;
+
+		}
+	</style>
+</head>
+<body>
+	
+		<ul>
+			<li><img src="123.jpg" alt=""></li>
+			<li><img src="123.jpg" alt=""></li>
+			<li><img src="123.jpg" alt=""></li>
+			<li><img src="123.jpg" alt=""></li>
+		</ul>
+	
+</body>
+</html>

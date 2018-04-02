@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		*{
+			margin: 0;
+			height: 0;
+		}
+		.grandfather{
+			width: 400px;
+			height: 400px;
+			border: 1px solid;
+			position: relative;
+			margin:50px auto;
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: relative;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			position: absolute;
+			left:10px;
+			bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="grandfather">
+		<div class="father">
+			<div class="son"></div>
+		</div>
+	</div>
+</body>
+</html>

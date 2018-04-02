@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}	
+		.header{
+			width: 380px;
+			height: 50px;			
+		}
+		.header .nav{
+			width: 380px;
+			height: 50px;
+			list-style: none;
+			background-color: black;
+		}
+		.header .nav>li{
+			width: 100px;
+			height: 50px;
+			background-color: yellow;
+			margin-left: 20px;
+			float:left;
+			text-align: center;
+			line-height: 50px;
+		}
+		.sub{
+			list-style: none;
+		}
+		.sub>li{
+			background-color: pink;
+			transform: rotateY(180deg);
+			border: 1px solid ;
+			transition: all 3s;
+			opacity: 0;
+
+		}
+		.nav>li:hover .sub>li{
+			transform: rotateY(0deg);
+			opacity: 1;
+		}
+		.nav>li:hover .sub>li:nth-child(1){
+			transition-duration: 0ms;
+		}
+		.nav>li:hover .sub>li:nth-child(2){
+			transition-duration: 400ms;
+		}
+		.nav>li:hover .sub>li:nth-child(3){
+			transition-duration: 800ms;
+		}
+		.nav>li:hover .sub>li:nth-child(4){
+			transition-duration: 1200ms;
+		}
+		.nav>li:hover .sub>li:nth-child(5){
+			transition-duration: 1600ms;
+		}
+		.sub>li:nth-child(5){
+			transition-duration: 0ms;
+		}
+		.sub>li:nth-child(4){
+			transition-duration: 400ms;
+		}
+		.sub>li:nth-child(3){
+			transition-duration: 800ms;
+		}
+		.sub>li:nth-child(2){
+			transition-duration: 1200ms;
+		}
+		.sub>li:nth-child(1){
+			transition-duration: 1600ms;
+		}
+		.footer{
+			width: 380px;
+			height: 400px;
+			background-color: purple;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<ul class="nav">
+			<li>
+				一级菜单
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>
+				一级菜单
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>
+				一级菜单
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+		</ul>
+	
+	<div class="footer">我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字</div>
+</div>
+</body>
+</html>

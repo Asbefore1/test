@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<title></title>
+	<style>
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		.box1{
+			width: 280px;
+			height: 800px;
+			margin:0 auto;
+			
+		}
+		header{
+			/*margin-top: 10px;*/
+			border-top: 3px solid #069;
+			width: 105px;
+			color:blue;
+			text-align: left;
+			font-size: 20px;
+		}
+		.box{
+			margin-top: 50px;
+			width: 280px;
+			border-top: 1px solid #ececec;
+			border-bottom: 1px dotted #ececec;
+			padding-bottom: 5px;
+		}
+		
+		span{
+			color:skyblue;
+			/*text-align: left;*/
+			/*font-weight: lighter;*/
+			font-size: 15px;
+		}
+		div li{			
+			text-overflow: ellipsis;
+			border-bottom:  1px dotted gray;
+			
+			width: 300px;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			line-height: 30px;
+		}
+		li:before{
+			border: 1px solid;
+			display: inline-block;
+			content: "";
+			width: 5px;
+			height: 5px;
+			background-color: blue;
+			margin-right: 3px;
+			/*color: blue;*/
+		}
+		li:hover{
+			color:purple;
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="box">	
+			<header>互联网新闻</header>
+			<span>INTERNET NEWS</span>
+		</div>	
+		<div>
+			<ul>
+			<!-- <div class="top"> -->
+				<li>美国国会传唤扎克伯格：来，就5000万用户数据泄露</li>
+				<li>一场时装秀救活“中国李宁”，20年前的体操王子</li>		
+				<li>区域链早报|京东发布区块链技术实践白皮书</li>		
+				<li>京东区块链白皮书：未来6大场景皆有应用</li>	
+				<li>IBM上线区块类产品做平台 布局区块链底层</li>		
+				<li>5.5亿美元到账，贾跃亭造车梦“卷土重来”</li>		
+				<li>传美团年内赴香港上市 估值600亿美元超小米</li>		
+				<li>部分沃尔玛门店暂停使用支付宝：只能用微信支付</li>		
+				<li>马云麻烦了！蚂蚁基金被责令整改，支付宝遭起诉</li>		
+				<li>科技部发布164家独角兽全名单，阿里腾讯系领跑</li>
+			<!-- </div> -->
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

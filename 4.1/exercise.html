@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 500px;
+			height: 340px;
+			border: 1px solid;
+			margin:50px auto;
+			perspective: 800px;
+		}
+		div img{
+			transform-origin: center bottom;
+			transition: all 3s;
+			border-radius: 10px;
+		}
+		div:hover img{
+			transform: rotateX(80deg);
+		}
+	</style>
+</head>
+<body>
+	<div><img src="2.jpg"></div>
+</body>
+</html>
