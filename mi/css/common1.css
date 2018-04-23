@@ -1,0 +1,12 @@
+.container{
+	width: 1600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.clearfix:before{
+	content: "";
+	clear: both;
+	display: block;
+	height: 0px;
+	visibility: hidden;
+}

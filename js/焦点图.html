@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>焦点图</title>
+	<style>
+		 .carousel{
+			width: 100%;
+			height: 460px;
+			/*background: red;*/
+			position: absolute;
+			top:0;
+			left: 0;
+		}
+		 .carousel .img-box li{
+			position: absolute;
+			top:0;
+			left: 150px;
+			width: 1226px;
+			height: 460px;
+			list-style: none;
+		}
+		.carousel .img-box li img{
+			width: 1226px;
+			height: 460px;
+		}
+		.left,.right{
+			display: inline-block;
+			width: 30px;
+			height: 60px;
+			line-height: 60px;
+			text-align: center;
+			font-size: 24px;
+			color: #fff;			
+			position: absolute;
+			top:200px;
+			cursor: pointer;
+			z-index: 999;
+		}
+		.left:hover,.right:hover{
+			background: rgba(0,0,0,0.3);
+		}
+		.left{
+			left:152px;
+		}
+		.right{
+			right:225px;
+		}
+		.carousel .btn-box{
+			position: absolute;
+			right: 220px;
+			bottom: 20px;
+			z-index: 999;
+		}
+		.carousel .btn-box li{
+			float: left;
+			width: 10px;
+			height: 10px;
+			border: 1px solid;
+			border-radius: 50%;
+			margin-right: 18px ;
+			cursor:pointer;
+			list-style: none;
+		}
+		.active{
+			background: #000;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var aimgli=document.getElementById('imgbox').children;
+		var abtnli=document.getElementById('btn').children;
+		var opre=document.getElementById('pre');
+		var onext=document.getElementById('next');
+		var obox=document.getElementById('carouselbox');
+		var now=0;
+		var timer=null;
+		onext.onclick=function(){		
+			now++;
+			if(now>=aimgli.length){
+				now=0;
+			}
+			tab();
+			
+		}
+		opre.onclick=function(){			
+			now--;
+			if(now<0){
+				now=aimgli.length-1;
+			}
+			tab();		
+		}
+		function tab(){
+			for( var i=0;i<aimgli.length;i++){
+				aimgli[i].style.zIndex=0;
+				abtnli[i].className="";
+			}
+			aimgli[now].style.zIndex=30;
+			abtnli[now].className="active";
+		}
+		for(var i=0;i<abtnli.length;i++){
+			abtnli[i].index=i;
+			abtnli[i].onclick=function(){
+				now=this.index;
+				tab();
+			}
+		}
+		timer=setInterval(function(){
+			onext.onclick();
+		},1000)
+
+		obox.onmouseover=function(){
+			clearInterval(timer);
+		}
+		obox.onmouseout=function(){
+			timer=setInterval(function(){
+				onext.onclick();
+			},1000)
+		}
+	}
+</script>
+<body>
+	<div class="carousel" id="carouselbox">
+		<ul class="img-box" id="imgbox">
+			<li style="z-index: 30"><img src="./images/1.jpg" alt=""></li>
+			<li><img src="./images/2.jpg" alt=""></li>
+			<li><img src="./images/3.jpg" alt=""></li>
+		</ul>
+		<span class="left" id="pre">&lt;</span>
+		<span class="right" id='next'>&gt;</span>
+		<ul class="btn-box" id="btn">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

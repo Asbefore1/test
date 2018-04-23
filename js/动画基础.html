@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画基础</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		#box{
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			top: 100px;
+			left: 600px;
+		}
+		#line{
+			height: 800px;
+			position: absolute;
+			left: 300px;
+			top:0;
+			width: 1px;
+			background: #000;
+			
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var obtn=document.getElementById('btn');
+			var obox=document.getElementById('box');
+			var otxt=document.getElementById('txt');
+			var timer=null;
+			var speed=0;
+			obtn.onclick=function(){
+				clearInterval(timer);
+				if(obox.offsetLeft<300){
+					speed=9;
+				}else{
+					speed=-9;
+				}
+				timer=setInterval(function(){
+					if(Math.abs(300-obox.offsetLeft)<=Math.abs(speed)){
+						obox.style.left="300px";
+						clearInterval(timer);
+					}else{
+						obox.style.left=obox.offsetLeft+speed+"px";
+					}
+					otxt.value=obox.offsetLeft+"$$"+speed;
+					console.log(obox.offsetLeft+"$$"+speed);
+				},30)
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="开始动画" id="btn">
+	<input id="txt" type="text"></input>
+	<div id="box"></div>
+	<div id="line"></div>
+	
+</body>
+</html>

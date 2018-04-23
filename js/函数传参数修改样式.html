@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数传参数修改样式</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid;
+		}
+	</style>
+</head>
+<script>
+	function css(obj,attr,value){
+		obj.style[attr]=value;
+	}
+	window.onload=function(){
+		var obtn1=document.getElementById('btn1');
+		var obtn2=document.getElementById('btn2');
+		var obtn3=document.getElementById('btn3');
+		var obox=document.getElementById('box');
+		obtn1.onclick=function(){
+			// obox.style.width="400px";
+			css(obox,"width","400px");
+		}
+		obtn2.onclick=function(){
+			// obox.style.width="400px";
+			css(obox,"height","400px");
+		}
+		obtn3.onclick=function(){
+			// obox.style.width="400px";
+			css(obox,"background","red");
+		}
+	}
+</script>
+<body>
+	<input type="button" value="提交1" id="btn1">
+	<input type="button" value="提交2" id="btn2">
+	<input type="button" value="提交3" id="btn3">
+	<div id="box"></div>
+</body>
+</html>

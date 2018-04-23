@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去除重复元素</title>
+</head>
+<script>
+	var arr=[12,45,23,62,23,45,78];
+	console.log(arr);
+	function removeDup(arr){
+		var result=[];		
+		for(var i=0;i<arr.length;i++){
+			var isDup=false;
+			for(var j=0;j<result.length;j++){				
+				if(arr[i]==arr[j]){
+					isDup=true;
+					break;
+				}
+			}
+			if(!isDup){
+				result.push(arr[i]);
+				// 在空数组元素的后面添加，由于第一次是空的，直接写即可
+
+			}
+		}
+		return result;
+	}
+	console.log(removeDup(arr));
+
+	
+
+</script>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>隔行变亮</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		li{
+			list-style: none;
+			width: 100%;
+			height: 50px;
+			border: 1px solid;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var ali=document.getElementById('ul1').children;
+		var oldcolor="";
+		for(var i=0;i<ali.length;i++){
+			if(i%2){
+				ali[i].style.background="#ccc";
+			}else{
+				ali[i].style.background="";
+			}
+			ali[i].onmouseover=function(){
+				oldcolor=this.style.background;
+				this.style.background="yellow";
+			}
+			ali[i].onmouseout=function(){
+				this.style.background=oldcolor;
+			}
+		}
+		
+	}
+</script>
+<body>
+	<ul id="ul1">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

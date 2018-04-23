@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的不定参数</title>
+</head>
+<script>
+	// function sum(a,b){
+	// 	alert(a+b);
+	// }
+	// sum(1,2);
+
+	// 用arguements求和
+	function sum(){
+		console.log(arguments);
+		var result=0;
+		for(var i=0;i<arguments.length;i++){
+			result+=arguments[i];
+		}
+		alert(result);
+	}
+	sum(1,2,3,4,5,6);
+	
+</script>
+<body>
+	
+</body>
+</html>

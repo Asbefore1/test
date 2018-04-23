@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用</title>
+	<style>
+		div{
+			width: 200px;
+			height: 20px;
+			background: #ccc;
+			display: none;
+		}	
+	</style>
+	<script>
+		function toblue(){
+			document.getElementById('box').style.display='block';
+		}
+	    function tored(){
+	    	document.getElementById('box').style.display='none';
+	    }
+	</script>
+</head>
+<body>
+	<input type="checkbox" name="" onmouseover="toblue()" onmouseout="tored()">
+	<div id="box">
+		美团美团
+	</div>
+</body>
+</html>

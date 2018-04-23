@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多个动画同时变动</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-top: 20px;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var timer=null;
+			var obox1=document.getElementById('box1');
+			var obox2=document.getElementById('box2');
+			var obox3=document.getElementById('box3');
+			function animation(obj,target){
+				clearInterval(timer);
+				
+				timer=setInterval(function(){
+					var speed=0;
+					var curr=parseInt(getComputedstyle(obj,false)['width']);
+					if(curr>target){
+						speed=-10;
+					}else{
+						speed=10;
+					}
+					if(Math.abs(target-curr)<=Math.abs(speed)){
+						clearInterval(timer);
+						obox1.style[attr]=target+"px";
+					}else{
+						obox1.style[attr]=curr+speed+"px";
+					}
+				
+				},30)
+			}
+			obox1.onmouseover=function(){
+				animation(this,400);
+			}
+			obox1.onmouseout=function(){
+				animation(this,100);
+			}			
+		}
+	</script>
+</head>
+<body>
+	<div id="box1">变宽</div>
+	<div id="box2">变高</div>
+	<div id="box3">变透明度</div>
+</body>
+</html>

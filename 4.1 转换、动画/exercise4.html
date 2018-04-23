@@ -26,15 +26,17 @@
 			width: 3200px;
 			height: 400px;
 			margin: 0 auto;
-			animation: sport 3s;
+			animation: sport 5s;
 			animation-iteration-count: infinite;
-			animation-timing-function: linear;			
+			animation-timing-function: linear;
+            
+
 		}
 		ul li{
 			width: 800px;
 			height: 400px;	
 			list-style: none;
-			float: left;				
+			float: left;
 		}
 		ul li:nth-child(1){
 			background-color: red;
@@ -48,15 +50,29 @@
 		ul li:nth-child(4){
 			background-color: red;
 		}
+		ul li img{
+			width: 800px;
+			height: 400px;
+		}
+		ul:hover li{		
+			opacity: 0.5;
+			
+		}
+		ul li:hover{
+			opacity: 1;
+		}
+		ul:hover{
+			animation-play-state: paused;
+		}
 	</style>
 </head>
 <body>
 	<div>
 		<ul>
-			<li><!-- <img src="1.jpg" alt=""> --></li>
-			<li><!-- <img src="2.jpg" alt=""> --></li>
-			<li><!-- <img src="3.jpg" alt=""> --></li>
-			<li></li>
+			<li><img src="1.jpg" alt=""></li>
+			<li><img src="2.jpg" alt=""></li>
+			<li><img src="3.jpg" alt=""></li>
+			<li><img src="1.jpg" alt=""></li>
 		</ul>
 	</div>
 </body>

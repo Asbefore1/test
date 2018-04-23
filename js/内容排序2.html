@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内容排序</title>
+	<style>
+		#ul1 li{
+			color: red;
+		}
+		#ul2 li{
+			color: blue;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var obtn1=document.getElementById('btn1');
+			var oul1=document.getElementById('ul1');
+			var oul2=document.getElementById('ul2');
+			var ali=oul1.children;
+			obtn1.onclick=function(){
+				// var oli=oul1.firstElementChild;
+				// oul1.removeChild(oli);
+				// oul2.appendChild(oli);
+				// oul1.appendChild(oli);
+				var arr=[];
+				for(var i=0;i<ali.length;i++){
+					arr.push(ali[i]);
+				}
+				arr.sort(function(oli1,oli2){
+					var n1=oli1.innerHTML;
+					var n2=oli2.innerHTML;
+					return n1-n2;
+				});
+				for(var j=0;j<arr.length;j++){
+					oul1.appendChild(arr[j]);
+				}
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn1" value="移动">
+	<ul id="ul1">
+		<li>12</li>
+		<li>69</li>
+		<li>54</li>
+		<li>23</li>
+		<li>45</li>
+	</ul>
+	<!-- <ul id="ul2">
+		
+	</ul> -->
+</body>
+</html>

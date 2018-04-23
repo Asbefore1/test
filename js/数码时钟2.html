@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数码时钟</title>
+	<style>
+		#box{
+			color:#fff;
+			background: #000;
+			font-size: 40px;
+			width: 400px;
+			margin: 100px auto;
+
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var obox=document.getElementById('box');
+			var aimg=obox.children;
+
+			var now=new.Date();
+			
+			var h=now.getHours();
+			var m=now.getMinutes();
+			var s=now.getSeconds();
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<img src="./images/1.png" alt="">
+		<img src="./images/4.png" alt="">
+		:
+		<img src="./images/2.png" alt="">
+		<img src="./images/0.png" alt="">
+		:
+		<img src="./images/4.png" alt="">
+		<img src="./images/2.png" alt="">
+	</div>
+</body>
+</html>

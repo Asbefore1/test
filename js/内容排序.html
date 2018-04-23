@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#ul1{
+			color: red;
+		}
+		#ul2{
+			color: blue;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var obtn1=document.getElementById('btn1');
+			var oul1=document.getElementById('ul1');
+			var oul2=document.getElementById('ul2');
+			var ali=oul1.children;
+			obtn1.onclick=function(){
+				var arr=[];
+				for(var i=0;i<ali.length;i++){
+					arr.push(ali[i]);
+				}
+				arr.sort(function(oli1,oli2){
+					var n1=oli1.innerHTML;
+					var n2=oli2.innerHTML;
+					return n1-n2;
+				})
+				for(var j=0;j<arr.length;j++){
+					oul1.appendChild(arr[j]);
+				}
+				console.log(ali);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn1" value="提交">
+	<ul id="ul1">
+		<li>12</li>
+		<li>45</li>
+		<li>36</li>
+		<li>78</li>
+		<li>14</li>
+	</ul>
+	<ul id="ul2">
+		
+	</ul>
+</body>
+</html>

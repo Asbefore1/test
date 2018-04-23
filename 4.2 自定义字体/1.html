@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container input,.container a{
+			width: 20%;
+			height: 30px;
+			position: fixed;
+			left: 0;
+			top:0;
+			line-height: 30px;
+			text-align: center;
+		}
+		.container a{
+			background-color: red;
+			/*opacity: 0.5;*/
+			text-decoration: none;
+			font-size: 18px;
+			color:white;
+			font-weight: bold;
+		}
+		#top1,#top1+a{
+			left:0%;
+		}
+		#top2,#top2+a{
+			left:20%;
+		}
+		#top3,#top3+a{
+			left:40%;
+		}
+		#top4,#top4+a{
+			left:60%;
+		}
+		#top5,#top5+a{
+			left:80%;
+		}
+		.container input{
+			opacity: 0;
+			z-index: 1000;
+		}
+		.container a{
+			z-index: 10;
+		}
+		.container input:checked+a{
+			background-color:gray;
+		}
+		.container input:hover+a{
+			background-color: yellow;
+		}
+		.container input:checked:hover+a{
+			background-color: gray;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<input type="radio" name="tom"  id="top1" checked="checked">
+		<a href="#">Home</a>
+		<input type="radio" name="tom"  id="top2">
+		<a href="#">Service</a>
+		<input type="radio" name="tom"  id="top3">
+		<a href="#">About</a>
+		<input type="radio" name="tom"  id="top4">
+		<a href="#">Team</a>
+		<input type="radio" name="tom"  id="top5">
+		<a href="#">Contact</a>
+	</div>
+</body>
+</html>

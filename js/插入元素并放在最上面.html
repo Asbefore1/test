@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>插入元素并放到最上面</title>
+</head>
+<script>
+	window.onload=function(){
+		var otxt=document.getElementById('txt');
+		var obtn=document.getElementById('btn');
+		var oul1=document.getElementById('ul1');
+		obtn.onclick=function(){
+			var oli=document.createElement('li');
+			oli.innerHTML=otxt.value;
+			// oul1.insertBefore(oli,oul1.firstChild);
+			oul1.insertBefore(oli,oul1.children[0]);
+		}
+	}
+</script>
+<body>
+	<input type="text" id="txt">
+	<input type="button" value="提交" id="btn">
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+</html>

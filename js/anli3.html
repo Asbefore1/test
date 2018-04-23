@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>案例3</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid;
+			display: none;
+		}
+		.active{
+			background:yellow;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var aBtn=document.getElementsByTagName('input');
+			var aDiv=document.getElementsByTagName('div');
+			    // console.log(aBtn)
+			for (var i = 0; i < aBtn.length; i++){
+				aBtn[i].index=i;
+				aBtn[i].onclick=function(){
+					for (var j = 0; j < aBtn.length; j++) {
+						aBtn[j].className="";
+						aDiv[j].style.display="none";
+					}
+					this.className="active";
+					aDiv[this.index].style.display='block';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮1" class="active">
+	<input type="button" value="按钮2">
+	<input type="button" value="按钮3">
+	<div style="display: block;">内容1</div>
+	<div>内容2</div>
+	<div>内容3</div>
+</body>
+</html>

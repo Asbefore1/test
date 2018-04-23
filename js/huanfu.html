@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>换肤</title>
+	<style>
+		div{
+			width: 100px;
+			height: 50px;
+			float: left;
+		}
+		div:nth-child(1){
+			background: red;
+		}
+		div:nth-child(2){
+			background: blue;
+		}
+		div:nth-child(3){
+			background: yellow;
+		}
+		div:nth-child(4){
+			background: orange;
+		}
+		div:nth-child(5){
+			background: purple;
+		}
+		div:nth-child(6){
+			width: 500px;
+			height: 100px;
+			background: red;
+			float: none;
+		}
+	</style>
+	<script>
+		function color(){
+			document.getElementById('smile').style.background='yellow'
+		}
+		function tom(){
+			document.getElementById('smile').style.background='green'
+		}
+		function dream(){
+			document.getElementById('smile').style.background='orange'
+		}
+		function love(){
+			document.getElementById('smile').style.background='blue'
+		}
+		function like(){
+			document.getElementById('smile').style.background='pink'
+		}
+	</script>
+</head>
+<body>
+	<div onclick="color()"></div>
+	<div onclick="tom()"></div>
+	<div onclick="dream()"></div>
+	<div onclick="love()"></div>
+	<div onclick="like()"></div>
+	<div id="smile"></div>
+</body>
+</html>

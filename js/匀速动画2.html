@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匀速动画</title>
+	<style>
+		#box{
+			width: 400px;
+			height: 100px;
+			background: #000;
+			position: absolute;
+			bottom: 0;
+			left: -400px;
+		}
+		#sub{
+			width: 100px;
+			height: 100px;
+			background: pink;
+			position: absolute;
+			top: 0;
+			right: -100px;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var obox=document.getElementById('box');
+		var osub=document.getElementById('sub');
+		var timer=null;
+		var speed=0;
+			function animation(target){
+				clearInterval(timer);
+				if(obox.offsetLeft<target){
+					speed=5;
+				}else{
+					speed=-5;
+				}
+				timer=setInterval(function(){
+					if(Math.abs(obox.offsetLeft)<=Math.abs(speed)){
+						obox.style.left=target+"px";
+						clearInterval(timer);
+					}else{
+						obox.style.left=obox.offsetLeft+speed+"px";
+					}
+				},30)
+			}
+		obox.onmouseover=function(){
+			animation(0);
+		}
+		obox.onmouseout=function(){
+			animation(-400);
+		}
+	}
+</script>
+<body>
+	<div id="box">
+		<div id="sub"></div>
+	</div>
+</body>
+</html>

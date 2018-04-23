@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>if</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var obtn = document.getElementById('btn');
+			var obox = document.getElementById('box');
+			obtn.onclick=function(){
+				if(obox.style.display=='none'){
+					obox.style.display='block';
+				}
+				else{
+					obox.style.display='none';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="点我" id="btn">
+	<div id="box" style="display: none;">淘宝.....</div>
+</body>
+</html>

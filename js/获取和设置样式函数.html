@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取和设置样式函数</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid;
+		}
+		.togreen{
+			background: green;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var obtn1=document.getElementById('btn1');
+		var obtn2=document.getElementById('btn2');
+		var obtn3=document.getElementById('btn3');
+		var obox=document.getElementById('box');
+		obtn1.onclick=function(){
+			obox.style.background="red";
+		}
+		obtn2.onclick=function(){
+			obox.className="togreen";
+		}
+		obtn3.onclick=function(){
+			alert(getComputedStyle(obox,false)["backgroundColor"]);
+		}
+	}
+</script>
+<body>
+	<input type="button" value="变红" id="btn1">
+	<input type="button" value="变绿" id="btn2">
+	<input type="button" value="获取样式" id="btn3">
+	<div id="box"></div>
+</body>
+</html>
