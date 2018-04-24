@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    #div1{
+        width:150px;
+        height:200px;
+        position:absolute;
+        left: 100px;
+        background: green;
+    }
+</style>
+<script>
+    window.onload = function(){
+        var oDiv1 = document.getElementById('div1');
+       	alert(getComputedStyle(oDiv1,false)["left"]);
+    }
+</script>
+</head>
+
+<body>
+	<div id="div1" ></div>
+</body>
+</html>

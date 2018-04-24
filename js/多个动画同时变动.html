@@ -9,6 +9,7 @@
 			height: 100px;
 			background: red;
 			margin-top: 20px;
+			opacity: 0.3;
 		}
 	</style>
 	<script>
@@ -17,12 +18,14 @@
 			var obox1=document.getElementById('box1');
 			var obox2=document.getElementById('box2');
 			var obox3=document.getElementById('box3');
-			function animation(obj,target){
-				clearInterval(timer);
-				
-				timer=setInterval(function(){
+			function animation(obj,attr,target){
+				clearInterval(obj.timer);	
+				obj.timer=setInterval(function(){
 					var speed=0;
-					var curr=parseInt(getComputedstyle(obj,false)['width']);
+					var curr=parseFloat(getComputedStyle(obj,false)[attr]);//获取的是一个字符串,parsetFloat转换成整数和小数
+					if(curr=="opacity"){
+						curr=curr*100;
+					}
 					if(curr>target){
 						speed=-10;
 					}else{
@@ -30,18 +33,38 @@
 					}
 					if(Math.abs(target-curr)<=Math.abs(speed)){
 						clearInterval(timer);
-						obox1.style[attr]=target+"px";
+						if(attr=="opacity"){
+							obj.style[attr]=target/100;
+						}else{
+							obj.style[attr]=target+"px";
+						}
 					}else{
-						obox1.style[attr]=curr+speed+"px";
+						if(attr=="opacity"){
+							obj.style[attr]=(curr+speed)/100;
+						}else{
+							obj.style[attr]=curr+speed+"px";
+						}
 					}
 				
 				},30)
 			}
 			obox1.onmouseover=function(){
-				animation(this,400);
+				animation(obox1,"width",400);
 			}
 			obox1.onmouseout=function(){
-				animation(this,100);
+				animation(obox1,"width",100);
+			}
+			obox2.onmouseover=function(){
+				animation(obox2,"height",400);
+			}
+			obox2.onmouseout=function(){
+				animation(obox2,"height",100);
+			}
+			obox3.onmouseover=function(){
+				animation(obox3,"opacity",100);
+			}
+			obox3.onmouseout=function(){
+				animation(obox3,"opactiy",30);
 			}			
 		}
 	</script>

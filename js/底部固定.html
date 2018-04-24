@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>底部固定</title>
+	<style>
+	body{
+		height: 1500px;
+	}
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top:0px;
+			right: 0px;
+		}
+	</style>
+</head>
+<script>
+	window.onresize=window.onscroll=window.onload=function(){
+		var obox=document.getElementById('box');
+		var top=document.body.scrollTop || document.documentElement.scrollTop;
+		var height=window.innerHeight;
+		var target=top+height-obox.offsetHeight;
+		// box.style.top=top+height-obox.offsetHeight+"px";
+		function animation(obj,attr,target){
+				clearInterval(obj.timer);	
+				obj.timer=setInterval(function(){
+					var speed=0;
+					var curr=parseFloat(getComputedStyle(obj,false)[attr]);//获取的是一个字符串,parsetFloat转换成整数和小数
+					if(curr=="opacity"){
+						curr=curr*100;
+					}
+					if(curr>target){
+						speed=-50;
+					}else{
+						speed=50;
+					}
+					if(Math.abs(target-curr)<=Math.abs(speed)){
+						clearInterval(timer);
+						if(attr=="opacity"){
+							obj.style[attr]=target/100;
+						}else{
+							obj.style[attr]=target+"px";
+						}
+					}else{
+						if(attr=="opacity"){
+							obj.style[attr]=(curr+speed)/100;
+						}else{
+							obj.style[attr]=curr+speed+"px";
+						}
+					}
+				
+				},30)
+			}
+			animation(obox,"top",target);
+	}
+</script>
+<body>
+	<div id="box"></div>
+</body>
+</html>
