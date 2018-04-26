@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉菜单</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 500px;
+			background: #000;
+			display: none;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var obtn=document.getElementById("btn");
+		var obox=document.getElementById("box");
+		obtn.onclick=function(ev){
+			obox.style.display="block";
+			alert("aa");
+			var oevent=ev || event;
+			oevent.stopPropagation();
+		}
+		document.onclick=function(){
+			obox.style.display="none";
+		}
+	}
+</script>
+<body>
+	<input type="button" id="btn" value="菜单">
+	<div id="box"></div>
+</body>
+</html>

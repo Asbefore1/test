@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>减速动画基础</title>
+	<style>
+		#box1{
+			width: 100px;
+			height: 100px;
+			background:red;
+			position: absolute;
+			top: 200px;
+			left:0px;
+		}
+		#line{
+			width: 1px;
+			height: 800px;
+			position: absolute;
+			background: black;
+			top: 0px;
+			left: 300px;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var obox1=document.getElementById('box1');
+			var obtn=document.getElementById('btn');
+			var timer=null;
+			obtn.onclick=function(){
+				clearInterval(timer);
+				setInterval(function(){
+				var speed=(300-obox1.offsetLeft)/10;
+				speed=speed>0  ? Math.ceil(speed) : Math.floor(speed);
+					if(300==obox1.offsetLeft){
+						clearInterval(timer);
+					}else{
+						obox1.style.left=obox1.offsetLeft+speed+"px";
+					}
+				
+				},30)
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="开始动画" id="btn">
+	<div id="box1"></div>
+	<div id="line"></div>
+</body>
+</html>

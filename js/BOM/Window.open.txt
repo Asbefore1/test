@@ -1,0 +1,12 @@
+window.open("about:blank","_blank")
+window.open("about:blank","_self")
+window.open("网址")
+window.close只能打开open的页面
+
+
+ window.location="url"；
+ window.location.assign("url");
+ window.location=document.location;
+
+window.history.go(-1)=history.back()上一页
+window.history.go(1)下一页

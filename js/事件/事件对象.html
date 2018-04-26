@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件对象</title>
+	<style>
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<script>
+	// document.onclick=function(){
+	// 	console.log("X:",event.clientX);
+	// 	console.log("Y:",event.clientY);
+	// }
+	document.onclick=function(ev){
+		var oevent=ev || event;
+		console.log("X:",event.clientX);
+		console.log("Y:",event.clientY);
+	}
+</script>
+<body>
+	
+</body>
+</html>

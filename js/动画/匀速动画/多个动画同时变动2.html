@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多个动画同时变动2</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-top: 20px;
+			opacity: 0.3
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var obox1=document.getElementById('box1');
+		var obox2=document.getElementById('box2');
+		var obox3=document.getElementById('box3');
+		var timer=null;
+		function animation(obj,attr,target){
+			clearInterval(obj.timer);
+			obj.timer=setInterval(function(){
+				var speed=0;
+				var curr=parseFloat(getComputedStyle(obj,false)[attr]);
+				if(attr=="opacity"){
+					curr=curr*100;
+				}
+				if(curr>target){
+					speed=-10;
+				}else{
+					speed=10;
+				}
+
+				if(Math.abs(target-curr)<=Math.abs(speed)){
+				 	clearInterval(obj.timer);
+				 	if(attr=="opacity"){
+				 		obj.style[attr]=target/100;
+				 	}else{
+				 		obj.style[attr]=target+"px";
+				 	}
+				}else{
+					if(attr=="opacity"){
+						obj.style[attr]=(curr+speed)/100;
+					}else{
+						obj.style[attr]=curr+speed+"px";
+					}
+				}
+			},30)
+		}
+		obox1.onmouseover=function(){
+				animation(obox1,"width",400);
+		}
+		obox1.onmouseout=function(){
+				animation(obox1,"width",100);
+		}
+		obox2.onmouseover=function(){
+				animation(obox2,"height",400);
+		}
+		obox2.onmouseout=function(){
+				animation(obox2,"height",100);
+		}
+		obox3.onmouseover=function(){
+				animation(obox3,"opacity",400);
+		}
+		obox3.onmouseout=function(){
+				animation(obox3,"opacity",30);
+		}
+	}
+</script>
+<body>
+	<div id="box1">变宽</div>
+	<div id="box2">变高</div>
+	<div id="box3">变透明</div>
+</body>
+</html>

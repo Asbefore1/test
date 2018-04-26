@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匀速动画案例练习3</title>
+	<style>
+		#main{
+			width: 400px;
+			height: 100px;
+			background: #000;
+			position: absolute;
+			bottom: 0px;
+			left: -400px;
+		}
+		#sub{
+			width: 100px;
+			height: 100px;
+			background: pink;
+			position: absolute;
+			top: 0px;
+			left: 400px;
+		}
+	</style>
+</head>
+<script>
+	
+	window.onload=function(){
+		var omain=document.getElementById("main");
+		var osub=document.getElementById("sub");
+		var timer=null;
+		var speed=0;
+			function animation(target){
+				clearInterval(timer);
+				// 进行动画时不相互干扰
+				timer=setInterval(function(){
+					if(omain.offsetLeft<target){ //如果当前值小于目标值0
+						speed=10;
+					}else{
+						speed=-10;
+					}    //1.先判断速度
+					if(Math.abs(target-omain.offsetLeft)<=Math.abs(speed)){
+						omain.style.left=target+"px";
+						clearInterval(timer);
+					}else{
+						omain.style.left=omain.offsetLeft+speed+"px";
+					}    //2.判断目标值与当前值的差的绝对值是否小于速度
+				},30)
+			}
+			// function animation2(){
+			// 	clearInterval(timer);
+			// 	// 进行动画时不相互干扰
+			// 	timer=setInterval(function(){
+			// 		if(omain.offsetLeft<-400){ //如果当前值小于目标值0
+			// 			speed=20;
+			// 		}else{
+			// 			speed=-20;
+			// 		}    //1.先判断速度
+			// 		if(Math.abs(-400-omain.offsetLeft)<=Math.abs(speed)){
+			// 			omain.style.left="-400px";   //一步到达目标值
+			// 			clearInterval(timer);
+			// 		}else{
+			// 			omain.style.left=omain.offsetLeft+speed+"px";
+			// 		}    //2.判断目标值与当前值的差的绝对值是否小于速度
+			// 	},30)
+			// }
+		omain.onmouseover=function(){
+			// omain.style.left="0px";
+			animation(0);
+		}
+		omain.onmouseout=function(){
+			// omain.style.left="-400px";
+			animation(-400);
+		}
+	}
+</script>
+<body>
+	<div id="main">
+		<div id="sub"></div>
+	</div>
+</body>
+</html>
