@@ -15,9 +15,9 @@
 	// 	console.log("Y:",event.clientY);
 	// }
 	document.onclick=function(ev){
-		var oevent=ev || event;
-		console.log("X:",event.clientX);
-		console.log("Y:",event.clientY);
+		var oevent=ev || event;   //event鼠标的位置
+		console.log("X:",oevent.clientX);    //oevent.clientX鼠标距离可视区域左边的距离
+		console.log("Y:",oevent.clientY);    //oevent.clientX鼠标距离上边的距离
 	}
 </script>
 <body>

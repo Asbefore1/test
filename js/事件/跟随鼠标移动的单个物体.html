@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跟随鼠标移动的单个物体</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background:red;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<script>
+	function getpoint(ev){
+		var top=document.body.scrollTop || document.documentElement.scrollTop;   //物体参考的是滚动区域加可视区域
+		var left=document.body.scrollLeft || document.documentElement.scrollLeft;
+		return {x:ev.clientX+left,y:ev.clientY+top}
+	}
+	window.onload=function(){
+		var obox=document.getElementById('box');
+		document.onmousemove=function(ev){
+			var oevent=ev || event;    //鼠标动的时候显示距离可视区域顶部和左边的距离
+			var opoint=getpoint(oevent);
+			obox.style.left=opoint.x+"px";
+			obox.style.top=opoint.y+"px";
+		}
+	}
+</script>
+<body>
+	<div id="box"></div>
+</body>
+</html>
