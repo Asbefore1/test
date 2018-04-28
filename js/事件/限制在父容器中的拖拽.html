@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>限制父容器中的拖拽</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background:red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#father{
+			width: 400px;
+			height: 400px;
+			background: blue;
+			position: relative;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+	<script>
+		window.onload=function(){
+			var obox=document.getElementById("box");
+			var ofather=document.getElementById("father");
+			var disX=0;
+			var disY=0;
+			obox.onmousedown=function(ev){  //点击之后再移动,所以要放在onmousedown函数里面
+				                                //onmousedown  当鼠标摁下去的时候
+				var oevent=ev ||event;
+				                     //鼠标离盒子上下的距离在移动时保持不变,在摁下去的时候记录下来
+				disX=oevent.clientX-obox.offsetLeft; 
+									//鼠标离盒子上下的距离=鼠标距离浏览器的距离-盒子离浏览器的距离
+				disY=oevent.clientY-obox.offsetTop;
+				document.onmousemove=function(ev){   
+					                  //如果是obox.onmousemove,就会出现鼠标移得快,盒子跟不上的情况
+					var oevent=ev ||event;
+					var l=oevent.clientX-disX;
+					var t=event.clientY-disY;
+					if(l<50){     //l<0或者l<50,小于50会吸附
+						l=0;
+					}else if(l>(ofather.offsetWidth-obox.offsetWidth-50)){  //可视宽度-盒子自身宽度
+						l=ofather.offsetWidth-obox.offsetWidth;
+					}
+
+					if(t<50){
+						t=0;
+					}else if(t>(ofather.offsetHeight-obox.offsetHeight-50)){//可视高度-盒子自身高度
+						t=ofather.offsetHeight-obox.offsetHeight;
+					}
+					obox.style.left=l +'px';
+					obox.style.top=t +'px';
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;  //抬起鼠标时,不让移动,同时清除抬起鼠标这个动作
+					document.onmouseup=null;
+				}
+			}
+			
+		}
+	</script>
+<body>
+	<div id="father">
+		<div id="box"></div>
+	</div>
+</body>
+</html>

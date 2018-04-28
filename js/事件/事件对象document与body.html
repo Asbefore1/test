@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件对象document与body</title>
+	<style>
+		/*body{
+			border: 1px solid #000;
+		}*/
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		// document.body.onclick=function(){
+		// 	alert("aa");
+		// }
+		document.onclick=function(){
+			alert("aa");    
+			//document是整个文档,document包裹着整个html文档，他的第一个孩子是<!DOCTYPE html>，第二个孩子是html
+		}
+	}     //document包括全部，而document.body只包括<body></body>标签中的内容
+</script>
+<body>
+	
+</body>
+</html>

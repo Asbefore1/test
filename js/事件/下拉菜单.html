@@ -16,14 +16,16 @@
 	window.onload=function(){
 		var obtn=document.getElementById("btn");
 		var obox=document.getElementById("box");
-		obtn.onclick=function(ev){
-			obox.style.display="block";
-			alert("aa");
-			var oevent=ev || event;
+		obtn.onclick=function(ev){   //阻止冒泡：当点击子元素的时候，父元素不会出现
+			var oevent=ev || event;   //event是一个事件，当点击时阻止冒泡
 			oevent.stopPropagation();
+			obox.style.display="block";
+
+			// alert('aa');
 		}
 		document.onclick=function(){
 			obox.style.display="none";
+			// alert("bb");
 		}
 	}
 </script>

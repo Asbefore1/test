@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>带边框的拖拽</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		#div{
+			width: 100px;
+			height: 100px;
+			background:red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.father{
+			border: 1px dashed #000;
+			position: absolute;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+	<script>
+		window.onload=function(){
+			var odiv=document.getElementById("div");
+			var disX=0;
+			var disY=0;
+			odiv.onmousedown=function(ev){  //点击之后再移动,所以要放在onmousedown函数里面
+				                                //onmousedown  当鼠标摁下去的时候
+				var oevent=ev ||event;
+				                     //鼠标离盒子上下的距离在移动时保持不变,在摁下去的时候记录下来
+				disX=oevent.clientX-odiv.offsetLeft; 
+									//鼠标离盒子上下的距离=鼠标距离浏览器的距离-盒子离浏览器的距离
+				disY=oevent.clientY-odiv.offsetTop;
+
+				var ofather=document.createElement('div');     //创建一个div,div就是边框
+				ofather.className="father";                       //div的class是bk;
+				document.body.appendChild(ofather);            //  位置:把div放到body里面
+				ofather.style.width=odiv.offsetWidth +"px";          //边框的宽度=盒子自身的宽度
+				ofather.style.height=odiv.offsetHeight +"px";         //边框的高度=盒子自身的高度
+
+					ofather.style.left=odiv.offsetLeft+"px";
+					ofather.style.top=odiv.offsetTop+"px";
+
+
+				document.onmousemove=function(ev){   
+					                  //如果是obox.onmousemove,就会出现鼠标移得快,盒子跟不上的情况
+					var oevent=ev || event;
+					ofather.style.left=oevent.clientX-disX +'px';
+					ofather.style.top=oevent.clientY-disY +'px';
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;  //抬起鼠标时,不让移动,同时清除抬起鼠标这个动作
+					document.onmouseup=null;
+					odiv.style.left=ofather.offsetLeft+"px";
+					odiv.style.top=ofather.offsetTop+"px";
+					document.body.removeChild(ofather);  //用完需要remove,为了能移动起来
+				}
+			}
+			
+		}
+	</script>
+<body>
+	<div id="div"></div>
+</body>
+</html>

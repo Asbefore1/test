@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>限制在浏览器中的拖拽</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background:red;
+			position: absolute;
+		}
+	</style>
+</head>
+	<script>
+		window.onload=function(){
+			var obox=document.getElementById("box");
+			var disX=0;
+			var disY=0;
+			obox.onmousedown=function(ev){  //点击之后再移动,所以要放在onmousedown函数里面
+				                                //onmousedown  当鼠标摁下去的时候
+				var oevent=ev ||event;
+				                     //鼠标离盒子上下的距离在移动时保持不变,在摁下去的时候记录下来
+				disX=oevent.clientX-obox.offsetLeft; 
+									//鼠标离盒子上下的距离=鼠标距离浏览器的距离-盒子离浏览器的距离
+				disY=oevent.clientY-obox.offsetTop;
+				document.onmousemove=function(ev){   
+					                  //如果是obox.onmousemove,就会出现鼠标移得快,盒子跟不上的情况
+					var oevent=ev ||event;
+					var l=oevent.clientX-disX;
+					var t=event.clientY-disY;
+					if(l<0){
+						l=0;
+					}else if(l>window.innerWidth-obox.offsetWidth){  //可视宽度-盒子自身宽度
+						l=window.innerWidth-obox.offsetWidth;
+					}
+
+					if(t<0){
+						t=0;
+					}else if(t>window.innerHeight-obox.offsetHeight){  //可视高度-盒子自身高度
+						t=window.innerHeight-obox.offsetHeight;
+					}
+					obox.style.left=l +'px';
+					obox.style.top=t +'px';
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;  //抬起鼠标时,不让移动,同时清除抬起鼠标这个动作
+					document.onmouseup=null;
+				}
+			}
+			
+		}
+	</script>
+<body>
+	<div id="box"></div>
+</body>
+</html>

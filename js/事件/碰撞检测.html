@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基础拖拽</title>
+	<style>
+		#box1{
+			width: 100px;
+			height: 100px;
+			background:red;
+			position: absolute;
+		}
+		#box2{
+			width: 200px;
+			height: 200px;
+			background: gray;
+			position: absolute;
+			top:200px;
+			left:400px;
+		}
+	</style>
+</head>
+	<script>
+		function checkkiss(obox1,obox2){
+			if((obox1.offsetTop+obox1.offsetHeight)>obox2.offsetTop && 
+				(obox1.offsetLeft+obox1.offsetWidth)>obox2.offsetLeft && 
+				(obox2.offsetLeft+obox2.offsetWidth)>obox1.offsetLeft  && 
+				(obox2.offsetTop+obox2.offsetHeight)>obox1.offsetTop)
+			{
+				return true;
+			}else{
+				return false;
+			}
+		}
+		window.onload=function(){
+			var obox1=document.getElementById("box1");
+			var obox2=document.getElementById("box2");
+			var disX=0;
+			var disY=0;
+			obox1.onmousedown=function(ev){ 				                              
+				var oevent=ev ||event;			                   
+				disX=oevent.clientX-obox1.offsetLeft; 								
+				disY=oevent.clientY-obox1.offsetTop;
+				document.onmousemove=function(ev){   					                 
+					var oevent=ev ||event;
+					obox1.style.left=oevent.clientX-disX +'px';
+					obox1.style.top=oevent.clientY-disY +'px';
+
+					if(checkkiss(obox1,obox2)){
+						obox2.style.background="blue";
+					}else{
+						obox2.style.background="gray";
+					}
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;  
+					document.onmouseup=null;    
+				}
+			}
+			
+		}
+	</script>
+<body>
+	<div id="box1"></div>
+	<div id="box2"></div>
+</body>
+</html>
