@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定时菜单</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		#leftbox{
+			width: 100px;
+			height: 100px;
+			background: red;
+			float: left;
+		}
+		#rightbox{
+			width: 500px;
+			height: 500px;
+			background: blue;
+			float: left;
+			margin-left: 20px;
+			display: none;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var oleft=document.getElementById('leftbox');
+		var oright=document.getElementById('rightbox');
+		// var timer=null;
+		oleft.onmouseover=function(){
+			// clearTimeout(timer);
+			oright.style.display="block";
+		}
+		oleft.onmouseout=function(){
+			setTimeout(function(){
+				oright.style.display="none";   //延迟一秒再消失
+			},500)
+		}
+		// oright.onmouseout=function(){
+		// 	timer=setTimeout(function(){
+		// 		oright.style.display="none";   //延迟一秒再消失
+		// 	},1000)
+		// }
+		// oright.onmouseover=function(){
+		// 	clearTimeout(timer);
+		// }
+	}
+</script>
+<body>
+	<div id="leftbox"></div>
+	<div id="rightbox"></div>
+</body>
+</html>

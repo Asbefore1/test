@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数码时钟3</title>
+	<style>
+		#div1{
+			color: #fff;
+			width: 300px;
+			height: 100px;
+			background: black;
+			margin: 100px auto;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<script>
+	function tostr(n){
+		if(n<10){
+			return "0"+n;
+		}else{
+			return ""+n;    //把数字转换成字符串
+		}
+	}
+	window.onload=function(){
+		var odiv1=document.getElementById("div1");
+		var aimg=odiv1.getElementsByTagName("img");
+
+		function timer(){
+			var now=new Date();
+			var h=now.getHours();
+			var m=now.getMinutes();  //输出的是数字
+			var s=now.getSeconds();
+
+			var str=tostr(h)+tostr(m)+tostr(s);
+			// alert(src);
+			for(var i=0;i<aimg.length;i++){
+				aimg[i].src="images/"+str.charAt(i)+".png";  
+				               //图片中的第一个数字对应的就是字符串中的第一个数字,以此类推
+			}
+	}
+
+		setInterval(timer,1000);
+		timer();   //打开页面先走一遍timer函数,定时器是异步,在走完之后隔一秒再走
+		
+	}
+
+</script>
+<body>
+	<div id="div1">
+		<img src="./images/1.png" alt="">
+		<img src="./images/5.png" alt="">
+		:
+		<img src="./images/5.png" alt="">
+		<img src="./images/0.png" alt="">
+		:
+		<img src="./images/1.png" alt="">
+		<img src="./images/1.png" alt="">
+	</div>
+</body>
+</html>

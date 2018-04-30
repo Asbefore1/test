@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多个物体同时变动3</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-bottom: 20px;
+		}
+		#div3{
+			opacity: 0.3;
+		}
+	</style>
+</head>
+<script>
+	var timer=null;	
+	function animation(obj,attr,target){  // obj是元素,attr是属性(宽或高或透明度)		
+		clearInterval(obj.timer); //各自用各自的定时器,在开下一个定时器的时候,把上一个关掉
+		obj.timer=setInterval(function(){
+			var speed=0;
+			var curr=parseFloat(getComputedStyle(obj,false)[attr]);  //获取到attr的宽高并转换成数字
+			if(attr=="opacity"){
+				curr=curr*100;   //判断为透明度时,乘100
+			}
+			if(curr<target){
+				speed=10;
+			}else{
+				speed=-10;
+			}
+			if(Math.abs(target-curr)<=Math.abs(speed)){
+				clearInterval(obj.timer);
+				if(attr=="opacity"){
+					obj.style[attr]=target/100;
+				}else{
+					obj.style[attr]=target+'px';
+				}	
+			}else{
+				if(attr=="opacity"){
+					obj.style[attr]=(curr+speed)/100;
+				}else{
+					obj.style[attr]=curr+speed+'px';
+				}			
+			}
+		},30)
+	}
+	window.onload=function(){
+		var odiv1=document.getElementById("div1");
+		var odiv2=document.getElementById("div2");
+		var odiv3=document.getElementById("div3");
+		odiv1.onmouseover=function(){
+			animation(odiv1,'width',400);
+		}
+		odiv1.onmouseout=function(){
+			animation(odiv1,'width',100);
+		}
+		odiv2.onmouseover=function(){
+			animation(odiv2,'height',400);
+		}
+		odiv2.onmouseout=function(){
+			animation(odiv2,'height',100);
+		}
+		odiv3.onmouseover=function(){
+			animation(odiv3,'opacity',100);
+		}
+		odiv3.onmouseout=function(){
+			animation(odiv3,'opacity',30);
+		}
+	}
+</script>
+<body>
+	<div id="div1">变宽</div>
+	<div id="div2">变高</div>
+	<div id="div3">变透明</div>
+</body>
+</html>

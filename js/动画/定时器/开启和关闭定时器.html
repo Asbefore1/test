@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>开启和关闭定时器</title>
+	<script>
+		window.onload=function(){
+			var obtn1=document.getElementById("btn1");
+			var obtn2=document.getElementById("btn2");
+			var timer=null;    // 定义一个定时器 ,要定义在函数之外(相当于全局变量)
+			obtn1.onclick=function(){
+				timer=setTimeout(function(){ 
+					console.log("aaaa");   
+				},2000)  //开启定时器后会返回一个值,这个值是一个数字,用timer把数字存起来
+			}
+			obtn2.onclick=function(){
+				console.log("close");
+				clearTimeout(timer); //关闭时只需要关闭这个数字就可以
+				                     //关闭定时器接收的是一个定时器,和开启时接收的不一样				
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn1" value="开启">
+	<input type="button" id="btn2" value="关闭">
+</body>
+</html>

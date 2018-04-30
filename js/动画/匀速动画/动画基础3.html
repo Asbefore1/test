@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画基础</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#div1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top:200px;
+			left: 600px;
+		}
+		#line{
+			width: 1px;
+			height: 800px;
+			background: black;
+			position: absolute;
+			top: 0;
+			left: 300px;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var obtn=document.getElementById("btn");
+		var odiv1=document.getElementById('div1');
+		var timer=null;
+		var speed=0;
+		obtn.onclick=function(){
+			clearInterval(timer); //防止重复触发函数时有多个定时器工作加快动画执行
+			if(odiv1.offsetLeft<300){
+				speed=9;
+			}else{
+				speed=-9;   判断速度正负
+			}
+			timer=setInterval(function(){
+				if(Math.abs(300-odiv1.offsetLeft)<=Math.abs(speed)){
+					odiv1.style.left="300px";  //目标值减当前值小于速度,一步到位变成目标值
+					clearInterval(timer);
+				}else{
+					odiv1.style.left=odiv1.offsetLeft+speed+"px";  
+				               //第一次是0加10等于10,第二次从10开始再移动10,以此类推
+				}
+				
+			},30)
+		}
+	}
+</script>
+<body>
+	<input type="button" id="btn" value="开始动画">
+	<div id="div1"></div>
+	<div id="line"></div>
+</body>
+</html>
