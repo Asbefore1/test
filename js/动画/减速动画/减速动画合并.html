@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>减速动画合并</title>
+	<style>
+		#div1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 200px;
+			left: 600px;
+			opacity: 1;
+		}
+		#line{
+			width: 1px;
+			height: 800px;
+			position: absolute;
+			left: 300px;
+			top:0;
+			background: #000;
+		}
+	</style>
+</head>
+<script>
+	var timer=null;
+	function animation(obj,attr,target){
+		clearInterval(timer);
+		timer=setInterval(function(){
+			var curr=parseFloat(getComputedStyle(obj,false)[attr]);
+			if(attr=="opacity"){
+				curr=Math.round(curr*100);
+			}			   
+			var speed=(target-curr)/10;  //减速和匀速的区别在于速度不一样
+			speed=speed>0 ? Math.ceil(speed) : Math.floor(speed);  //判断条件
+			if(!speed){  
+				clearInterval(timer);
+			}else{
+				if(attr=="opacity"){
+					obj.style[attr]=(curr+speed)/100;
+				}else{
+					obj.style[attr]=curr+speed+'px';
+				}
+			}
+		},30)
+	}
+	window.onload=function(){
+		var obtn=document.getElementById('btn');
+		var odiv1=document.getElementById('div1');
+		obtn.onclick=function(){
+			animation(odiv1,"height",300);			
+		}
+	}
+</script>
+<body>
+	<input type="button" id="btn" value="开始动画">
+	<div id="div1"></div>
+	<div id="line"></div>
+</body>
+</html>

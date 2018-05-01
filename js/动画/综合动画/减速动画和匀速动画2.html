@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>减速动画和匀速动画2</title>
+</head>
+<script>
+	function animation(obj,attr,target,islinear){
+		clearInterval(obj.timer);
+		var speed=0;
+		var isstop=false;  //定义一个变量来判断匀速和减速的停止条件
+		obj.timer=setInterval(function(){
+			var curr=parseFloat(getComputedStyle(obj,false)[attr]);
+			if(attr=="opacity"){
+				curr=Math.round(curr*100);  //四舍五入
+			}
+			if(islinear){    //判断是减速还是匀速动画
+				if(curr<target){
+					speed=10;
+				}else{
+					speed=-10;
+				}
+				if(Math.abs(target-curr)<=Math.abs(speed)){
+					isstop=true;
+				}
+			}else{
+				speed=(target-curr)/10;  //减速和匀速的区别在于速度不一样
+				speed=speed>0 ? Math.ceil(speed) : Math.floor(speed);  //判断条件
+				if(!speed){
+					isstop=true;
+				}
+			}			   
+			if(isstop){  
+				clearInterval(obj.timer);
+				if(islinear){
+					if(attr=="opacity"){
+						obj.style[attr]=target/100;
+					}else{
+						obj.style[attr]=target+'px';
+					}
+				}				
+			}else{
+				if(attr=="opacity"){
+					obj.style[attr]=(curr+speed)/100;
+				}else{
+					obj.style[attr]=curr+speed+'px';
+				}
+			}
+		},30)
+	}
+	function animation(obj,attr,target){
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			var curr=parseFloat(getComputedStyle(obj,false)[attr]);
+			if(attr=="opacity"){
+				curr=curr*100;
+			}
+			if(curr<target){
+				speed=10;
+			}else{
+				speed=-10;
+			}
+			if(Math.abs(target-curr)<=Math.abs(speed)){
+				clearInterval(obj.timer);
+				if(attr=="opacity"){
+					obj.style[attr]=target/100;
+				}else{
+					obj.style[attr]=target+'px';
+				}			
+			}else{
+				if(attr=="opacity"){
+					obj.style[attr]=(curr+speed)/100;
+				}else{
+					obj.style[attr]=curr+speed+'px';
+				}			
+			}
+		},30)
+	}
+	window.onload=function(){
+		var odiv1=document.getElementById('div1');
+		var odiv2=document.getElementById('div2');
+		var odiv3=document.getElementById('div3');
+		odiv1.onmouseover=function(){
+			animation(this,'width',300);
+		}
+		odiv1.onmouseout=function(){
+			animation(this,'width',100);
+		}
+		odiv2.onmouseover=function(){
+			animation(this,'height',300);
+		}
+		odiv2.onmouseout=function(){
+			animation(this,'height',100);
+		}
+		odiv3.onmouseover=function(){
+			animation(this,'opacity',100);
+		}
+		odiv3.onmouseout=function(){
+			animation(this,'opacity',30);
+		}
+	}
+</script>
+<body>
+	<div id="div1">变宽</div>
+	<div id="div2">变高</div>
+	<div id="div3">变透明</div>
+</body>
+</html>

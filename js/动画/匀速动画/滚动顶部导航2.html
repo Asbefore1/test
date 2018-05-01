@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动顶部导航2</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		#nav{
+			width: 100%;
+			height: 100px;
+			background: blue;
+		}
+		#scrollnav{
+			width: 100%;
+			height: 0px;
+			background: red;
+			position:fixed;
+			top: 0px;
+		}
+		#main{
+			width: 100%;
+			height: 3000px;
+		}
+	</style>
+</head>
+<script>
+	function animation(obj,attr,target){
+		clearInterval(obj.timer);	
+		obj.timer=setInterval(function(){
+			var speed=0;
+			var curr=parseFloat(getComputedStyle(obj,false)[attr]);//获取的是一个字符串,parsetFloat转换成整数和小数
+			if(curr=="opacity"){
+				curr=curr*100;
+			}
+			if(curr>target){
+				speed=-10;
+			}else{
+				speed=10;
+			}
+			if(Math.abs(target-curr)<=Math.abs(speed)){
+				clearInterval(obj.timer);
+				if(attr=="opacity"){
+					obj.style[attr]=target/100;
+				}else{
+					obj.style[attr]=target+"px";
+				}
+			}else{
+				if(attr=="opacity"){
+					obj.style[attr]=(curr+speed)/100;
+				}else{
+					obj.style[attr]=curr+speed+"px";
+				}
+			}
+		
+		},30)
+	}
+	var isshow=false;  //为了不消耗系统资源,false默认不显示
+	window.onscroll=function(){
+		var odiv=document.getElementById('scrollnav');
+		var omain=document.getElementById('main');
+		var itop=document.body.scrollTop || document.documentElement.scrollTop;
+		if(itop>=100){   //当大于100时
+			if(!isshow){  //取非,显示
+				animation(odiv,"height",100);
+				omain.style.marginTop="100px";   
+				isshow=true;  //显示时变成true;
+				console.log("innnnn");
+			}    
+			//当显示时true,再次进去,取非,变成false,就变成了不显示,就不会再次执行向下滑动就不会再消耗系统资源
+			
+		}else{  //当小于100时,不显示,是false;
+			if(isshow){
+				animation(odiv,'height',0);
+				omain.style.marginTop="0px";
+				isshow=false;  //不显示时是false;
+			}
+			
+		}
+	}
+</script>
+<body>
+	<div id="nav"></div>
+	<div id="scrollnav"></div>
+	<div id="main">
+		111<br>
+		222
+	</div>
+	
+</body>
+</html>

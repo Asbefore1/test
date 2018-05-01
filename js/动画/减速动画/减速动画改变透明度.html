@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>减速动画改变透明度</title>
+	<style>
+		#div1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 200px;
+			left: 600px;
+			opacity: 1;
+		}
+		#line{
+			width: 1px;
+			height: 800px;
+			position: absolute;
+			left: 300px;
+			top:0;
+			background: #000;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var obtn=document.getElementById('btn');
+		var odiv1=document.getElementById('div1');
+		obtn.onclick=function(){
+			var timer=null;
+			clearInterval(timer);
+			timer=setInterval(function(){
+				var curr=parseFloat(getComputedStyle(odiv1,false)['opacity'])*100;
+				curr=Math.round(curr);   
+						// 因为可能会有3.333333335这种情况,减速动画改变透明度需要用四舍五入
+				var speed=(50-curr)/10;
+				speed=speed>0 ? Math.ceil(speed) : Math.floor(speed);
+				if(!speed){  //???????????
+					clearInterval(timer);
+				}else{
+					odiv1.style.opacity=(curr+speed)/100;
+				}
+				console.log(curr);
+			},30)
+		}
+	}
+</script>
+<body>
+	<input type="button" id="btn" value="开始动画">
+	<div id="div1"></div>
+	<div id="line"></div>
+</body>
+</html>
