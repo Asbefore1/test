@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动条</title>
+	<style>
+		#box1{
+			width: 400px;
+			height: 50px;
+			background: #ccc;
+			position: relative;
+		}
+		#btn{
+			width: 50px;
+			height: 50px;
+			background: red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#obox2{
+			width: 100px;
+			height: 100px;
+			background:pink;
+			/*opacity: 0;*/
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var obox1=document.getElementById('box1');
+		var obtn=document.getElementById('btn');
+		var obox2=document.getElementById('box2');
+		obtn.onmousedown=function(ev){
+			var oevent=ev || event;
+			var disX=0;
+			
+			disX=oevent.clientX-obtn.offsetLeft;
+			
+				document.onmousemove=function(ev){
+				var oevent=ev ||event;
+				var l=oevent.clientX-disX;
+				if(l<0){
+					l=0;
+				}else if(l>=obox1.offsetWidth-obtn.offsetWidth){
+					l=obox1.offsetWidth-obtn.offsetWidth;
+				}
+				// var scale=l/(obox1.offsetWidth-obtn.offsetWidth);
+				obtn.style.left=l+'px';
+				// obox2.style.width=scale +'px';
+			}
+			document.onmouseup=function(){
+					document.onmousedown=null;
+					document.onmouseup=null;
+				}
+		}
+		
+	}
+</script>
+<body>
+	<div id="box1">
+		<div id="btn"></div>
+	</div>
+	<div id="box2"></div>
+</body>
+</html>
