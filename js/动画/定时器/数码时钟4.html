@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数码时钟4</title>
+	<style>
+		#div1{
+			width: 300px;
+			height: 100px;
+			background: #000;
+			font-size: 30px;
+			margin: 100px auto;
+			color: #fff;
+		}
+	</style>
+	<script>
+		function tostr(n){
+			if(n<10){
+				return "0"+n;
+			}else{
+				return ""+n;
+			}
+		}
+		window.onload=function(){
+			var odiv1=document.getElementById('div1');
+			var aimg=odiv1.getElementsByTagName('img');
+      		
+      		function timer(){
+      			var now=new Date();
+				var h=now.getHours();
+				var m=now.getMinutes();
+				var s=now.getSeconds();
+			
+				var str=tostr(h)+tostr(m)+tostr(s);
+				// alert(str);
+				for(var i=0;i<aimg.length;i++){
+					aimg[i].src='images/'+str.charAt(i)+'.png';
+				}
+      		}
+
+			setInterval(timer,1000);
+			timer();
+
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<img src="./images/1.png" alt="">
+		<img src="./images/6.png" alt="">
+		:
+		<img src="./images/2.png" alt="">
+		<img src="./images/6.png" alt="">
+		:
+		<img src="./images/3.png" alt="">
+		<img src="./images/0.png" alt="">
+	</div>
+</body>
+</html>

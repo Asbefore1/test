@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>带边框的拖拽2</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		#div1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.box{
+			border: 1px dashed #000;
+			position: absolute;
+			box-sizing: border-box;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var odiv1=document.getElementById('div1');
+			var disX=0;
+			var disY=0;
+			odiv1.onmousedown=function(ev){
+				var oevent=ev || event;
+				disX=oevent.clientX-odiv1.offsetLeft;
+				disY=oevent.clientY-odiv1.offsetTop;
+
+
+				var obox=document.createElement("div");
+				obox.className="box";
+				document.body.appendChild(obox);
+				obox.style.width=odiv1.offsetWidth +"px";
+				obox.style.height=odiv1.offsetHeight +"px";
+
+				obox.style.left=odiv1.style.left;
+				obox.style.top=odiv1.style.top;
+
+				document.onmousemove=function(ev){
+					var oevent=ev || event;
+					obox.style.left=oevent.clientX-disX +"px";
+					obox.style.top=oevent.clientY-disY +"px";
+				}
+				document.onmouseup=function(){
+					// alert('a');
+					document.onmousemove=null;
+					document.onmouseup=null;
+					odiv1.style.left=obox.offsetLeft+"px";
+					odiv1.style.top=obox.offsetTop+"px";
+					document.body.removeChild(obox);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

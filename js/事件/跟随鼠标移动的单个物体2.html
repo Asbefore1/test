@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跟随鼠标移动的单个物体2</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top:0;
+			left:0;
+		}
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<script>
+	function getpoint(ev){
+		var top=document.body.scrollTop || document.documentElement.scrollTop;  
+		var left=document.body.scrollLeft || document.documentElement.scrollLeft;
+		return {x:ev.clientX+left,y:ev.clientY+top}		
+	}
+	window.onload=function(){
+		var obox=document.getElementById("box");
+		document.onmousemove=function(ev){
+			var oevent=ev || event;
+			var point=getpoint(oevent);
+			obox.style.left=point.x+"px";
+			obox.style.top=point.y+"px";
+
+		}
+
+	}
+</script>
+<body>
+	<div id="box"></div>
+</body>
+</html>

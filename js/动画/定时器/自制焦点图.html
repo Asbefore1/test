@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自制焦点图</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		.father{
+			width: 800px;
+			height: 400px;
+			border: 1px solid #000;
+			margin: 100px auto;
+			position: relative;
+		}
+		.ul1 li{
+			width: 800px;
+			height: 400px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			list-style: none;
+		}
+		.ul1 li:nth-child(1){
+			background: red;
+		}
+		.ul1 li:nth-child(2){
+			background: blue;
+		}
+		.ul1 li:nth-child(3){
+			background: yellow;
+		}
+		.ul1 li:nth-child(4){
+			background: orange;
+		}
+		.ul1 li:nth-child(5){
+			background: pink;
+		}
+		.left{
+			font-size: 30px;
+			position: absolute;
+			top:185px;
+			left: 0px;
+			background: #ccc;
+			width: 30px;
+			height: 50px;
+			z-index: 999;
+			cursor: pointer;
+		}
+		.right{
+			font-size: 30px;
+			position: absolute;
+			top:185px;
+			right: 0px;
+			background: #ccc;
+			width: 30px;
+			height: 50px;
+			z-index: 999;
+			cursor: pointer;
+		}
+		.ul2{
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+			z-index: 999;
+		}
+		.ul2 li{
+			border: 1px solid #000;
+			list-style: none;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			float: left;
+			margin-right: 8px;
+			cursor: pointer;
+		}
+		.active{
+			background: black;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var aimgli=document.getElementById('img').children;
+		var abtnli=document.getElementById('btn').children;
+		var olt=document.getElementById("lt");
+		var ogt=document.getElementById("gt");
+		var ofa=document.getElementById("fa");
+		var timer=null;
+		var now=0;  //点开当前就是第一个  告诉他下一个是当前的下一个
+		ogt.onclick=function(){		
+			now++;   
+			if(now>=abtnli.length){
+				now=0;  //最后一个的下一个大于长度时,让最后一个显示成第一个
+			} 
+			tab();
+			
+		}
+		olt.onclick=function(){
+			now--;
+			if(now<0){
+				now=abtnli.length-1;  //第一个的前一个小于0时,让第一个的前一个显示成最后一个
+			}
+			tab();
+			
+		}
+		function tab(){
+			for(var i=0;i<abtnli.length;i++){
+				abtnli[i].className='';
+				aimgli[i].style.zIndex=0;  //把默认的清空
+			}
+			abtnli[now].className="active";  //点哪个让哪个的li变成active;同时图片显示出来
+			aimgli[now].style.zIndex=30;
+		}
+		for(var i=0;i<abtnli.length;i++){
+			abtnli[i].index=i;  //先把i存起来
+
+			abtnli[i].onclick=function(){
+				now=this.index;
+				tab();
+				// alert(i);    弹出来的是5
+				// alert(this.index);  弹出来的是0,1,2,3,4
+			}
+		}
+		timer=setInterval(function(){
+				ogt.onclick();  //开启定时器
+		},1000)
+		ofa.onmouseover=function(){
+			clearInterval(timer);  //关闭定时器
+		}
+		ofa.onmouseout=function(){
+			timer=setInterval(function(){
+				ogt.onclick();    //放上去关掉,拿走重新打开
+			},1000)
+		}
+	}
+</script>
+<body>
+	<div class="father" id="fa">
+		<ul class="ul1" id="img">
+			<li style="z-index:30"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<span class="left" id="lt">&lt;</span>
+		<span class="right" id="gt">&gt;</span>
+		<ul class="ul2" id="btn">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	
+</body>
+</html>

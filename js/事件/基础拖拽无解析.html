@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基础拖拽无解析</title>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background:red;
+			position: absolute;
+		}
+	</style>
+</head>
+<script>
+		window.onload=function(){
+			var obox=document.getElementById("box");
+			var disX=0;
+			var disY=0;
+			obox.onmousedown=function(ev){ 				                              
+				var oevent=ev ||event;			                   
+				disX=oevent.clientX-obox.offsetLeft; 								
+				disY=oevent.clientY-obox.offsetTop;
+				document.onmousemove=function(ev){   					                 
+					var oevent=ev ||event;
+					obox.style.left=oevent.clientX-disX +'px';
+					obox.style.top=oevent.clientY-disY +'px';
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;  
+					document.onmouseup=null;    
+				}
+			}
+			
+		}
+	</script>
+<body>
+	<div id="box"></div>
+</body>
+</html>

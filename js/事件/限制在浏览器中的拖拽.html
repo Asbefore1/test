@@ -2,44 +2,16 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>基础拖拽</title>
+	<title>限制在浏览器中的拖拽</title>
 	<style>
 		#box{
 			width: 100px;
 			height: 100px;
-<<<<<<< HEAD
-			background: red;
-=======
 			background:red;
->>>>>>> 70d37f0b1a7c4faa1e910f3102553da46dafa5e5
 			position: absolute;
 		}
 	</style>
 </head>
-<<<<<<< HEAD
-<script>
-	window.onload=function(){
-		var obox=document.getElementById('box');
-		var disX=0;
-		var disY=0;
-		obox.onmousedown=function(ev){
-			// alert('a')
-			var oevent=ev || event;
-			disX=oevent.clientX-obox.offsetLeft;
-			disY=oevent.clientY-obox.offsetTop;
-			document.onmousemove=function(ev){
-				// console.log(1)
-				var oevent=ev || event;
-				obox.style.left=oevent.clientX-disX+"px";
-				obox.style.top=oevent.clientY-disY+"px";
-			}
-			document.onmouseup=function(){
-				document.onmousemove=null;
-			}
-		}
-	}
-</script>
-=======
 	<script>
 		window.onload=function(){
 			var obox=document.getElementById("box");
@@ -55,18 +27,30 @@
 				document.onmousemove=function(ev){   
 					                  //如果是obox.onmousemove,就会出现鼠标移得快,盒子跟不上的情况
 					var oevent=ev ||event;
-					obox.style.left=oevent.clientX-disX +'px';
-					obox.style.top=oevent.clientY-disY +'px';
+					var l=oevent.clientX-disX;
+					var t=event.clientY-disY;
+					if(l<0){
+						l=0;
+					}else if(l>window.innerWidth-obox.offsetWidth){  //可视宽度-盒子自身宽度
+						l=window.innerWidth-obox.offsetWidth;
+					}
+
+					if(t<0){
+						t=0;
+					}else if(t>window.innerHeight-obox.offsetHeight){  //可视高度-盒子自身高度
+						t=window.innerHeight-obox.offsetHeight;
+					}
+					obox.style.left=l +'px';
+					obox.style.top=t +'px';
 				}
 				document.onmouseup=function(){
 					document.onmousemove=null;  //抬起鼠标时,不让移动,同时清除抬起鼠标这个动作
-					document.onmouseup=null;    // 用完要关掉抬起这个动作
+					document.onmouseup=null;
 				}
 			}
 			
 		}
 	</script>
->>>>>>> 70d37f0b1a7c4faa1e910f3102553da46dafa5e5
 <body>
 	<div id="box"></div>
 </body>

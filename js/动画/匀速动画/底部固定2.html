@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>底部固定2</title>
+	<style>
+		#div1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			right:0;
+		}
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<script>
+	function animation(obj,attr,target){
+					clearInterval(obj.timer);	
+					obj.timer=setInterval(function(){
+						var speed=0;
+						var curr=parseFloat(getComputedStyle(obj,false)[attr]);//获取的是一个字符串,parsetFloat转换成整数和小数
+						if(curr=="opacity"){
+							curr=curr*100;
+						}
+						if(curr>target){
+							speed=-50;
+						}else{
+							speed=50;
+						}
+						if(Math.abs(target-curr)<=Math.abs(speed)){
+							clearInterval(timer);
+							if(attr=="opacity"){
+								obj.style[attr]=target/100;
+							}else{
+								obj.style[attr]=target+"px";
+							}
+						}else{
+							if(attr=="opacity"){
+								obj.style[attr]=(curr+speed)/100;
+							}else{
+								obj.style[attr]=curr+speed+"px";
+							}
+						}
+					
+					},30)
+	}
+	window.onresize=window.onscroll=window.onload=function(){
+		var odiv1=document.getElementById("div1");
+		var iheight=window.innerHeight;
+		var itop=document.body.scrollTop || document.documentElement.scrollTop;
+		var target=(iheight-odiv1.offsetHeight)/2+itop;
+		// odiv1.style.top=iheight-odiv1.offsetHeight+itop +'px';
+		animation(odiv1,'top',target);
+	}
+</script>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

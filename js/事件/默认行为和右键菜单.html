@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		#menu{
+			width: 100px;
+			height: 400px;
+			background: #ccc;
+			display: none;
+			position: absolute;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var omenu=document.getElementById("menu")
+			
+		document.oncontextmenu=function(ev){
+			var oevent=ev ||event;
+			omenu.style.display="block";
+			omenu.style.left=oevent.clientX+"px";
+			omenu.style.top=oevent.clientY+"px";
+			return false;    //阻止出现默认菜单
+		}
+		document.onclick=function(){
+			omenu.style.display="none";
+		}
+	}
+</script>
+<body>
+	<div id="menu">aaaa</div>
+</body>
+</html>

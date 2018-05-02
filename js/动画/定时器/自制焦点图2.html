@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自制焦点图2</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 800px;
+			height: 400px;
+			border: 1px solid #000;
+			margin: 100px auto;
+			position: relative;
+		}
+		.father .ul1 li{
+			list-style: none;
+			width: 800px;
+			height: 400px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.ul1 li:nth-child(1){
+			background: pink;
+		}
+		.ul1 li:nth-child(2){
+			background: blue;
+		}
+		.ul1 li:nth-child(3){
+			background: yellow;
+		}
+		.ul1 li:nth-child(4){
+			background: purple;
+		}
+		.ul1 li:nth-child(5){
+			background: green;
+		}
+		.left,.right{
+			z-index: 999;
+			font-size: 30px;
+			color: #fff;
+			position: absolute;	
+			top:185px;
+			width: 30px;
+			height: 50px;
+			background: #ccc;
+			cursor: pointer;
+		}
+		.left{				
+			left: 0px;
+		}
+		.right{
+			right: 0px;
+		}
+		.ul2{
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			z-index: 999;
+		}
+		.ul2  li {
+			list-style: none;
+			width: 20px;
+			height: 20px;	
+			border: 1px solid #000;
+			font-size: 12px;
+			float: left;
+			margin-right: 8px;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		.active{
+			background: red;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var odiv1=document.getElementById("div1");
+		var oimg=document.getElementById("img");
+		var aimgli=document.getElementById("img").children;
+		var olt=document.getElementById("lt");
+		var ogt=document.getElementById("gt");
+		var abtnli=document.getElementById("btn").children;
+
+		var timer=null;
+
+
+
+		var now=0;
+		ogt.onclick=function(){
+			now++;
+			if(now>=abtnli.length){
+				now=0;
+			}
+			tab();
+		}
+		olt.onclick=function(){
+			now--;
+			if(now<0){
+				now=abtnli.length-1;
+			}
+			tab();
+		}
+		function tab(){
+			for(var i=0;i<abtnli.length;i++){
+				aimgli[i].style.zIndex=0;
+				abtnli[i].className="";
+			}
+			aimgli[now].style.zIndex=30;
+			abtnli[now].className="active";
+		}
+		for(var i=0;i<abtnli.length;i++){
+			abtnli[i].index=i;
+			abtnli[i].onclick=function(){
+				now=this.index;
+				tab();
+			}
+		}
+
+		timer=setInterval(function(){
+			ogt.onclick();
+		},1000)
+		odiv1.onmouseover=function(){
+			clearInterval(timer);
+		}
+		odiv1.onmouseout=function(){
+			timer=setInterval(function(){
+				ogt.onclick();
+			},1000)
+		}
+	}
+</script>
+<body>
+	<div class="father" id="div1" >
+		<ul class="ul1" id="img">
+			<li style="z-index: 30"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<span class="left" id="lt">&lt;</span>
+		<span class="right" id="gt">&gt;</span>
+		<ul class="ul2" id="btn">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

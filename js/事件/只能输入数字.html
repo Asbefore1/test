@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>只能输入数字</title>
+	<script>
+	window.onload=function(){
+		var otxt=document.getElementById("txt");
+		otxt.onkeydown=function(ev){
+			var oevent=ev || event;
+			console.log(oevent.keyCode);
+			if(oevent.keyCode !=8 &&  oevent.keyCode !=37 && oevent.keyCode !=39 && (oevent.keyCode<48 || oevent.keyCode>57)){
+				return false;      //如果输入的键值小于48或者大于57，就返回错误
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+	<input type="text" id="txt">
+</body>
+</html>

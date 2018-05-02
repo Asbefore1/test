@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匀速动画案例3</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		#main{
+			width: 400px;
+			height: 100px;
+			background: pink;
+			position: absolute;
+			bottom: 200px;
+			left:-400px;
+		}
+		#sub{
+			width: 100px;
+			height: 100px;
+			background: #000;
+			position: absolute;
+			top:0;
+			right:-100px;
+
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var omain=document.getElementById("main");
+		var osub=document.getElementById("sub");
+		var timer=null;
+		var speed=0;
+		function animation(target){
+			clearInterval(timer);
+			timer=setInterval(function(){
+				if(omain.offsetLeft<target){
+					speed=20;
+				}else{
+					speed=-20;
+				}
+				if(Math.abs(target-omain.offsetLeft)<=Math.abs(speed)){
+					omain.style.left=target+'px';
+					clearInterval(timer);
+				}else{
+					omain.style.left=omain.offsetLeft+speed+"px";
+				}
+			},30)
+			
+		}
+		omain.onmouseover=function(){
+			// omain.style.left='0px';
+			animation(0);
+		}
+		omain.onmouseout=function(){
+			// omain.style.left='-400px';
+			animation(-400);
+		}
+	}
+</script>
+<body>
+	<div id="main">
+		<div id="sub"></div>
+	</div>
+	
+	
+</body>
+</html>

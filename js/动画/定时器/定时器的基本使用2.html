@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定时器的基本使用2</title>
+</head>
+<script>
+
+	function show(){
+		alert("a");
+	}
+	// show();
+	setTimeout(show,1000);    // 括号里第一个写函数名，不需要加括号，第二个是延时时间
+
+
+
+
+	setTimeout(function(){
+		console.log(1);			//延时型定时器也可以接受一个匿名函数,后面是依旧是延时时间
+	},0)
+		console.log(2);   //延时定时器相当于一个异步,会在同步执行完后再去执行,所以先打印2，后打印1
+
+
+	setInterval(function(){
+		alert("bb");
+	},1000)              //循环定时器也是一个异步
+</script>
+<body>
+	
+</body>
+</html>
