@@ -18,11 +18,11 @@
 			top: 0;
 			left: 0;
 		}
-		#obox2{
+		#box2{
 			width: 100px;
 			height: 100px;
-			background:pink;
-			/*opacity: 0;*/
+			background:blue;
+			opacity: 0;
 		}
 	</style>
 </head>
@@ -39,19 +39,23 @@
 			
 				document.onmousemove=function(ev){
 				var oevent=ev ||event;
+
 				var l=oevent.clientX-disX;
 				if(l<0){
 					l=0;
 				}else if(l>=obox1.offsetWidth-obtn.offsetWidth){
 					l=obox1.offsetWidth-obtn.offsetWidth;
 				}
-				// var scale=l/(obox1.offsetWidth-obtn.offsetWidth);
+				var scale=l/(obox1.offsetWidth-obtn.offsetWidth);   //当前占总共的百分比 
+				                       		//l是当前的偏移量,obox1.offsetWidth-obtn.offsetWidth是最大的偏移量
 				obtn.style.left=l+'px';
-				// obox2.style.width=scale +'px';
+				// obox2.style.width=500 * scale +'px';
+				// obox2.style.height=500 * scale +'px';
+				obox2.style.opacity=1*scale;
 			}
 			document.onmouseup=function(){
 					document.onmousedown=null;
-					document.onmouseup=null;
+					document.onmousemove=null;
 				}
 		}
 		

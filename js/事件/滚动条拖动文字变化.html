@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动条拖动文字变化</title>
+	<style>
+		#box1{
+			width: 400px;
+			height: 50px;
+			background: #ccc;
+			position: relative;
+		}
+		#btn{
+			width: 50px;
+			height: 50px;
+			background: red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#box2{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			position: relative;
+		}
+		#content{
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top:0;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var obox1=document.getElementById('box1');
+		var obtn=document.getElementById('btn');
+		var obox2=document.getElementById('box2');
+		var ocont=document.getElementById('content');
+		obtn.onmousedown=function(ev){
+			var oevent=ev || event;
+			var disX=0;
+			
+			disX=oevent.clientX-obtn.offsetLeft;
+			
+				document.onmousemove=function(ev){
+				var oevent=ev ||event;
+
+				var l=oevent.clientX-disX;
+				if(l<0){
+					l=0;
+				}else if(l>=obox1.offsetWidth-obtn.offsetWidth){
+					l=obox1.offsetWidth-obtn.offsetWidth;
+				}
+				var scale=l/(obox1.offsetWidth-obtn.offsetWidth);   //当前占总共的百分比 
+				                       		//l是当前的偏移量,obox1.offsetWidth-obtn.offsetWidth是最大的偏移量
+				obtn.style.left=l+'px';
+				ocont.style.top=-ocont.offsetHeight*scale+'px';
+			}
+			document.onmouseup=function(){
+					document.onmousedown=null;
+					document.onmousemove=null;
+				}
+		}
+		
+	}
+</script>
+<body>
+	<div id="box1">
+		<div id="btn"></div>
+	</div>
+	<div id="box2">
+		<div id="content">
+			事件对象 event
+事件对象兼容处理
+
+事件流
+
+事件冒泡 事件冒泡指具体元素接受事件,然后逐级向上传播事件 阻止事件冒泡 event.stopPropagation()
+
+案例: 下拉菜单
+鼠标事件
+鼠标移动 onmousemove
+
+获取坐标
+
+event.clientX 和 event.clientY是鼠标的可视区坐标 通常情况需要加上滚动距离
+
+案例1: 随着鼠标移动的物体
+案例2: 随着鼠标移动的多个物体
+键盘事件
+键盘按下 obj.onkeydown
+
+键盘抬起 obj.onkeyup
+
+键盘代码 event.keyCode
+
+辅助键 event.ctrlKey event.shiftKey event.altKey
+
+案例1:左右键移动物体
+
+案例2:ctrl+回车提交
+
+默认行为
+默认行为是浏览器的自带行为
+
+document.oncontextmenu 右键菜单
+
+阻止默认行为
+
+方法一 return false
+方法二 event.preventDefault()
+案例1:右键菜单
+案例2:只能输入数字的输入框
+拖拽
+原理:鼠标和物体的距离始终不变
+
+obj.onmousedown obj.onmouseup
+
+基础拖拽
+限制在浏览器中
+限制在父容器中
+磁性吸附
+带框的拖拽
+自定义滚动条(控制大小,控制透明度,控制文字)
+事件
+事件是用户或者浏览器执行的某中动作,如click/mouseover
+
+事件处理程序是响应事件的函数,事件处理程序以on开头,如onclick/onmouseover
+
+事件绑定
+
+obj.addEventListener(事件名,函数,false) 事件名没有'on'
+
+事件移除
+obj.removeEventListener(事件名,函数,false) 移除事件监听只能是移除有函数名的，不能移除匿名函数的
+泡指具体元素接受事件,然后逐级向上传播事件 阻止事件冒泡 event.stopPropagation() 案例: 下拉菜单 鼠标事件 鼠标移动 onmousemove 获取坐标 event.clientX 和 event.clientY是鼠标的可视区坐标 通常情况需要加上滚动距离 案例1: 随着鼠标移动的物体 案例2: 随着鼠标移动的多个物体 键盘事件 键盘按下 obj.onkeydown 键盘抬起 obj.onkeyup 键盘代码 event.keyCode 辅助键 event.ctrlKey event.shiftKey event.altKey 案例1:左右键移动物体 案例2:ctrl+回车提交 默认行为 默认行为是浏览器的自带行为 document.oncontextmenu 右键菜单 阻止默认行为 方法一 return false 方法二 event.preventDefault() 案例1:右键菜单 案例2:只能输入数字的输入框 拖拽 原理:鼠标和物体的距离始终不变 obj.onmousedown obj.onmouseup 基础拖拽 限制在浏览器中 限制在父容器中 磁性吸附 带框泡指具体元素接受事件,然后逐级向上传播事件 阻止事件冒泡 event.stopPropagation() 案例: 下拉菜单 鼠标事件 鼠标移动 onmousemove 获取坐标 event.clientX 和 event.clientY是鼠标的可视区坐标 通常情况需要加上滚动距离 案例1: 随着鼠标移动的物体 案例2: 随着鼠标移动的多个物体 键盘事件 键盘按下 obj.onkeydown 键盘抬起 obj.onkeyup 键盘代码 event.keyCode 辅助键 event.ctrlKey event.shiftKey event.altKey 案例1:左右键移动物体 案例2:ctrl+回车提交 默认行为 默认行为是浏览器的自带行为 document.oncontextmenu 右键菜单 阻止默认行为 方法一 return false 方法二 event.preventDefault() 案例1:右键菜单 案例2:只能输入数字的输入框 拖拽 原理:鼠标和物体的距离始终不变 obj.onmousedown obj.onmouseup 基础拖拽 限制在浏览器中 限制在父容器中 磁性吸附 带框泡指具体元素接受事件,然后逐级向上传播事件 阻止事件冒泡 event.stopPropagation() 案例: 下拉菜单 鼠标事件 鼠标移动 onmousemove 获取坐标 event.clientX 和 event.clientY是鼠标的可视区坐标 通常情况需要加上滚动距离 案例1: 随着鼠标移动的物体 案例2: 随着鼠标移动的多个物体 键盘事件 键盘按下 obj.onkeydown 键盘抬起 obj.onkeyup 键盘代码 event.keyCode 辅助键 event.ctrlKey event.shiftKey event.altKey 案例1:左右键移动物体 案例2:ctrl+回车提交 默认行为 默认行为是浏览器的自带行为 document.oncontextmenu 右键菜单 阻止默认行为 方法一 return false 方法二 event.preventDefault() 案例1:右键菜单 案例2:只能输入数字的输入框 拖拽 原理:鼠标和物体的距离始终不变 obj.onmousedown obj.onmouseup 基础拖拽 限制在浏览器中 限制在父容器中 磁性吸附 带框
+		</div>
+	</div>
+</body>
+</html>
