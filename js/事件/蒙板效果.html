@@ -3,8 +3,63 @@
 <head>
 	<meta charset="UTF-8">
 	<title>蒙板效果</title>
+	<style>
+		#mask{
+			width: 100%;
+			height: 100%;
+			background:rgba(0,0,0,0.5);
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+		#box{
+			width: 200px;
+			height: 200px;
+			background: blue;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			margin-top: -100px;
+			margin-left: -100px;
+			display: none;
+		}
+	</style>
 </head>
+<script>
+	function $(id){
+		return document.getElementById(id);
+	}
+	window.onload=function(){
+		var oBtn1=$('btn1');
+		var oMask=$('mask');
+		var oBox=$('box');
+		var oBtn2=$('btn2');
+		oBtn1.onclick=function(ev){
+			var oEvent=ev || event;
+			oMask.style.display='block';
+			oBox.style.display='block';
+			oEvent.stopPropagation();
+		}
+		document.onclick=function(){
+			oMask.style.display='none';
+			oBox.style.display='none';
+		}
+		oBox.onclick=function(ev){
+			var oEvent=ev || event;
+			oBox.style.display='blcok';
+			oEvent.stopPropagation();
+		}
+		oBtn2.onclick=function(){
+			window.location='http://www.kuazhu.com';
+		}
+	}
+</script>
 <body>
-	
+	<input type="button" value="登录" id="btn1">
+	<div id="mask"></div>
+	<div id="box">
+		<input type="button" value="登录" id='btn2'>
+	</div>
 </body>
 </html>

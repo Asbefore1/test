@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单事件</title>
+</head>
+<script>
+	window.onload=function(){
+		var oInput=document.getElementById('username');
+		var oSub=document.getElementById('sub');
+		var oTxt=document.getElementById('txt');
+		var oList=document.getElementById('list');
+		var data=['apple','tomato','orange','purple'];
+		var isok=false;
+		oInput.onfocus=function(){
+			oTxt.style.color='red';
+			oTxt.innerHTML='请输入3-6位数字';
+		}
+		oInput.onblur=function(){
+			var l=oTxt.length;
+			if(l>=3 && l<=6){
+				oTxt.style.color='green';
+				oTxt.innerHTML='您输入的数字合格';
+				isok=true;
+			}else{
+				oTxt.style.color='red';
+				oTxt.innerHTML='您输入的数字不合格';
+			}
+
+			if(!isok){
+				return false;
+			}
+		}
+		
+ 
+		oInput.oninput=function(){
+			for(var i=0;i<data.length;i++){
+				var oli=document.creatElement('li');
+					oList.appendChild('li');
+					oTxt.innerHTML=data[i];
+				}
+			}
+		
+	}
+</script>
+<body>
+	<form action="http://www.kuazhu.com" id="form1">
+		<p>
+			<input type="text" id="username">
+			<span id="txt"></span>
+			<ul id="list"></ul>
+		</p>
+
+		<p>
+			<input type="submit" id="sub" value="提交">
+		</p>
+	</form>
+</body>
+</html>
