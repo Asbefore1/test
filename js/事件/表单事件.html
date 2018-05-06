@@ -41,31 +41,34 @@
 			}else{
 				oTxt.style.color='red';
 				oTxt.innerHTML='您输入的数字不合格';
-			}		
-			oSub.onclick=function(){
-				if(!isok){
-					alert('输入有误,请重新输入');
-					return false;
-				}
 			}
 		}
-
 		
  
 		oInput.oninput=function(){
 			console.log(isloaded);
-			if(!isloaded){
-			
+			if(!isloaded){		
 				for(var i=0;i<data.length;i++){
 					var oLi=document.createElement('li');
 						oList.appendChild(oLi);
 						oLi.innerHTML=data[i];
 					}
 				}
-				isloaded=true;
+			isloaded=true;
+		}	
+		oList.onclick=function(ev){
+			var oEvent=ev || event;
+			oInput.value=ev.target.innerHTML;
+			oTxt.style.color='green';
+			oTxt.innerHTML='您输入的数字合格';
+			isok=true;
+		}	
+		oSub.onclick=function(){
+			if(!isok){
+				alert('输入有误,请重新输入');
+				return false;
 			}
-			
-
+		}
 	}
 </script>
 <body>

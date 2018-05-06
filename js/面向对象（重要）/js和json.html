@@ -5,17 +5,17 @@
 	<title>js和json</title>
 </head>
 <script>
-	var json='{"name":"tom","age":"18"}';
+	var json='{"name":"tom","age":"18"}';   //json是一个字符串
 	console.log(typeof json);
 	var jsonobj=JSON.parse(json);
-	console.log(typeof jsonobj);
+	console.log(typeof jsonobj);     //把json转换成js对象
 
 	var obj={
 		name:"tom",
 		age:18,
 	}
 	console.log(typeof obj);
-	var json=JSON.stringify(obj);
+	var json=JSON.stringify(obj);   //把js对象转换成json
 	console.log(typeof json);
 </script>
 <body>
