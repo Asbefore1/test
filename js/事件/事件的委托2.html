@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件的委托2</title>
+</head>
+	<script>
+		window.onload=function(){
+			var aA=document.getElementsByTagName('a');
+			var oUl=document.getElementById('ul1');
+			/*
+			for(var i=0;i<aA.length;i++){
+				aA[i].onclick=function(){
+					oUl.removeChild(this.parentNode);
+				}
+			}
+			*/
+			oUl.addEventListener('click',function(ev){
+				var oEvent=ev || event;
+				oUl.removeChild(ev.target.parentNode);
+			})
+		}
+	</script>
+<body>
+	<ul id="ul1">
+		<li>li1<a href="#">del1</a></li>
+		<li>li2<a href="#">del2</a></li>
+		<li>li3<a href="#">del3</a></li>
+		<li>li4<a href="#">del4</a></li>
+		<li>li5<a href="#">del5</a></li>
+	</ul>
+</body>
+</html>
