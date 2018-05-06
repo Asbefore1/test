@@ -11,13 +11,13 @@
 		var oTxt=document.getElementById('txt');
 		var oList=document.getElementById('list');
 		var data=['apple','tomato','orange','purple'];
-		var isok=false;
+		var isok=false;                             
 		oInput.onfocus=function(){
 			oTxt.style.color='red';
 			oTxt.innerHTML='请输入3-6位数字';
 		}
 		oInput.onblur=function(){
-			var l=oTxt.length;
+			var l=oInput.value.length;
 			if(l>=3 && l<=6){
 				oTxt.style.color='green';
 				oTxt.innerHTML='您输入的数字合格';
@@ -25,10 +25,12 @@
 			}else{
 				oTxt.style.color='red';
 				oTxt.innerHTML='您输入的数字不合格';
-			}
-
-			if(!isok){
-				return false;
+			}		
+			oSub.onclick=function(){
+				if(!isok){
+					alert('输入有误,请重新输入');
+					return false;
+				}
 			}
 		}
 		
