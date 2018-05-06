@@ -3,6 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>表单事件</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		p{
+			width: 400px;
+			height: 20px;
+		}
+		li{
+			list-style: none;
+			width: 200px;
+			height: 20px;
+		}
+	</style>
 </head>
 <script>
 	window.onload=function(){
@@ -11,7 +26,8 @@
 		var oTxt=document.getElementById('txt');
 		var oList=document.getElementById('list');
 		var data=['apple','tomato','orange','purple'];
-		var isok=false;                             
+		var isok=false; 
+		var isloaded=false;                            
 		oInput.onfocus=function(){
 			oTxt.style.color='red';
 			oTxt.innerHTML='请输入3-6位数字';
@@ -33,16 +49,23 @@
 				}
 			}
 		}
+
 		
  
 		oInput.oninput=function(){
-			for(var i=0;i<data.length;i++){
-				var oli=document.creatElement('li');
-					oList.appendChild('li');
-					oTxt.innerHTML=data[i];
+			console.log(isloaded);
+			if(!isloaded){
+			
+				for(var i=0;i<data.length;i++){
+					var oLi=document.createElement('li');
+						oList.appendChild(oLi);
+						oLi.innerHTML=data[i];
+					}
 				}
+				isloaded=true;
 			}
-		
+			
+
 	}
 </script>
 <body>

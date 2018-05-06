@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象属性唯一的应用</title>
+</head>
+	<script>
+		var arr=[11,22,33,44,11,22];
+		function remove(arr){
+			var result=[];
+			var obj={};
+			for(var i=0; i<arr.length;i++){
+				obj[arr[i]]='';   //放到了obj的key上面,再通过key放到result数组里面
+			}
+			for(key in obj){
+				result.push(key);
+			}
+			return result;
+		}
+		console.log(arr);
+		console.log(remove(arr));
+	</script>
+<body>
+	
+</body>
+</html>
