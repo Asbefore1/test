@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单事件2</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		p{
+			width: 400px;
+			height: 20px;
+		}
+		li{
+			list-style: none;
+			width: 100px;
+			height: 20px;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var oName=document.getElementById('username');
+		var oSub=document.getElementById('sub');
+		var oTxt=document.getElementById('txt');
+		var oUl=document.getElementById('ul1');
+		var oForm=document.getElementById('form1');
+		var isok=false;
+		var isloaded=false;
+		var data=['apple','banan','orange','red'];
+		oName.onfocus=function(){		
+			oTxt.style.color='red';
+			oTxt.innerHTML='请输入3-6位数字';	
+
+		}
+		oName.onblur=function(){
+			var l=oName.value.length;
+			if(l>=3 && l<=6){
+				oTxt.style.color='green';
+				oTxt.innerHTML='您输入的数字合格';
+				isok=true;
+			}else{
+				oTxt.style.color='red';
+				oTxt.innerHTML='您输入的数字不合格';
+			}
+			
+		}
+		oName.oninput=function(){
+			if(isloaded){
+				return false;
+			}		
+			for(var i=0;i<data.length;i++){
+				var oLi=document.createElement('li');
+				oLi.innerHTML=data[i];
+				oUl.appendChild(oLi);
+				/*
+				oLi.onclick=function(){
+					oName.value=this.innerHTML;
+					oTxt.style.color='green';
+					oTxt.innerHTML='您输入的数字合格';
+					isok=true;
+				}
+				*/
+			}
+			isloaded= true;
+		}
+		oUl.onclick=function(ev){
+			var oEvent =ev || event;
+			// console.log(oEvent.target);
+			oName.value=oEvent.target.innerHTML;
+			oTxt.style.color='green';
+			oTxt.innerHTML='您输入的数字合格';
+			isok=true;
+		}
+		oForm.onsubmit=function(){
+			alert('aa');
+		}
+		oForm.onreset=function(){
+			alert('bb');
+		}
+		oSub.onclick=function(){
+			if(!isok){
+				return false;
+			}
+		}
+	}
+</script>
+<body>
+	<form action="http://www.kuazhu.com" id="form1">
+		<p>
+			<input type="text" id='username'>
+			<span id="txt"></span>
+			<ul id="ul1"></ul>
+		</p>
+		<p>
+			<input type="submit" id="sub" value="提交">
+			<input type="reset"  value="重置">
+		</p>
+	</form>
+</body>
+</html>

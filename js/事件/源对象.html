@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>源对象</title>
+	<style>
+		#div1{
+			width: 400px;
+			height: 400px;
+			background: red;
+			margin: 100px auto;
+			position: relative;
+		}
+		#div2{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			position: absolute;
+			top:150px;
+			left: 150px;
+		}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		var odiv1=document.getElementById('div1');
+		var odiv2=document.getElementById('div2');
+		// odiv2.addEventListener('mouseover',function(ev){
+		// 	var oEvent=ev || event;
+		// 	console.log(oEvent.target);
+		// 	console.log(oEvent.currentTarget);
+		// })
+		odiv1.addEventListener('mouseover',function(ev){
+			var oEvent=ev || event;
+			console.log(oEvent.target);
+			console.log(oEvent.currentTarget);
+		})
+	}
+</script>
+<body>
+	<div id="div1">
+		<div id="div2"></div>
+	</div>
+</body>
+</html>
