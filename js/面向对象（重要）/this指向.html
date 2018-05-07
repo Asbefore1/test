@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this指向</title>
+</head>
+<script>
+	function show(n1,n2){
+		console.log(this);
+	}
+	show.call({name:'tom'},50,20);
+	show.apply({name:'tom'},[30,10]);
+	show.bind({name:'tom'},20,700)();
+</script>
+<body>
+	
+</body>
+</html>
