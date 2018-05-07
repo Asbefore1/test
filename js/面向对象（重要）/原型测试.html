@@ -5,19 +5,25 @@
 	<title>原型测试</title>
 </head>
 <script>
-	function Person(name,age){
-		this.name=name;
-		this.age=age;
-		Person.prototype.showName=function(){
-			console.log('I am' + this.name);
+	Array.prototype.sum=function(){    //Array是一个类,prototype叫原型对象
+		var result=0;
+		for(var i=0;i<arr.length;i++){
+			result +=this[i];
 		}
-		Person.prototype.showAge=function(){
-			console.log('I am' +this.age+'years old');
-		}
-		var p1= new Person('tom',18);
-		p1.showName();
-		p1.showAge();
+		return result;
 	}
+	/*var arr=new Array(2,3,1,4);
+	arr.sum=function(){
+		var result=0;
+		for(var i=0;i<arr.length;i++){
+			result +=this[i];
+		}
+		return result;
+	}*/
+	var arr=new Array(2,3,1,4);
+	console.log(arr.sum());
+	var arr2=new Array(5,2,9,6);
+	console.log(arr2.sum());
 </script>
 <body>
 	

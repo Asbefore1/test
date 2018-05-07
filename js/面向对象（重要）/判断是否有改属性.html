@@ -4,6 +4,31 @@
 	<meta charset="UTF-8">
 	<title>判断是否有改属性</title>
 </head>
+<script>
+	function Person(name,age){		
+		this.name=name;    
+		this.age=age;
+	}
+	Person.prototype.showName=function(){   //原型+方法
+		console.log('I am' + this.name + ',I have' + this.LEGS + 'legs');
+	}
+	Person.prototype.showAge=function(){
+		console.log('I am' + this.age +'years old');  
+	}
+	Person.prototype.LEGS=2;
+
+	var p1=new Person('tom',18);
+	p1.LEGS=2;
+	console.log(p1.LEGS);
+	console.log(p1.hasOwnProperty('name'));  //判断对象上是否有自己实例上指定的属性  
+											//只能判断原型实例上
+	console.log('LEGS' in p1);	  //可以判断实例对象,也可以判断原型对象									  
+
+	function hasProtypeProerty(obj,attr){    //自己写一个函数来判断原型链是否有属性
+		return !obj.hasOwnProperty(attr) && (attr in obj);
+	}
+	console.log(hasProtypeProerty(p1,'LEGS'));
+</script>
 <body>
 	
 	

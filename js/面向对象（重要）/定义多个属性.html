@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定义多个属性</title>
+</head>
+<script>
+	var obj={};
+	Object.defineProperties(obj,{
+		"name":{
+			value:'tom',
+			enumerable:true,
+			writable:true,
+			configurable:true
+		}
+	});
+	// delete obj.name;
+	for(key in obj){    
+		console.log(obj[key]);
+	}
+	Object.getOwnPropertyDescriptor(obj,"name");
+</script>
+<body>
+	
+</body>
+</html>

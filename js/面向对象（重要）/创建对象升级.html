@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建对象升级</title>
+</head>
+<script>
+	function Person(name,age){
+		// var obj= new Object();
+		//this=new Object()
+		this.name=name;    //属性
+		this.age=age;
+		this.showName=function(){    //方法
+			console.log('I am' + this.name);
+		}
+		this.showAge=function(){
+			console.log('I am' + this.age +'years old');     
+		}
+		// return obj;
+	}
+	var p1=new Person('tom',18); // p1是一个对象
+	console.log(typeof p1);
+	console.log(p1.name);  //调用属性
+	console.log(p1.age);
+	p1.showName();    //调用方法
+	p1.showAge();
+
+	var p2=new Person('Ammy',28);
+	p2.showName();   
+	p2.showAge();
+	console.log(p1.showName==p2.showName)   //两个不同的对象
+</script> 
+<body>
+	
+</body>
+</html>

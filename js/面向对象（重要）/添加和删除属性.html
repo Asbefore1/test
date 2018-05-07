@@ -4,6 +4,31 @@
 	<meta charset="UTF-8">
 	<title>添加和删除属性</title>
 </head>
+<script>
+	function Person(name,age){
+		this.name=name;
+		this.age=age;
+
+		Person.prototype.showName=function(){
+			console.log('I am'+this.name+"I have"+this.LEGS+"legs");
+		}
+		Person.prototype.showAge=function(){
+			console.log('I am'+this.age+'years old');
+		}
+	}
+	
+	Person.prototype.LEGS=2;
+	var p1=new Person('tom',15);
+
+	// delete p1.name;	    //判断有没有这个属性,有的话删除,没有的话直接删除,最终返回true
+	// console.log(delete p1.name);
+
+	delete Person.prototype.LEGS;
+	// p1.LEGS=4;        //在构造函数上定义legs=2,由于实例对象上定义了legs=4,实例对象上的4会把2覆盖
+	p1.showName();
+	var p2=new Person('Leo',13);
+	p2.showName();
+</script>
 <body>
 	
 </body>

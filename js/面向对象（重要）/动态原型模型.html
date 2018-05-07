@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态原型模型</title>
+</head>
+<script>
+	function Person(name,age){
+		this.name=name;
+		this.age=age;
+		if(!this.showName){
+			Person.prototype.showName=function(){   //添加在prototype上-------->实例方法
+				console.log('I am'+this.name);				
+			}
+			console.log("showname is added");
+		}
+		if(!this.showAge){
+			Person.prototype.showAge=function(){
+				console.log('I am'+this.age+'years old');
+			}
+		}				
+	}
+	
+	var p1=new Person('tom',18);
+	console.log(p1.name);
+	p1.showName();
+	p1.showAge();
+
+	var p2=new Person('leo',22);
+	console.log(p2.name);
+	p2.showName();
+	p2.showAge();
+
+	console.log(p1.showName==p2.showName);
+
+
+	Person.sum=function(n1,n2){
+		return n1+n2;
+	}
+	console.log(Person.sum(1,2));    //添加在构造函数上的方法----->静态方法
+</script>	
+<body>
+	
+</body>
+</html>
