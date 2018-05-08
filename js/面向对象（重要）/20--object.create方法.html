@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>object.create方法</title>
+</head>
+<script>
+	var obj={name:'tom'}
+	var obj2=Object.create(obj);    //用obj创建了一个obj2
+	console.log(obj2);
+	console.log(obj2.__proto__==obj);    //传对象的作用是为了改变新生成的对象obj2的__proto__
+
+	var obj3=Object.create(null);
+	var obj4={};
+	console.log(obj3);  //什么都没有
+	console.log(obj4);   //上面有__proto__------->指向object
+</script>
+<body>
+	
+</body>
+</html>

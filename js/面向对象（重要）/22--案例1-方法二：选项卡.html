@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>案例1-选项卡</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.button{
+			overflow:hidden;
+		}
+		.button li{
+			list-style: none;
+			width: 50px;
+			height: 20px;
+			background: #000;
+			color: #fff;
+			border-radius: 10px;
+			font-size: 15px;
+			text-align: center;
+			line-height: 20px;
+			float: left;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+		
+		.content li{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			display: none;
+		}
+		.button li.active{
+			background: red;
+		}
+	</style>
+	<script>
+		//1.取消函数嵌套
+		//2.添加全局变量
+		//3.onload变构造函数
+		//4.把函数改为原型对象上的方法,把全局变量改为构造函数中的属性,然后修改this
+		window.onload=function(){
+			new Tab();
+		}
+		function Tab(){
+			 this.aBtn=document.getElementById('btn').children;
+			 this.acont=document.getElementById('cont').children;
+			 // console.log(this);
+			
+			for(var i=0;i< this.aBtn.length;i++){
+				this.aBtn[i].index=i;
+				
+				this.aBtn[i].onclick=this.fnclick.bind(this,this.aBtn[i])
+			}
+		}         //第一个this指的是Tab,第二个是参数是改变点那个变那个
+		Tab.prototype.fnclick=function(oBtn){				
+					for(var j=0;j< this.aBtn.length;j++){
+						this.aBtn[j].className='';
+						this.acont[j].style.display='none';					
+					}
+					this.aBtn[oBtn.index].className='active';
+					this.acont[oBtn.index].style.display='block';
+				}
+	</script>
+</head>
+<body>
+	<ul id="btn" class="button">
+		<li class="active">btn1</li>
+		<li>btn2</li>
+		<li>btn3</li>
+		<li>btn4</li>
+	</ul>
+	<ul id="cont" class="content">
+		<li style="display: block;">cont1</li>
+		<li>cont2</li>
+		<li>cont3</li>
+		<li>cont4</li>
+	</ul>
+</body>
+</html>

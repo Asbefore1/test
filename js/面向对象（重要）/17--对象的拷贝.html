@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的拷贝</title>
+</head>
+<script>
+	var Person={
+		name:'tom',
+		age:20,
+	}
+	// var Student=Person;
+	// Student.sex='famel';
+	// console.log(Student);
+	// console.log(Person);      Person上也会有student上的修改的属性,因为拷贝的是地址
+
+	var obj={};
+	for(key in Person){
+		obj[key]=Person[key];
+	}
+	obj.sex='famel';
+	console.log(obj);
+	console.log(Person);  //有不同的地址
+</script>
+<body>
+	
+</body>
+</html>
