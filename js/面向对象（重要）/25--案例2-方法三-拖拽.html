@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>拖拽</title>
+	<title>25--案例2-方法三-拖拽</title>
 	<style>
 		*{
 			margin: 0;
@@ -18,29 +18,41 @@
 		}
 	</style>
 	<script>
-		// var oBox = null;
-		// var disX = 0;
-		// var disY = 0;
 		window.onload = function(){
-			new Drag();
+			new Drag({width:200,height:200,background:'red'});
 		}
-		function Drag(){
-			this.oBox = document.getElementById('div1');
+		function Drag(option){
+			this.width=option.width;
+			this.height=option.height;
+			this.background=option.background;
+			//初始化
+			this.init();
+			//属性的罗列
 			this.disX = 0;
 			this.disY = 0;
-			var _self = this; 
-			// this.oBox.onmousedown = this.fnDown.bind(this);
-			this.oBox.onmousedown = function(){
-				_self.fnDown();
-			}
+			
+			//属性的绑定
+			this.bindEvent();
+			
 		}
-		Drag.prototype.fnDown = function(ev){
+		Drag.prototype.init=function(){
+			this.oBox = document.createElement('div');
+			this.oBox.style.width=this.width+'px';
+			this.oBox.style.height=this.height+'px';
+			this.oBox.style.background=this.background;
+			this.oBox.style.position='absolute';
+			document.body.appendChild(this.oBox);
+		}
+		Drag.prototype.bindEvent=function(ev){
 			var oEvent = ev || event;
 			this.disX = oEvent.clientX - this.oBox.offsetLeft;
 			this.disY = oEvent.clientY - this.oBox.offsetTop;
 			document.onmousemove =this.fnMove.bind(this);
 			document.onmouseup = this.fnUp;	
-		}
+		}.bind(this);
+		// Drag.prototype.fnDown = function(ev){
+			
+		// }
 		Drag.prototype.fnMove = function(ev){
 			var oEvent = ev || event;
 			this.oBox.style.left = oEvent.clientX - this.disX + "px";
@@ -53,6 +65,6 @@
 	</script>
 </head>
 <body>
-	<div id="div1"></div>
 </body>
 </html>
+
