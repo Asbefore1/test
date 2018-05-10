@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>26--案例3-轮播图</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}  
+
+		.leftBtn,.rightBtn{  
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			background: rgba(0,0,0,0.5);
+			text-align: center;
+			font-size: 20px;
+			color: black;
+			position: absolute;
+			top: 50%;
+			margin-top: -15px;
+			cursor: pointer;
+		}
+		.leftBtn{
+			left: 0;
+		}
+		.rightBtn{
+			right: 0;
+		}
+		.bottomUl{
+			position: absolute;
+			bottom: 10px;
+			left: 50%; 
+		}
+		.bottomUl li{
+			width: 20px;
+			height: 20px;
+			list-style: none;
+			background: rgba(0,0,0,0.5);
+			float: left;
+			margin-left: 10px;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		.bottomUl li.active{
+			background: rgba(255,255,0,0.5);
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+<script>
+	function Carousel(option){   //创建一个对象,Carousel用来接收
+		//1、获取容器节点
+		this.oBox=document.getElementById(option.id);
+		this.Oul=null;
+		this.aImg=option.aimg;   //3.有多少张图片就有多少个li,先传进来图片,再创建li
+		this.width=option.width;    //9.设置oBox的大小,并让图片的大小和oBox一样
+		this.height=option.height;
+		this.leftBtn=null;
+		this.rightBtn=null;
+		this.OBottomUl=null;
+		this.now=0;
+		this.init();
+		this.bindEvent();  //绑定事件
+
+		//一.罗列属性
+		//二.初始化
+		//三.绑定时间
+	
+		// console.log(this);   //因为this指向Carousel函数,所以this代表的是Carousel
+	}
+	Carousel.prototype.init=function(){
+		this.oBox.style.width=this.width+'px';  //9.1 oBox的宽高等于轮播图的宽高
+		this.oBox.style.height=this.height+'px'; 
+		this.oBox.style.position='relative';  // 把盒子相对定位 
+		this.Oul=document.createElement('ul');  //2、创建ul;
+		for(var i=0;i<this.aImg.length;i++){
+			var oLi=document.createElement('li');   //4.根据img创建li
+			var oImg=document.createElement('img');   //5.li里面创建img并追加到li上面
+			oLi.style.position='absolute';    //7.让li绝对定位			
+			oLi.style.top=0;
+			oLi.style.left=0;
+			if(i==0){      //8.默认第一张显示
+				oLi.style.opacity=1;
+				oLi.style.zIndex=50;
+			}else{
+				oLi.style.opacity=0.5;
+				oLi.style.zIndex=0;
+			}
+			
+			oImg.style.width=this.width+'px';   //9.2图片的宽高等于轮播图的宽高
+			oImg.style.height=this.height+'px';
+			oImg.src=this.aImg[i];              //6.把img地址改成图片的地址
+			oLi.appendChild(oImg);
+			this.Oul.appendChild(oLi);
+
+
+		}
+		//10.添加左右按钮
+			this.leftBtn=document.createElement('span');
+			this.rightBtn=document.createElement('span');			
+			this.leftBtn.className='leftBtn';
+			this.rightBtn.className='rightBtn';
+			this.leftBtn.innerHTML='&lt;';
+			this.rightBtn.innerHTML='&gt;';
+			this.leftBtn.style.zIndex=999;
+			this.rightBtn.style.zIndex=999;
+		//11.添加底部按钮
+
+			this.OBottomUl=document.createElement('ul');  //11.1创建底部按钮ul
+			this.OBottomUl.className='bottomUl';  //底部按钮的className放在ul上面
+			this.OBottomUl.style.zIndex=999;
+			for(var i=0;i<this.aImg.length;i++){
+				var oLi=document.createElement('li');  //12.在ul上创建li
+				if(i==0){
+					oLi.className='active';  //13.让第一个小圆点显示颜色
+				}
+				this.OBottomUl.appendChild(oLi);     //12.1把li追加到创建底部按钮ul上
+				this.oBox.appendChild(this.leftBtn);
+				this.oBox.appendChild(this.rightBtn);
+			}
+			
+			this.oBox.appendChild(this.OBottomUl);  //11.2.把底部按钮ul放在盒子里面
+			this.oBox.appendChild(this.Oul);   //2.1把ul添加到obox上
+			this.OBottomUl.style.marginLeft=-this.OBottomUl.offsetWidth/2+'px';  
+						//自己定义底部按钮距离左边的距离,有几个图片就几个小圆点
+						//给底部按钮添加marginlef使其水平居中
+	}
+	Carousel.prototype.bindEvent=function(){      
+		this.rightBtn.onclick=function(){  //显示下一张
+			// console.log(this);
+			this.now++;		
+			if(this.now>=this.OBottomUl.children.length){
+				this.now=0;
+			}
+			this.Tab();
+		}.bind(this);
+	}
+	Carousel.prototype.Tab=function(){
+		for(var i=0;i<this.OBottomUl.children.length;i++){
+			this.OBottomUl.children[i].style.opacity=0.5;
+			this.OBottomUl.children[i].style.zIndex=0;
+		}
+		this.OBottomUl.children[i].style.opacity=1;
+		this.OBottomUl.children[i].style.zIndex=50;
+	}
+	new Carousel({
+		id:'div1',
+		aimg:[
+		'./images/1.jpg',
+		'./images/2.jpg',
+		'./images/3.jpg',
+		'./images/4.jpg'
+		],
+		width:600,
+		height:400,
+	});
+
+</script>
+</html>

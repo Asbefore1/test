@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>25--案例2-方法三-拖拽</title>
+	<title>24--案例2-方法三-拖拽</title>
 	<style>
 		*{
 			margin: 0;
@@ -22,6 +22,7 @@
 			new Drag({width:200,height:200,background:'red'});
 		}
 		function Drag(option){
+			this.oBox=null;
 			this.width=option.width;
 			this.height=option.height;
 			this.background=option.background;
@@ -43,13 +44,16 @@
 			this.oBox.style.position='absolute';
 			document.body.appendChild(this.oBox);
 		}
-		Drag.prototype.bindEvent=function(ev){
-			var oEvent = ev || event;
-			this.disX = oEvent.clientX - this.oBox.offsetLeft;
-			this.disY = oEvent.clientY - this.oBox.offsetTop;
-			document.onmousemove =this.fnMove.bind(this);
-			document.onmouseup = this.fnUp;	
-		}.bind(this);
+		 Drag.prototype.bindEvent=function(){  //绑定
+			this.oBox.onmousedown=function(ev){
+				var oEvent = ev || event;
+				this.disX = oEvent.clientX - this.oBox.offsetLeft;
+				this.disY = oEvent.clientY - this.oBox.offsetTop;
+				document.onmousemove =this.fnMove.bind(this);
+				document.onmouseup = this.fnUp;
+			}.bind(this);
+				
+		};
 		// Drag.prototype.fnDown = function(ev){
 			
 		// }
@@ -61,6 +65,11 @@
 		Drag.prototype.fnUp = function(){
 			document.onmousemove = null;
 			document.onmouseup = null;			
+		}
+
+
+		function Limint(){
+			
 		}
 	</script>
 </head>

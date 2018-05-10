@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>邮箱校验</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<input type="button" id="btn" value="提交">
+</body>
+<script>
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn');
+	//3497639925@qq.com
+	//xiaoya@qq.com
+	//xiao-ya@qq.com
+	var str=oTxt.value;
+	oBtn.onclick=function(){
+		var reg=/^\w+@[a-z-]+\.[a-z]/;
+		console.log(reg.test(str));
+	}
+</script>
+</html>
