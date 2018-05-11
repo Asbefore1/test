@@ -135,28 +135,38 @@
 	Carousel.prototype.bindEvent=function(){      
 		this.rightBtn.onclick=function(){  //显示下一张
 			// console.log(this);
-			this.now++;		
-			if(this.now>=this.OBottomUl.children.length){
-				this.now=0;
-			}
+			this.now++;				
+			this.Tab();
+		}.bind(this);
+		this.leftBtn.onclick=function(){  //显示上一张
+			// console.log(this);
+			this.now--;
 			this.Tab();
 		}.bind(this);
 	}
 	Carousel.prototype.Tab=function(){
-		for(var i=0;i<this.OBottomUl.children.length;i++){
-			this.OBottomUl.children[i].style.opacity=0.5;
-			this.OBottomUl.children[i].style.zIndex=0;
+		// var _self=this;
+		if(this.now>=this.OBottomUl.children.length){
+				this.now=0;
+			}else if(this.now<0){
+				this.now=this.OBottomUl.children.length-1;
+			}
+		for(var i=0;i<this.Oul.children.length;i++){
+			this.Oul.children[i].style.opacity=0.5;
+			this.Oul.children[i].style.zIndex=0;
+			this.OBottomUl.children[i].className='';
 		}
-		this.OBottomUl.children[i].style.opacity=1;
-		this.OBottomUl.children[i].style.zIndex=50;
+		this.Oul.children[this.now].style.opacity=1;
+		this.Oul.children[this.now].style.zIndex=50;
+		this.OBottomUl.children[this.now].className='active';
 	}
 	new Carousel({
 		id:'div1',
 		aimg:[
+		'./images/4.jpg',
 		'./images/1.jpg',
-		'./images/2.jpg',
 		'./images/3.jpg',
-		'./images/4.jpg'
+		'./images/2.jpg'
 		],
 		width:600,
 		height:400,
