@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单元素的属性</title>
+</head>
+<body>
+	<form action="http://www.kuazhu.com" id="form1">
+		<div>
+			姓名:<input type="text" name="username">
+		</div>
+		<div>
+			年龄:<input type="text" name="age">
+		</div>
+		<div>
+			性别:<input type="radio" name="sex">男<input type="radio" name="sex">女<input type="radio" name="sex">保密
+		</div>
+		<div>
+			爱好:<input type="checkbox" name='fav'>足球<input type="checkbox" name='fav'>篮球
+		</div>
+		<div>
+			<select name="city">
+				<option value="bj">北京</option>
+				<option value="sh">上海</option>
+				<option value="gz">广州</option>
+			</select>
+		</div>
+		<div>
+			<input type="submit" value="提交">
+			<input type="button" value="测试" id="btn">
+		</div>
+	</form>
+</body>
+<script>
+	var aForm=document.forms;   
+	var oForm=aForm[0];
+	var aFormEle=oForm.elements;
+	// console.log(aFormEle);
+	// aFormEle[0].disabled=true;
+
+
+	
+	// console.log(afav);
+
+	//多选框
+	/*var afav=aFormEle.fav;
+	btn.onclick=function(){
+		for(var i=0;i<afav.length;i++){
+			console.log(afav[i].checked);
+		}
+	}*/
+
+
+	//单选框
+	/*var aSex=aFormEle.sex;
+	// console.log(aSex);
+	btn.onclick=function(){
+		for(var i=0;i<aSex.length;i++){
+			console.log(aSex[i].checked);
+		}
+	}*/
+
+	//下拉列表
+	/*var oSelect=aFormEle.city;
+	//console.log(oSelect);  // 获取到了整个下拉列表
+	//console.log(oSelect.options);   //获取到下拉列表上的元素,是一个集合
+	btn.onclick=function(){
+		for(var i=0;i<oSelect.options.length;i++){
+			if(oSelect.options[i].selected){
+				console.log(oSelect.options[i]);
+			}
+			
+		}
+	}*/
+
+
+	
+	//构造一个下拉列表函数
+	var oSelect=aFormEle.city;
+	btn.onclick=function(){
+		var aOptions=oSelectOptions(oSelect);
+		console.log(aOptions);
+	}
+	function oSelectOptions(oSelect){
+		var result=[];
+		for(var i=0;i<oSelect.options.length;i++){
+			if(oSelect.options[i].selected){
+				// console.log(oSelect.options[i]);
+				result.push(oSelect.options[i]);
+			}
+		}
+		return result;
+	}
+</script>
+</html>
