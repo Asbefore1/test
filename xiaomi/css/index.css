@@ -133,8 +133,11 @@
 			margin: 0 0.5em;
 			color:#333;
 		}
-		.top .nav ul li a:hover{
+/*		.top .nav ul li a:hover{
 			color:#fff;
+		}*/
+		.top .car-box{
+			position: relative;
 		}
 		.top .car{
 			width: 100px;
@@ -143,6 +146,7 @@
 			background: #424242;
 			float: right;
 			padding-left: 20px;
+			z-index: 2000;
 		}
 		.top .car a{
 			font-size: 20px;
@@ -155,6 +159,27 @@
 		}
 		.top .car a:hover{
 			color:#ff6700;
+		}
+		.top .car-box .car-content{
+			position: absolute;
+			width: 350px;
+			height: 0px;
+			background:#fff;
+			top: 40px;
+			right:0px;
+			z-index: 1001;
+			box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+			overflow: hidden;
+		}
+		.top .car-box .car-content .loader{
+			margin-top: 40px;
+			display: none;
+		}
+		.top .car-box .car-content .empty-box{
+			display: none;
+			font-size: 14px;
+			text-align: center;
+			margin-top: 40px;
 		}
 		.top .user{
 			/*background: red;*/
@@ -175,6 +200,7 @@
 		.header{
 			height: 100px;
 			/*background: blue;*/
+			position: relative;
 		}
 		.header .logo{
 			width: 55px;
@@ -218,6 +244,7 @@
 			/*background: pink;*/
 			float: right;
 			line-height: 100px;
+			position: relative;
 		}
 		.header .search .inputer{
 			display: inline-block;
@@ -231,6 +258,7 @@
 			width: 238px;
 			height: 52px;
 			outline: none;
+			border: none;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -255,10 +283,11 @@
 		.header .search .inputer a:nth-of-type(2){
 			left: 170px;
 		}
+
 		.header .search .search-btn{
 			display: inline-block;
 			width: 50px;
-			height: 54px;
+			height: 53px;
 			box-sizing: border-box;
 			border: 1px solid #e0e0e0;
 			border-left: none;
@@ -266,6 +295,7 @@
 			text-align: center;
 			vertical-align: top;
 			margin-top: 24px;
+			margin-left: -5px;
 			font-size: 20px;
 			font-weight: 200px;
 			color: #616161;
@@ -273,6 +303,94 @@
 		.header .search .search-btn:hover{
 			background: #ff6700;
 			color: #fff;
+		}
+		.header .search .inputer-content{
+			width: 240px;
+			height: 400px;
+			border: 1px solid #ff6700;
+			position: absolute;
+			top: 76px;
+			left: 0px;
+			background: #fff;
+			z-index: 1000;
+			display: none;
+			box-sizing: border-box;
+		}
+		.header .search .inputer-content li{
+			width: 100%;
+			height: 30px;
+			line-height: 30px;
+			font-size: 12px;
+
+		}
+		.header .search .inputer-content li:hover{
+			background:#ccc;
+			cursor: pointer;
+		}
+		.header .search .inputer-content li span:nth-child(1){
+			float:left;
+			margin-left: 15px;
+			margin-right: 15px;
+		}
+		.header .search .inputer-content li span:nth-child(2){
+			float:right;
+			margin-left: 15px;
+			margin-right: 15px;
+		}
+		.header .nav-content{
+			width: 100%;
+			height:0px;
+			background:#fff;
+			position: relative;
+			left: 0px;
+			z-index: 1000;
+			box-shadow: 0px 1px 2px;
+			/*border-top: 1px solid #ccc;*/
+			overflow: hidden;
+		}
+		.header .nav-content .loader{
+			margin-top: 80px;
+			display: none;
+		}
+		.header .nav-content li{
+			width: 200px;
+			height: 240px;
+			float: left;
+			position: relative;
+		}
+		.header .nav-content li .target{
+			border: 1px solid red;
+			width: 50px;
+			height: 20px;
+			color: #ff6700;
+			font-size: 12px;
+			text-align: center;
+			line-height: 20px;
+			position: absolute;
+			top: 0px;
+			left:20px;
+		}
+		.header .nav-content .img-box{
+			width: 150px;
+			height: 100px;
+			border-right: 1px solid #ccc;
+			margin-top: 40px;
+		}
+		.header .nav-content .img-box img{
+			width: 100px;
+			height: 100px;
+		}
+		.header .nav-content li:last-child .img-box{
+			border-right: none;
+		}
+		.header .nav-content li .produce-intro{
+			margin-top: 15px;
+			margin-left: 21px;
+		}
+		.header .nav-content li .produce-price{
+			color: #ff6700;
+			margin-top: 15px;
+			margin-left: 25px;
 		}
 		.hot{
 			height: 1270px;
@@ -298,14 +416,7 @@
 			width: 234px;
 			height: 42px;
 		}
-		.hot .banner .carousel{
-			width: 100%;
-			height: 460px;
-			background: red;
-			position: absolute;
-			top:0;
-			left: 0;
-		}
+	
 		.hot .banner .cate li a{
 			display: inline-block;
 			width: 100%;
@@ -320,57 +431,41 @@
 			position: absolute;
 			right: 10px;
 		}
-		.hot .banner .cate li a:hover{
+		.hot .banner .cate li a.active{
 			background: #ff6700;
 			color:#fff;
 		}
-		.hot .banner .carousel .img-box li{
-			position: absolute;
-			top:0;
-			left: 0;
-			width: 1226px;
+		.hot .banner .cate-content{
+			width: 600px;
 			height: 460px;
-		}
-		.hot .banner .carousel .img-box li img{
-			width: 1226px;
-			height: 460px;
-		}
-		.left,.right{
-			display: inline-block;
-			width: 30px;
-			height: 60px;
-			line-height: 60px;
-			text-align: center;
-			font-size: 24px;
-			color: #fff;			
+			background: #fff;
 			position: absolute;
-			top:200px;
-			cursor: pointer;
-			z-index: 999;
+			left: 234px;
+			top: 0px;
+			z-index: 1002;
+			padding: 10px;
+			box-sizing: border-box;
+			box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+			overflow: hidden;   /*保证不受contanier的影响*/
+			display: none;
 		}
-		.left:hover,.right:hover{
-			background: rgba(0,0,0,0.3);
-		}
-		.left{
-			left:234px;
-		}
-		.right{
-			right:0;
-		}
-		.hot .banner .carousel .btn-box{
-			position: absolute;
-			right: 20px;
-			bottom: 20px;
-			z-index: 999;
-		}
-		.hot .banner .carousel .btn-box li{
+		.hot .banner .cate-content li{
 			float: left;
-			width: 10px;
-			height: 10px;
-			border: 1px solid;
-			border-radius: 50%;
-			margin-right: 5px ;
-			cursor:pointer;
+			margin-top: 20px;
+			margin-left: 50px;
+		}
+		.hot .banner .cate-content li img{
+			width: 50px;
+			height: 60px;
+			float: left;
+		}
+		.hot .banner .cate-content li a{
+			float: left;
+			margin-top: 20px;
+ 
+		}
+		.hot .banner .cate-content li a:hover{
+			color: #ff6700;
 		}
 		.hot .start{
 			width: 100%;
@@ -471,28 +566,28 @@
 			height: 340px;
 			/*background: red;			*/
 		}
-		
-		.hot .flash .box-bd li:last-child{
-			margin-right: 0;
-		}
-		.hot .flash .box-bd li:nth-child(1){
+		.hot .flash .box-bd .clock-box{
+			float: left;
+			width: 234px;
+			height: 301px;
+			margin-right: 14px;
 			background: #f1eded;
-			/*text-align: center;*/
 			border-top: 1px solid red;
+			text-align: center;
 		}
-		.hot .flash .box-bd li:nth-child(1) .num{
+		.hot .flash .box-bd .clock-box .num{
 			font-size: 20px;
 			color: #fa3f70;
 			font-weight:400px;
 			margin: 40px 0 34px 0;
 		}
-		.hot .flash .box-bd li:nth-child(1) .desc{
+		.hot .flash .box-bd .clock-box .desc{
 			font-size: 14px;
 			font-weight: 400px;
 			color: #706f6f;
 			margin: 35px 0 30px 0;
 		}
-		.hot .flash .box-bd li:nth-child(1) .timer-box{
+		.hot .flash .box-bd .clock-box .timer-box{
 			width: 46px;
 			height: 46px;
 			text-align: center;
@@ -502,24 +597,28 @@
 			display: inline-block;
 			line-height: 46px;
 		}
-		.hot .flash .box-bd li:nth-child(1) .timer-dash{
+		.hot .flash .box-bd .clock-box .timer-dash{
 			font-size: 20px;
 			width: 16px;
 			height: 46px;
 			font-weight: bold;
 			color: #605751;
 		}
-		.hot .flash .box-bd li:nth-child(2){
+		.hot .flash .box-bd .product-box{
+			float: left;
+		}
+		.hot .flash .box-bd li:nth-child(1){
 			border-top:1px solid orange;
 		}
-		.hot .flash .box-bd li:nth-child(3){
+		.hot .flash .box-bd li:nth-child(2){
 			border-top:1px solid pink;
 		}
-		.hot .flash .box-bd li:nth-child(4){
+		.hot .flash .box-bd li:nth-child(3){
 			border-top:1px solid green;
 		}
-		.hot .flash .box-bd li:nth-child(5){
+		.hot .flash .box-bd li:nth-child(4){
 			border-top:1px solid blue;
+			margin-right: 0px;
 		}
 
 		.hot .flash .box-bd .bg{
@@ -605,13 +704,12 @@
 		}
 		.view{
 			width: 234px;
-			height: 0px;
 			background: red;
 			position: absolute;
 			color: blue;
 			opacity: 0;
 		}
-		 .elec .box-bd li:hover .view{
+		.elec .box-bd li:hover .view{
 			height: 50px;
 			opacity: 1;
 
