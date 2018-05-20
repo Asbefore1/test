@@ -4,6 +4,8 @@ handleSearch();
 handleCarousel();
 handleCate();
 handleClock();
+handleFalsh();
+handleElec();
 function handleCar(){
 	//获取元素
 	var oCarBox=document.querySelector('.car-box');
@@ -246,4 +248,55 @@ function handleClock(){
 		aBox[2].innerHTML=toStr(s);
 	}
 	time();
+}
+function handleFalsh(){
+	var aSpan=document.querySelectorAll('.hot .flash .box-hd .more span');
+	var oBoxUl=document.querySelector('.hot .flash .box-bd .product-list ul');
+	// console.log(oBoxUl);
+	aSpan[1].onclick=function(){
+		oBoxUl.style.marginLeft='-978px';
+	}
+}
+function handleElec(){
+	var aElecA=document.querySelectorAll('.elec .box-hd .more li a');
+	var oUl=document.querySelector('.elec .box-bd .right-box ul');
+	for(var i=0;i<aElecA.length;i++){
+		aElecA[i].index=i;  //先把i存起来
+		aElecA[i].onmouseover=function(){
+			for(var j=0;j<aElecA.length;j++){
+				aElecA[j].className='';  //点之前先清空
+			}
+			this.className='active';
+			loadData(this.index);  //动态添加数据
+		}
+	}
+	function loadData(index){
+		var aData=aElecItems[index];				
+		// console.log(aData);
+		oUl.innerHTML='';
+		var sHtml='';
+		if(!aData){
+			return false;
+		}
+		for(var i=0;i<aData.length-1;i++){
+			sHtml+='<li class="col1';
+			if(aData[i].target){
+				sHtml+='flag'+aData[i].target+'">';
+			}else{
+				sHtml+='">';
+			}
+			sHtml+='<a href="#"><div class="img-box"><img src="'+aData[i].img+'" alt=""></div>';
+			sHtml+='<p class="intro">'+aData[i].intro+'</p><p class="desc">';
+			sHtml+='Unibody 全陶瓷</p><p class="price"><span>'+aData[i].price+'元</span></p>';
+			if(aData[i].recomm){
+				sHtml+='<div class="view"><p class="recomm">'+aData[i].recomm+'</p>';
+				if(aData[i].author){
+					sHtml+='<p class="author">来自于'+aData[i].author+'的评论</p>';
+				}
+				sHtml+='</div>';
+			}
+			sHtml+='</a></li>';
+		}
+		oUl.innerHTML=sHtml;	
+	}	
 }

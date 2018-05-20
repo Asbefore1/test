@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006封闭空间传参</title>
+</head>
+<body>
+	<input type="button" id="btn" value="提交">
+</body>
+<script>
+	(function(d,w){
+		var oBtn=d.getElementById('btn');
+		oBtn.onclick=function(){
+			console.log('aa');
+		}
+		w.oBtn=oBtn;
+	})(document,window);
+	oBtn.onclick=function(){
+		console.log('bb');
+	}
+	
+</script>
+</html>

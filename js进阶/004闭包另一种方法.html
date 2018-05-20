@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004闭包另一种方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var name1='Tom';
+	function fn1(){
+		var name2='Amy';
+		// function fn2(){
+		// 	var name3='Leo';			
+		// }
+		// fn2();
+		return function(){    //返回一个函数去取到函数中的局部变量
+			return name2;     //返回Amy
+		}
+	}
+	fn1();
+	console.log(fn1()());  //fn1()返回的是一个函数(return function())这个函数
+							//fn1()()返回的是return name2,也就是Amy
+</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>异常处理</title>
+</head>
+<body>
+	<script>
+		function mutiple(n1,n2){
+			if(isNaN(parseInt(n1))||isNaN(parseInt(n2))){
+				throw new Error('not a number');
+			}
+			return n1*n2;
+		}
+		try{
+			console.log(mutiple(12,'abs'));
+		}catch(e){
+			console.log(e);
+		}finally{
+			console.log('end');
+		}
+	</script>
+</body>
+</html>
