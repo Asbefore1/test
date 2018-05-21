@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008函数节流.html</title>
+	<style>
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	function throttle(fn,delay){
+		var timer=null;
+		return function(){
+			clearTimeout(timer);
+			timer=setTimeout(fn,delay);
+		}
+	}
+	window.onresize=throttle(function(){  //当屏幕尺寸发生变化时，执行()
+		console.log(window.innerWidth);  
+	},400)   // 在拉动时不执行,在松开时执行
+	window.onscroll=throttle(function(){
+		console.log('ss');
+	})
+</script> 
+</html>

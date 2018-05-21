@@ -559,6 +559,9 @@
 			font-weight: bold;
 			cursor: pointer;
 		}
+		.hot .flash .box-hd  .more span.active{
+			color:#ff6700;
+		}
 		.hot .flash .box-hd  .more span:last-child{
 			border-left: none;
 		}
@@ -608,12 +611,11 @@
 		.hot .flash .box-bd .product-list{
 			float: left;
 			width: 978px;
-			/*height: 301px;*/
 			overflow: hidden;
-			background: red;
+			/*background: red;*/
 		}
 		.hot .flash .box-bd .product-list ul{
-			width: 1956px;
+			width: 1970px;
 		}
 		.hot .flash .box-bd li:nth-child(1){
 			border-top:1px solid orange;
@@ -707,11 +709,15 @@
 		}
 		.main .elec .box-bd li{
 			background: #fff;
-			height: 301px;
+			width: 234px;
+			height: 301px;	
+			box-shadow: 0 0 20px rgba(0,0,0,0.2);	
+		}
+		.main .elec .box-bd li:hover{
 			transition-property:height;
-			transition-duration: 1s;
-			box-shadow: 0 0 20px rgba(0,0,0,0.2);
-			/*transform: translateY(-2px);*/
+			transition-duration: 2s;
+			transform: translateY(-2px);
+			
 		}
 		.view{
 			width: 234px;

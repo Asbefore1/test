@@ -254,15 +254,23 @@ function handleFalsh(){
 	var oBoxUl=document.querySelector('.hot .flash .box-bd .product-list ul');
 	// console.log(oBoxUl);
 	aSpan[1].onclick=function(){
-		oBoxUl.style.marginLeft='-978px';
+		animation(oBoxUl,{marginLeft:-978});
+		this.className='';
+		aSpan[0].className='active';
+	}
+	aSpan[0].onclick=function(){
+		animation(oBoxUl,{marginLeft:0});
+		this.className='';
+		aSpan[1].className='active';
 	}
 }
 function handleElec(){
 	var aElecA=document.querySelectorAll('.elec .box-hd .more li a');
 	var oUl=document.querySelector('.elec .box-bd .right-box ul');
+	loadData(0);
 	for(var i=0;i<aElecA.length;i++){
 		aElecA[i].index=i;  //先把i存起来
-		aElecA[i].onmouseover=function(){
+		aElecA[i].onmouseenter=function(){
 			for(var j=0;j<aElecA.length;j++){
 				aElecA[j].className='';  //点之前先清空
 			}
@@ -271,17 +279,17 @@ function handleElec(){
 		}
 	}
 	function loadData(index){
-		var aData=aElecItems[index];				
+		var aData=aElecItems[index];			
 		// console.log(aData);
-		oUl.innerHTML='';
-		var sHtml='';
+		oUl.innerHTML='';		
 		if(!aData){
 			return false;
 		}
+		var sHtml='';
 		for(var i=0;i<aData.length-1;i++){
 			sHtml+='<li class="col1';
-			if(aData[i].target){
-				sHtml+='flag'+aData[i].target+'">';
+			if(aData[i].tag){
+				sHtml+='flag'+aData[i].tag+'">';
 			}else{
 				sHtml+='">';
 			}
@@ -297,6 +305,14 @@ function handleElec(){
 			}
 			sHtml+='</a></li>';
 		}
-		oUl.innerHTML=sHtml;	
+
+		var lastData=aData[aData.length-1];
+		sHtml+='<li class="col1"><div class="top"><div class="top-left"><p class="desc">';
+		sHtml+=lastData.top.desc+'</p><p class="pr">'+lastData.top.pr+'元</p>';
+		sHtml+='</div><div class="top-right"><img src="'+lastData.top.img+'"alt=""></div></div>';
+		sHtml+='<div class="bottom"><div class="bottom-left"><p class="desc">'+lastData.bottom.desc;
+		sHtml+='</p><p class="more">'+lastData.bottom.more+'</p></div><div class="bottom-right">';
+		sHtml+='<i class="iconfont">'+lastData.bottom.iconfont+'</i></div></div></li>';
+		oUl.innerHTML=sHtml;													
 	}	
 }

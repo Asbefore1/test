@@ -37,23 +37,48 @@
 	</ul>
 </body>
 	<script>
-		// var oLi=document.getElementsByTagName('li');
-		// for(var i=0;i<oLi.length;i++){
-		// 	oLi[i].onmouseover=function(){
-		// 		for(var j=0;j<oLi.length;j++){
-		// 			oLi[j].className='';
-		// 		}
-		// 		this.className='active';
-		// 	}			
-		// }
-		(function(){
-			var oLi=document.getElementsByTagName('li');
+		  //方法一：
+		/*
+		var oLi=document.getElementsByTagName('li');
+		for(var i=0;i<oLi.length;i++){
 			oLi[i].onmouseover=function(){
 				for(var j=0;j<oLi.length;j++){
 					oLi[j].className='';
 				}
 				this.className='active';
-			}
-		})(i);
+			}			
+		}
+		*/
+
+
+		//方法二：
+			
+			// var aLi=document.getElementsByTagName('li');
+			// var iOne=0;
+			// for(var i=0;i<aLi.length;i++){	
+			// 	aLi[i].index=i;			
+			// 	aLi[i].onmouseover=function(){
+			// 		aLi[iOne].className='';
+			// 		this.className='active';
+			// 		iOne=this.index;  //让上一个清空,点的那个变成active
+
+			// 	}
+			// }
+			
+		//方法三:
+		var aLi=document.getElementsByTagName('li'); 
+		var iOne=0;
+		for(var i=0;i<aLi.length;i++){
+			(function(index){   //通过i传参来获取到所有的li
+				// console.log(index);
+				aLi[index].onmouseover=function(){
+					// console.log(index);  //不用存起来就可以直接取到i的值					
+					aLi[iOne].className='';
+					this.className='active';
+					iOne=index;
+				}
+			})(i);
+		}
+		
 	</script>
 </html>

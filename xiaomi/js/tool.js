@@ -1,4 +1,4 @@
-function animation(obj,opation,isLinear,end){
+function animation(obj,opation,isLinear,end){  
 clearInterval(obj.timer);
 var iSpeed = 0;
 // 都执行完了，结束

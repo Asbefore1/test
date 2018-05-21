@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001.函数说明(事件绑定的三种方法).html</title>
+</head>
+<body>
+	<input type="button" id="btn">
+</body>
+<script>
+	
+	/*
+	方法二:
+	function test(){
+		alert('abc');
+	}
+	var oBtn=document.getElementById('btn').onclick=test;
+	*/
+
+
+
+
+	/*
+	方法三:
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function(){
+		alert('abc');
+	}
+    */
+
+
+
+
+    /*
+    方法一:   <input type="button" id="btn" onclick='test()'>
+
+					 function test(){
+						alert('abc');
+					}
+	*/
+</script>
+</html>

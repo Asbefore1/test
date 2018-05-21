@@ -9,11 +9,13 @@
 </body>
 <script>
 	(function(){
-		console.log('aa');  //第一个括号将function作为一个整体,第二个用来传参数,第三个是调用
+		var abc='abc';
+		console.log('int::', abc);  //第一个括号将function作为一个整体,第二个用来传参数,第三个是调用
 	}()) ;          //封闭空间作为一个独立的空间,不污染全局
 
-	(function(){
-		console.log('bb');
-	}())
+	var abc='efg';
+	
+	console.log('out::', abc);
+
 </script>
 </html>
