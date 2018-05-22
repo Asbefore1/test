@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003选项卡案例.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			display: none;
+		}
+		.active{
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<input type="button"  value="按钮1" class="active">
+	<input type="button"  value="按钮2">
+	<input type="button"  value="按钮3">
+	<input type="button"  value="按钮4">
+	<div style="display: block;">1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+</body>
+<script>
+	var aInput=document.getElementsByTagName('input');
+	var aDiv=document.getElementsByTagName('div');
+
+	for(var i=0;i<aInput.length;i++){
+		aInput[i].index=i;
+		aInput[i].onclick=function(){
+			for(var j=0;j<aInput.length;j++){
+				aInput[j].className='';
+				aDiv[j].style.display='none';
+			}
+			this.className='active';
+			//console.log(i);    //i值取不到，要在外面存一下
+			aDiv[this.index].style.display='block';
+			// console.log(this.index);
+		}
+	}
+</script>
+</html>

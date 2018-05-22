@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016闭包说明.html</title>
+</head>
+<body>
+	<script>
+		var tom='abc';
+		var good=function fn1(){
+			// return tom;
+			var leo='rdf';
+			return function(){
+				return leo;
+			}
+		}
+		// console.log(good()());
+		// console.log(fn1()());
+	</script>
+</body>
+</html>

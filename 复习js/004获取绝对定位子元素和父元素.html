@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004获取绝对定位子元素和父元素.html</title>
+	<style>
+		#box1{
+			width: 400px;
+			height: 400px;
+			background: red;
+			margin: 100px auto;
+			position: relative; 						
+		}
+		#box2{
+			width: 200px;
+			height: 200px;
+			background: yellow;
+			position: absolute;
+			top:0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="box1">
+		<div id="box2"></div>
+	</div>
+</body>
+<script>
+	var oBox2=document.getElementById('box2');
+
+	oBox2.offsetParent.style.background='blue';  //offsetParent只能用于绝对定位中
+
+	     //不给box1加relative,box2会相对于body定,即向上找定位元素,box1上没有就去bod上找
+</script>
+
+</html>

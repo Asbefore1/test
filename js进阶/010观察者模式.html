@@ -17,21 +17,21 @@
 			constructor:Teacher,
 			__proto__:Object.prototype,
 			register:function(student){
-				this.students.push(student); //老师给提供一个接口
+				this.students.push(student); //让学生注册并将学生放在数组里面
 			},
-			pushlish:function(msg){
+			publish:function(msg){
 				for(var i=0;i<this.students.length;i++){
-					this.students[i].listen(msg); //学生收到消息
+					this.students[i].listen(msg); //循环让每一个学生收到消息
 				}
 			}
 		}
-		w.Teacher=Teacher;
+		w.Teacher=Teacher;   //返回出去(外面可以用)
 	})(window);
 
 	(function(w){
 		function Student(name,teacher){
 			this.name=name;
-			teacher.register(this);  //学生将自己注册
+			teacher.register(this);  //学生将自己注册给老师
 			this.msg="";
 		}
 		Student.prototype={
@@ -44,13 +44,26 @@
 		w.Student=Student;
 	})(window);
 
-	var teacher=new Teacher('Tom');
-	var s1=new Student('张三',teacher);
-	var s2=new Student('李四',teacher);
-	var s3=new Student('王五',teacher);
-	teacher.pushlish('完善');
+	var teacher1=new Teacher('Tom');
+	var s1=new Student('张三',teacher1);
+	var s2=new Student('李四',teacher1);
+	var s3=new Student('王五',teacher1);
+	teacher1.publish('完善');
 	console.log(s1.msg);
 	console.log(s2.msg);
 	console.log(s3.msg);
+
+
+	var teacher2=new Teacher('Leo');
+	var s4=new Student('小张',teacher2);
+	var s5=new Student('小李',teacher2);
+	var s6=new Student('小六',teacher2);
+	var s7=new Student('小何',teacher2);
+	teacher2.publish('学习');
+	console.log(s4.msg);
+	console.log(s5.msg);
+	console.log(s6.msg);
+	console.log(s7.msg);
+
 </script>
 </html>

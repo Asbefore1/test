@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011汇率计算.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function Local(name){
+			this.oInput=null;
+			this.foregins=[];
+			this.init(name);
+		}
+		Local.prototype={
+			constructor:Local,
+			init:function(name){  //初始化用来构建DOM元素
+				var oP=document.createElement('p');
+				oP.innerHTML=name;
+				this.oInput=document.createElement('input');
+				oP.appendChild(this.oInput);
+				document.body.appendChild(oP);
+			},
+			register:function(foregin){
+				this.foregins.push(foregin);
+			},
+			publish:function(){
+				this.oInput.oninput=function(){  //oninput键盘按下去时
+					for(var i=0;i<this.foregins.length;i++){
+						this.foregins[i].Listen(this.oInput.value);  //每个都收到消息 
+					}
+				}.bind(this);   
+			}
+		}
+		w.Local=Local;
+	})(window);
+	(function(w){
+		function Foregin(name,rate,local){
+			this.oInput=null;
+			this.rate=rate;
+			local.register(this);  
+			this.init(name);
+		}
+		Foregin.prototype={
+			constructor:Foregin,
+			init:function(name){  //初始化用来构建DOM元素
+				var oP=document.createElement('p');
+				oP.innerHTML=name;
+				this.oInput=document.createElement('input');
+				oP.appendChild(this.oInput);
+				document.body.appendChild(oP);
+			},
+			Listen:function(val){
+				this.oInput.value=val/this.rate;
+			}
+		}
+		w.Foregin=Foregin;
+	})(window);
+	var cny=new Local("人民币");
+	var usd=new Foregin('美元',6,cny);
+	var hkd=new Foregin('港币',0.8,cny);
+	cny.publish();
+</script>
+</html>

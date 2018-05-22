@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013添加删除行.html</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<input type="button" id="btn" value="创建">
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+<script>
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn');
+	var oUl=document.getElementById('ul1');
+	oBtn.onclick=function(){
+		var oLi=document.createElement('li');
+		oLi.innerHTML=oTxt.value;
+
+
+		var oA=document.createElement('a');
+		oA.innerHTML='del';
+		oA.href='#';
+		oA.onclick=function(){
+			oUl.removeChild(oLi);
+		}
+
+		
+		oLi.appendChild(oA);
+		oUl.appendChild(oLi);
+				
+	}
+	
+</script>
+</html>

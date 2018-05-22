@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>008函数节流.html</title>
+	<title>008闭包-函数节流.html</title>
 	<style>
 		body{
 			height: 3000px;
@@ -22,7 +22,7 @@
 	}
 	window.onresize=throttle(function(){  //当屏幕尺寸发生变化时，执行()
 		console.log(window.innerWidth);  
-	},400)   // 在拉动时不执行,在松开时执行
+	},400)                                // 在拉动时不执行,在松开时执行
 	window.onscroll=throttle(function(){
 		console.log('ss');
 	})
