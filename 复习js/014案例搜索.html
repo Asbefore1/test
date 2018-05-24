@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014案例搜索</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<input type="button" id="btn" value="提交">
+	<ul id="ul1">
+		<li>TOM</li>
+		<li>Amy</li>
+		<li>apple</li>
+		<li>cat</li>
+		<li>orange</li>
+	</ul>
+</body>
+<script>
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn');
+	var oUl=document.getElementById('ul1');
+	var aLi=oUl.children;
+	oBtn.onclick=function(){
+		for(var i=0;i<aLi.length;i++){
+			aLi[i].style.background='';
+		}
+		var sTxt=oTxt.value.toLowerCase();   //转换成小写
+		var aTxt=sTxt.split('');  //支持多个关键字搜寻,转化为一个数组
+		for(var i=0;i<aLi.length;i++){
+			var sLi=aLi[i].innerHTML.toLowerCase();
+			for(var j=0;j<aTxt.length;j++){
+					if(sLi.search(aTxt[j])!=-1){   // 模糊查询
+					aLi[i].style.background='yellow';
+				}
+			}			
+		}
+		
+	}
+</script>
+</html>

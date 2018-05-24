@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015单例1--登录框.html</title>
+	<style>
+		#login{
+			width: 200px;
+			height: 200px;
+			background: #ccc;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn" value="创建">
+	<div id="box"></div>
+
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	// var oBtn=document.getElementById('btn');
+	oBtn.onclick=function(){
+		oDiv=document.createElement('div');
+		oDiv.id='login';
+		document.body.appendChild(oDiv);
+	}
+</script>
+</html>

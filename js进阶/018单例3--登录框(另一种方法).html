@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>018单例3--登录框(另一种方法).html</title>
+	<style>
+		#login{
+			width: 200px;
+			height: 200px;
+			background: #ccc;
+			margin: 100px auto;
+		}
+		#aa{
+			width: 100px;
+			height: 100px;
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn" value="创建">
+	<!-- <div id="login"></div> -->
+</body>
+<script>
+		
+		
+		function createLoginLayer(){
+			oDiv=document.createElement('div');
+			oDiv.id='login';
+			document.body.appendChild(oDiv);			
+			return oDiv;
+		}
+		function create(){
+			oDiv=document.createElement('div');
+			oDiv.id='aa';
+			document.body.appendChild(oDiv);			
+			return oDiv;
+		}
+
+		function getSingle(fn){
+			var obj=null;
+			return function(){
+				if(!obj){
+					obj=fn();
+				}	
+				return obj;			
+			}
+
+			
+		}
+		// console.log(getSingle(fn));
+		var oBtn=document.getElementById('btn');
+		var Layer=getSingle(createLoginLayer);
+		var ll=getSingle(create);
+		oBtn.onclick=function(){
+			// new Login();  //new一个就是调用函数
+			Layer();
+			ll();
+		}
+	</script>
+</html>

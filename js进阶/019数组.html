@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>019数组.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr=[35,54,75,36,98];
+	console.log(arr);
+	// var p1=arr.forEach(function(value,index){
+	// 	return 10;   //无返回值
+	// })
+	// console.log(p1);  
+
+	// var p2=arr.map(function(value,index){
+	// 	return 10;    //数组中的值由return的值决定
+	// })
+	// console.log(p2);   
+
+	// var p3=arr.filter(function(value,index){
+	// 	// return value>=60;   //return一个表达式
+	// 	return 10;  //如果是真,就把自己返回出去,假的话就不返回
+	// })
+	// console.log(p3);
+
+	// var p4=arr.every(function(value,index){
+	// 	return value>=60;  //只要有一个不满足就返回假,全满足才返回真
+	// })
+	// console.log(p4);
+
+	var p5=arr.some(function(value,index){
+		return value>=100;   //只要有一个满足就返回真,都不满足返回假
+	})
+	console.log(p5);
+</script>
+</html>

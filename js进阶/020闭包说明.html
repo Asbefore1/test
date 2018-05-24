@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020闭包说明.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// (function(){
+	// 	return abc='123';
+	// })();   最后一个括号是函数的自我调用,返回123
+	// console.log(abc);
+
+	// var res=(function(){
+	// 	return function(){
+	// 		console.log('ss');
+	// 	}
+	// })();  //最后一个括号是函数的自我调用返回一个函数
+	// res()   //再去调用返回的函数,最后打印出来ss
+
+
+		var res=(function(){
+			return function(){
+				var obj=null;
+				if(!obj){     //如果obj不是一个对象
+					// console.log('aa');
+					obj={};
+				}
+				return obj;
+			}
+		})();
+		res();
+		console.log(res());
+</script>
+</html>
