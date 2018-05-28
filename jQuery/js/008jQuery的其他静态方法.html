@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008jQuery的其他静态方法.html</title>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				var str='  --a  b  c--';
+				var arr=[11,22,33,44];
+				function test(){
+
+				}
+				var obj={};
+
+
+				console.log('1::',str);
+				console.log('2::',$.trim(str));
+				console.log('3::',$.isWindow(window));  //括号里是小写的window
+				console.log('4::',$.isArray(arr));  
+				console.log('5::',$.isFunction(test));
+
+				
+				// $.trim(str) 去除字符串两边的空格并返回
+				// $.isWindow(arg) 判断参数对象是不是window对象
+				// $.isArray(arg) 判断参数对象是不是真数组
+				// $.isFunction(arg) 判断参数对象是不是函数
+			}) 
+		</script>
+</head>
+<body>
+	
+</body>
+</html>

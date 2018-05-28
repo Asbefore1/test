@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024ajax2.html</title>
+</head>
+<body>
+	<input type="button" value="获取数据" id="btn">
+	<ul id="ul1"></ul>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	var oUl=document.getElementById('ul1');
+	oBtn.onclick=function(){
+		var oAjax=new XMLHttpRequest();
+		oAjax.open('GET','http://127.0.0.1:3000/026data.json',true);
+		oAjax.send();
+		oAjax.onreadystatechange=function(){
+			console.log(oAjax.readyState);
+			if(oAjax.readyState==4){
+				if(oAjax.status==200){
+					console.log('getdata  scuess::',oAjax.responseText);
+					console.log(typeof oAjax.responseText);
+					var obj=JSON.parse(oAjax.responseText);
+					// console.log(obj.name);
+					// console.log(obj.age);
+					var oLi=document.createElement('li');
+					oLi.innerHTML='姓名:'+obj.name+'年龄:'+obj.age;
+					oUl.appendChild(oLi);
+
+				}else{
+					console.log('getdata faild::',oAjax.responseText);
+				}
+				
+			}
+		}
+	}
+</script>
+</html>

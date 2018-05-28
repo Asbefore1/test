@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010jQuery的属性和属性节点.html</title>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				var obj={};
+				obj.name='aa';
+				console.log(obj.name);
+
+				var oBox=document.getElementById('box');
+				oBox.name='bb';           
+				console.log(oBox.name);  //能直接作用到jQuery对象上的是属性
+
+				var oBox=document.getElementById('box');
+				oBox.id='bb';             //能够作用到标签上的叫属性节点
+				console.log(oBox.id);
+			}) 
+		</script>
+</head>
+<body>
+	<div id="box" class="box"></div>
+</body>
+</html>

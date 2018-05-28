@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003jQuery核心函数.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script src='jquery-1.12.4.js'></script>
+	<script>
+		var res=$(function(){
+			console.log('1::',$(false));
+			console.log('2::',$(NaN));
+			console.log('3::',$(''));
+			console.log('4::',$(undefined));
+			console.log('5::',$(0));
+			console.log('6::',$('<h1>我是标题</h1>'));
+			console.log('7::',$('.box1'));
+			console.log('8::',$('#box2'));
+			console.log('9::',$('div'));
+			console.log('10::',$(oBox1));
+
+
+		})
+		console.log('0::',res);
+		var oBox1=document.getElementById('box1');
+	</script>
+</head>
+<body>
+	<div class="box1"></div>
+	<div id="box2"></div>
+	<div ></div>
+</body>
+</html>

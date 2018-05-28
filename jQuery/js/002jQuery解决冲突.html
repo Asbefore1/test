@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002jQuery解决冲突.html</title>
+	<script src='jquery-1.12.4.js'></script>
+	<script>
+		(function(w){
+			function test(){
+				alert('my test');
+			}
+			w.$=test;
+		})(window);
+		$();  
+		// jQuery.noConflict();  //不用$代表jQuery
+		var kz=jQuery.noConflict();  //自己定义一个变量来代替$
+
+		kz(function(){
+			alert('aa');
+		})
+	</script>
+</head>
+<body>
+	
+</body>
+
+</html>

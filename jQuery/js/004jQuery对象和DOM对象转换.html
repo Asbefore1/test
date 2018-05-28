@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004jQuery对象和DOM对象转换.html</title>
+	<script src='jquery-1.12.4.js'></script>
+	<script>
+		$(function(){
+			var $div=$('div');    //$('div')获取所有的div
+			console.log($div);
+			console.log('1::',$div[0]);  //法一:直接获取到第0个元素
+			var Div=$div.get(0);         //法二：通过get获取第0个元素
+			console.log('2::',Div);
+			// $div.css({
+			// 	color:'red',
+			// 	fontSize:'20px',   //jquery对象上直接访问到css
+			// })
+			// var oDiv=$div[0];  //将jQuery对象转化为DOM对象
+			// oDiv.style.color='red';
+
+
+			var oDiv2=document.getElementById('div2');
+			var $div2=$(oDiv2);  //将DOM对象转化为jQuery对象
+			$div2.css({
+				color:'red',
+				fontSize:'20px'
+			})
+		}) 
+	</script>		
+</head>
+<body>
+	<div>1</div>
+	<div id="div2">2</div>
+	<div>3</div>
+</body>
+</html>

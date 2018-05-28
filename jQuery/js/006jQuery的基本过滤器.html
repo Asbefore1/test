@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006jQuery的基本过滤器.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				console.log($('div:eq(0)'));
+				console.log($('div:eq(-2)'));  //-1指的是倒数第一个
+				console.log($('div:eq(0)').index());   //获取当前JQuery对象的索引
+				console.log($('div').eq(0));  
+				console.log($('div').get(0));  获取的是DOM节点
+				console.log($('div')[0]);  获取的是DOM节点
+			}) 
+		</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011原生js操作属性回顾.html</title>
+</head>
+<body>
+	<div id="box" index='0'></div>
+</body>
+<script>
+
+	//获取节点的方法
+
+	var oBox=document.getElementById('box');
+	console.log(oBox.getAttribute('id'));   //法一
+	console.log(oBox.id);                   //法二
+	console.log(oBox['id']);                //法三
+	console.log(oBox.index);
+
+
+</script>
+</html>

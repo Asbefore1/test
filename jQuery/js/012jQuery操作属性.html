@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012jQuery操作属性.html</title>
+</head>
+<body>
+	<input type="text" value="0" name='aa' index='0'>
+	<input type="text" value="1" name='bb' index='0'>
+	<input type="text" value="2" name='cc' index='0'>
+	<input type="checkbox">
+</body>
+	<script src='jquery-1.12.4.js'></script>
+	<script>
+		$(function(){
+			var $div=$('input');
+			//获取jQuery对象
+			console.log("1::",$('input').attr('name'));  //只能获取到第一个jQuery对象
+			console.log("2::",$('input').prop('name'));  //只能获取到第一个jQuery对象
+
+
+			//设置jQuery对象
+			$('input').attr('index','1');  //设置时所有的jQuery对象都被设置
+			// $('input').prop('index','1');  //设置时所有的jQuery对象都被设置(不能设置)
+
+
+			//删除jQuery对象
+			$('input').removeAttr('name');//由于获取时获取了所有的input,删除时会删除所有的name
+			$('input').removeProp('name');//由于获取时获取了所有的input,删除时会删除所有的name
+
+
+			//区分Attr和Prop
+
+			//获取jQuery对象时
+			console.log("3::",$('input').attr('name')); 
+		}) 
+	</script>
+</html>

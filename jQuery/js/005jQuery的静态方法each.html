@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005jQuery的静态方法each.html</title>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				var aLi=document.getElementsByTagName('li');
+				var arr=[12,22,55,144,11];
+				var likeArr={0:'aa',1:'bb',2:'cc',length:3};
+				$.each(arr,function(index,value){
+					console.log('1::',arr,value);
+				})
+				$.each(aLi,function(index,value){
+					console.log('2::',aLi,value);
+				})
+				$.each(likeArr,function(index,value){
+					console.log('3::',likeArr,value);
+				})
+				var $res=$.map(arr,function(value,index){
+					console.log('4::',arr,value);
+					return value;
+				})
+				console.log($res);
+				var $res=$.map(aLi,function(value,index){
+					console.log('5::',aLi,value);
+					return value;
+				})
+				console.log($res);
+				var $res=$.map(likeArr,function(value,index){
+					console.log('6::',likeArr,value);
+					return value;
+				})
+				console.log($res);
+			}) 
+		</script>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+</html>
