@@ -16,9 +16,11 @@
 				console.log($('div:eq(0)'));
 				console.log($('div:eq(-2)'));  //-1指的是倒数第一个
 				console.log($('div:eq(0)').index());   //获取当前JQuery对象的索引
-				console.log($('div').eq(0));  
-				console.log($('div').get(0));  获取的是DOM节点
-				console.log($('div')[0]);  获取的是DOM节点
+
+
+				console.log($('div').eq(0));  //在方法上获取,获取到的是jQuery对象 
+				console.log($('div').get(0));  //获取的是DOM节点
+				console.log($('div')[0]);  //获取的是DOM节点
 			}) 
 		</script>
 </head>

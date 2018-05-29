@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020jQuery阻止事件冒泡.html</title>
+	<style>
+		.grandfather{
+			width: 400px;
+			height: 400px;
+			background:blue;
+			margin: 100px auto;
+			/*border: 1px solid #000;*/
+			overflow: hidden;
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			background:red;
+			margin: 50px auto;
+			overflow: hidden;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background:yellow;
+			margin:50px auto;
+		}
+
+	</style>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				$('.son').click(function(ev){
+					alert('son');
+					// ev.stopPropagation();  //法一
+					// return false;             //法二
+				});
+				$('.father').click(function(){
+					alert('father');
+				});
+				$('.grandfather').click(function(){
+					alert('grandfather');
+				});
+
+				// $('.son').click(function(){
+				// 	alert('aaaa');
+				// })
+				//$('.son').trigger('click');   //不阻止事件冒泡
+				$('.son').triggerHandler('click');   //阻止事件冒泡
+			}) 
+		</script>
+</head>
+<body>
+	<div class="grandfather">
+		<div class="father">
+			<div class="son"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -28,24 +28,30 @@
 	window.onload=function(){
 		var oleft=document.getElementById('leftbox');
 		var oright=document.getElementById('rightbox');
-		// var timer=null;
+		var timer=null;
 		oleft.onmouseover=function(){
-			// clearTimeout(timer);
-			oright.style.display="block";
+
+			clearTimeout(timer);
+			oright.style.display='block';
 		}
 		oleft.onmouseout=function(){
-			setTimeout(function(){
-				oright.style.display="none";   //延迟一秒再消失
-			},500)
+			timer=setTimeout(function(){
+				oright.style.display='none';
+			},1000)
+			
 		}
-		// oright.onmouseout=function(){
-		// 	timer=setTimeout(function(){
-		// 		oright.style.display="none";   //延迟一秒再消失
-		// 	},1000)
-		// }
-		// oright.onmouseover=function(){
-		// 	clearTimeout(timer);
-		// }
+		oright.onmouseover=function(){
+			clearTimeout(timer);
+
+			oright.style.display='block';
+		}
+		oright.onmouseout=function(){
+			timer=setTimeout(function(){
+				oright.style.display='none';
+			},1000)
+			
+		}
+		
 	}
 </script>
 <body>

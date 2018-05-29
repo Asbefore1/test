@@ -9,6 +9,8 @@
 				var aLi=document.getElementsByTagName('li');
 				var arr=[12,22,55,144,11];
 				var likeArr={0:'aa',1:'bb',2:'cc',length:3};
+
+				
 				$.each(arr,function(index,value){
 					console.log('1::',arr,value);
 				})
@@ -18,6 +20,9 @@
 				$.each(likeArr,function(index,value){
 					console.log('3::',likeArr,value);
 				})
+
+
+
 				var $res=$.map(arr,function(value,index){
 					console.log('4::',arr,value);
 					return value;

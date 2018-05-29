@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014jQuery操作和代码.html</title>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				console.log($('div').html());   //既显示文本,不显示标签
+				console.log($('div').html('<h1>我是标题</h1>')); 
+					//有设置的值时就返回设置的值,没有写就返回原来的  
+				console.log($('div').text());  //只显示文本,不显示标签
+				console.log($('div').text('<h1>我是标题</h1>'));
+			})   
+		</script>
+</head>
+<body>
+	<div>
+		我是div
+		<p>我是段落</p>
+	</div>
+</body>
+</html>

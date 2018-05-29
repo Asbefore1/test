@@ -6,7 +6,7 @@
 	<script src='jquery-1.12.4.js'></script>
 	<script>
 		$(function(){
-			var $div=$('div');    //$('div')获取所有的div
+			var $div=$('div');    //$('div')获取所有的div,返回一个jQuery对象
 			console.log($div);
 			console.log('1::',$div[0]);  //法一:直接获取到第0个元素
 			var Div=$div.get(0);         //法二：通过get获取第0个元素

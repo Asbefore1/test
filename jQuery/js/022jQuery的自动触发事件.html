@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022jQuery的自动触发事件.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				$('div').click(function(){
+					alert('dd');
+				})
+				$('div').trigger('click');
+			}) 
+		</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

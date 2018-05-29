@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>019jQuery事件的绑定和移除.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+
+				//绑定
+				$('div').click(function(){
+					alert('aa1');         //法一
+				});
+				$('div').click(function(){
+					alert('aa2');          //可以叠加,后面的不会覆盖前面的
+				});
+				function test(){
+					alert('aa3');
+				}
+				$('div').click(test);    //法三
+				// $('div').mouseover(function(){
+				// 	alert('bb');
+				// });
+
+				// $('div').on('click',function(){
+				// 	alert('cc');
+				// })                        //法二
+
+
+				// 移除
+				// $('div').off();   法一
+				// $('div').off('mouseover'); 法二
+				$('div').off('click',test);  //法三
+
+
+			}) 
+		</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

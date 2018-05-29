@@ -1,4 +1,5 @@
 handleCarbox();
+handleNavbox();
 handleSearch();
 handleCate();
 function handleCarbox(){
@@ -25,6 +26,83 @@ function handleCarbox(){
 		oEmptyBox.style.display='none';
 		oLoading.style.display='block';
 				
+	}
+}
+function handleNavbox(){
+	var aNavA=document.querySelectorAll('.nav .zhongjian li a');
+	var oDropBox=document.querySelector('.nav .drop-box');
+	var oLoading=document.querySelector('.nav .loader');
+	var oUl=document.querySelector('.nav .drop-box ul');
+	var timer=null;
+	var timer1=null;
+	for(var i=0;i<aNavA.length-2;i++){
+		aNavA[i].index=i;
+		aNavA[i].onmouseenter=function(){
+			clearTimeout(timer);
+			clearTimeout(timer1);
+			oUl.style.display='none';
+			animation(oDropBox,{height:230},false,function(){
+				oLoading.style.display='block';			
+			});
+			timer1=setTimeout(function(){
+				oUl.style.display='block';
+				oLoading.style.display='none';	
+			},1000)
+			loadData(this.index);			
+		}
+		 aNavA[i].onmouseleave=function(){
+		 	timer=setTimeout(function(){
+		 		animation(oDropBox,{height:0},false,function(){
+					oLoading.style.display='none';			
+				});
+		 	},500)	
+		}
+		oDropBox.onmouseenter=function(){
+			clearTimeout(timer);
+		}
+		oDropBox.onmouseleave=function(){
+			timer=setTimeout(function(){
+		 		animation(oDropBox,{height:0},false,function(){
+					oLoading.style.display='none';			
+				});
+		 	},500)	
+		}
+		var index=this.index;
+		function loadData(index){
+			var data=aNavItems[index];
+			oUl.innerHTML='';
+			if(!data){
+				return false;
+			}
+			for(var i=0;i<data.length;i++){
+				var oLi=document.createElement('li');
+				if(data[i].tag){
+					var oSpan=document.createElement('span');
+					oSpan.className='tag';
+					oSpan.innerHTML=data[i].tag;
+					oLi.appendChild(oSpan);
+				}
+				oUl.appendChild(oLi);								
+				var oDiv=document.createElement('div');
+				oDiv.className='img';
+				oLi.appendChild(oDiv);
+				var oImg=document.createElement('img');
+				oImg.src=data[i].img;
+				oDiv.appendChild(oImg);
+				var p1=document.createElement('p');
+				p1.innerHTML=data[i].intro;
+				oLi.appendChild(p1);
+				var p2=document.createElement('p');
+				p2.innerHTML=data[i].price+'元起';
+				oLi.appendChild(p2);
+				
+				
+				
+				
+			}
+				
+		}
+		
 	}
 }
 function handleSearch(){
@@ -63,8 +141,7 @@ function handleCate(){
 	oNavLi.onmouseleave=function(){
 		timer1=setTimeout(function(){
 			oList.style.display='none';	
-		},500)
-						
+		},500)						
 	}
 	oList.onmouseenter=function(){
 		clearTimeout(timer1);
@@ -84,7 +161,6 @@ function handleCate(){
 			oListContent.style.display='block';
 			loadData(this.index);
 		}
-
 	}
 	oListContent.onmouseenter=function(){
 		oListContent.style.display='block';
@@ -94,10 +170,26 @@ function handleCate(){
 		timer=setTimeout(function(){
 			oListContent.style.display='none';
 			oList.style.display='none';
-		},200)
-		
+		},200)		
+	}
+	var index=this.index;
+	function loadData(index){
+		var data=aCateItems[index];
+		oUl.innerHTML='';		
+		if(!data){
+			return false;
+		}
+		for(var i=0;i<data.length;i++){
+			var oLi=document.createElement('li');
+			var oImg=document.createElement('img');
+			oImg.src=data[i].img;
+			var oA=document.createElement('a');
+			oA.innerHTML=data[i].intro;
+			oLi.appendChild(oA);
+			oLi.appendChild(oImg);
+			oUl.appendChild(oLi);
+
+		}
 	}
 }
-loadData(index){
-	oUl.innerHTML='';
-}
+	
