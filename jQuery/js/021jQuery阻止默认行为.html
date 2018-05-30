@@ -6,20 +6,31 @@
 		<script src='jquery-1.12.4.js'></script>
 		<script>
 			$(function(){
-				// $('a').click(function(ev){
-				// 	alert('sss');
-				// 	return false;  //法一
-				// 	ev.preventDefault();  //法二
-				// });
-				$('input').click(function(){
+				
+				$('a').click(function(ev){
+					alert('sss');
+					// return false;  //法一
+					// ev.preventDefault();  //法二
+				});
+				
+
+				/*$('input').click(function(){
 					alert('sss');
 					return false;
 				})
+				*/
+
+				$('span').trigger('click');   //a标签比较特殊,用trigger会阻止默认行为
+				//如果要在a上添加默认行为,给a添加一个子元素,在子元素上添加默认行为
+				//不能用triggerHandler来添加默认行为,因为他本身就是阻止默认行为的
+
+
+				//$('a').triggerHandler('click');  //阻止默认行为
 			}) 
 		</script>
 </head>
 <body>
-	<a href="http://www.kuazhu.com">上课喽</a>
+	<a href="http://www.kuazhu.com"><span>上课喽</span></a>
 	<form action="http://www.kuazhu.com">
 		<input type="submit" value="点我">	
 	</form>

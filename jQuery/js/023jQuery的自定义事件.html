@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023jQuery的自定义事件.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background:red;
+		}
+	</style>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+
+				// $('div').myclick(function(){
+				// 	alert('aa');
+				// })
+				$('div').on('myclick',function(){
+					alert('aa');
+				})
+				$('div').trigger('myclick');
+			}) 
+		</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

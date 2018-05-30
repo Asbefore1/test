@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>020jQuery阻止事件冒泡.html</title>
+	<title>024jQuery的事件命名空间</title>
 	<style>
 		.grandfather{
 			width: 400px;
@@ -30,20 +30,21 @@
 		<script src='jquery-1.12.4.js'></script>
 		<script>
 			$(function(){
-				$('.son').click(function(ev){
-					alert('son');
-					// ev.stopPropagation();  //法一
-					// return false;             //法二
+				$('.son').on('click.zs',function(){
+					alert('son1');
 				});
-				$('.father').click(function(){
-					alert('father');
+				$('.son').on('click.ls',function(){
+					alert('son2');
 				});
-				$('.grandfather').click(function(){
-					alert('grandfather');
-				});
+				// $('.son').trigger('click.zs');  //只有zs的会被触发
 
-				$('.son').trigger('click');   //不阻止事件冒泡
-				// $('.son').triggerHandler('click');   //阻止事件冒泡
+				$('.father').on('click.zs',function(){
+					alert('father1');
+				});
+				$('.father').on('click.ls',function(){
+					alert('father2');
+				});
+				$('.son').trigger('click.zs')   //son1和father1的zs会被触发
 			}) 
 		</script>
 </head>

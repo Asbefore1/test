@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>032jQuery的列队动画.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background:red;
+		}
+	</style>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			//法一:
+			/*
+			$(function(){
+				$('button').click(function(){
+					$('div').animate({
+						width:200,
+					},1000)
+				})
+				$('button').click(function(){
+					$('div').animate({
+						height:200,
+					},1000)
+				})
+				$('button').click(function(){
+					$('div').animate({
+						opacity:0.5,
+					},1000)
+				})
+			}) 
+			*/
+
+			//法二:
+			/*
+			$(function(){
+				$('button').click(function(){
+					$('div').animate({
+						width:200
+					},1000).animate({
+						height:200
+					},1000).animate({
+						opacity:0.5
+					},1000)
+				})
+			})
+			*/
+
+			//法三:
+			/*
+			$(function(){
+				$('button').click(function(){
+					$('div').animate({
+						width:200
+					},1000,function(){
+						$('div').animate({
+							height:200
+						},1000,function(){
+							$('div').animate({
+								opacity:0.5
+							})
+						})
+					})
+				})
+			})
+			*/
+		</script>
+</head>
+<body>
+	<button>点我</button>
+	<div></div>
+</body>
+</html>

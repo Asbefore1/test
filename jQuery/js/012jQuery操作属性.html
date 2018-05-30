@@ -29,7 +29,16 @@
 			$('input').removeProp('name');//由于获取时获取了所有的input,删除时会删除所有的name
 
 
-			//区分Attr和Prop
+			//区分Attr和Prop:
+			
+			// 属性节点的值具有true和false时用prop
+			// 属性节点的值具有true和false时,没有添加该属性时attr会返回undefined,prop返回true
+
+
+
+
+
+
 
 			//获取jQuery对象时
 			console.log("3::",$('input').attr('name')); 

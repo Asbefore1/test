@@ -3,14 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>009jQuery的入口函数.html</title>
-		<script src='jquery-1.12.4.js'></script>
-		<script>
-			$(function(){
-				
-			}) 
-		</script>
+		
 </head>
 <body>
-	$.holdReady(布尔值) 参考为true时暂停jQuery入口函数的执行,参数为false时恢复jQuery入口函数的执行
+	<input type="button" value="点我" id="btn">
 </body>
+<script src='jquery-1.12.4.js'></script>
+		<script>
+			$.holdReady(true);    //true时暂停jQuery入口函数的执行
+				$(function(){
+					alert('入口执行了');					   	 
+				}) 
+			var oBtn=document.getElementById('btn');
+			oBtn.onclick=function(){
+				$.holdReady(false);    //参数为false时恢复jQuery入口函数的执行
+			} 
+			
+		</script>
 </html>
