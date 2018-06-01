@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>045对象级别的插件</title>
+	<style>
+		div{
+			width: 100px;
+			height: 50px;
+			border: 1px solid #000;
+		}
+	</style>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			;(function($){
+				// $.function.setColor=function(options){
+				// 	var dafaults={
+				// 		color:'red'
+				// 	}
+				// 	options=$excend(defaults,options)
+				// 	this.each(function(){
+				// 		this.style.color=options.color;
+				// 	});
+				// }
+				$.fn.extend({
+					setColor:function(options){
+						var dafaults={
+						color:'red'
+					}
+					options=$.extend(dafaults,options)
+						this.each(function(){
+							this.style.color=options.color;
+						});
+					}
+				})				
+			})(jQuery);
+			 
+		</script>
+		<script>
+			$(function(){			
+				$('button').click(function(){
+					$('div').setColor({
+						color:'blue'
+					});
+					// $('div').setColor();
+				})
+			})
+		</script>
+</head>
+<body>
+	<button>点我</button>
+	<div>我是div</div>
+</body>
+</html>

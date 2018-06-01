@@ -2,6 +2,9 @@ handleCarbox();
 handleNavbox();
 handleSearch();
 handleCate();
+handleCarousel1();
+handleCarousel2();
+handleCarousel3();
 function handleCarbox(){
 	var oCarbox=document.querySelector('.top .car-box');
 	var oCar=document.querySelector('.top .car-box .car');
@@ -192,4 +195,45 @@ function handleCate(){
 		}
 	}
 }
-	
+function handleCarousel1(){
+	new Carousel({
+		id:'container1',
+		aImg:[
+			'./images/1.jpg.gif',
+			'./images/2.jpg.gif',
+			'./images/2.jpg',
+		],
+		width:'1600',
+		height:'742',
+		playDuration:3000
+	})
+}
+function handleCarousel2(){
+	new Carousel({
+		id:'container2',
+		aImg:[
+			'./images/xiaojiejie.gif',
+			'./images/2.jpg.gif',
+			'./images/2.jpg',
+		],
+		intro1:'AI 梦境虚化，人像模式新玩法',
+		intro2:'添加多款如梦境般的动态光斑效果，不仅为人像照片带',
+		intro3:'来神奇的旋转、闪烁效果，更能一键分享朋友圈。',
+		width:'1226',
+		height:'718',
+		playDuration:3000
+	})
+}
+function handleCarousel3(){
+	new Carousel({
+		id:'container3',
+		aImg:[
+			'./images/p4.gif',
+			'./images/2.jpg.gif',
+			'./images/2.jpg',
+		],
+		width:'1600',
+		height:'742',
+		playDuration:3000
+	})
+}

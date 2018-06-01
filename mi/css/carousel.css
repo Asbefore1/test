@@ -1,0 +1,38 @@
+.leftBtn,.rightBtn{
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	border-radius: 50%;
+	color: #ccc;
+	font-size: 50px;
+	position: absolute;
+	top:50%;
+	margin-top: -15px;
+	cursor: pointer;
+}
+.leftBtn:hover,.rightBtn:hover{
+	background: rgba(0,0,0,0.5);
+}
+.leftBtn{
+	left:125px;
+}
+.rightBtn{
+	right:125px;
+}
+.bottomBtn {
+	position: absolute;
+	bottom: 20px;
+	left:50%;
+}
+.bottomBtn li{
+	width: 100px;
+	height: 10px;
+	background: rgba(0,0,0,0.5);
+	float: left;
+	margin-right: 10px;
+	cursor: pointer;
+}
+.bottomBtn li.active{
+	background: #000;
+}

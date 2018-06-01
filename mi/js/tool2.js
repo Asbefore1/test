@@ -1,85 +1,24 @@
-function animation(obj,opation,isLinear,end){  
-clearInterval(obj.timer);
-var iSpeed = 0;
-// 都执行完了，结束
-// 如果有没有执行完的，不结束
-	obj.timer = setInterval(function(){
-		var istopall=true;
-		for(attr in opation){
-			
-			var curr = parseFloat(getComputedStyle(obj,false)[attr]);
-			var isStop = false;
-			if(attr == 'opacity'){
-				curr = Math.round(curr*100);
-			}
-			
-			if(isLinear){
-				if(curr > opation[attr]){
-					iSpeed = -20;
-				}else{
-					iSpeed = 20;
-				}
-				if(Math.abs(opation[attr] - curr) <= Math.abs(iSpeed)){
-					isStop = true;
-				}else{
-					istopall=false;
-				}					
-			}else{
-				iSpeed = (opation[attr] - curr)/5;
-				iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
-				if(!iSpeed){
-					isStop = true;
-				}else{
-					istopall=false;
-				}
-			}
-			if(isStop){
-				
-				if(isLinear){
-					if(attr == 'opacity'){
-						obj.style[attr] = opation[attr] / 100;
-					}else{
-						obj.style[attr] = opation[attr] + 'px';	
-					}		
-				}													
-			}else{
-				if(attr == 'opacity'){
-					obj.style[attr] = (curr + iSpeed)/100 ;
-				}else{
-					obj.style[attr] = curr + iSpeed + 'px';
-				}
-			}
-		}
-		if(istopall){
-			clearInterval(obj.timer);
-			if(end){
-				end();
-			}
-		}
-	},30)		
-}
+function Carousel2(option){
+	//罗列属性
+	//获取容器
 
-
-function Carousel(option){
-		//罗列属性
-		//获取容器
-		this.oBox = document.getElementById(option.id);
-		this.oImgUl = null;
-		this.aImg = option.aImg;
-		this.width = option.width;
-		this.height = option.height;
-		this.leftBtn = null;
-		this.rightBtn = null;
-		this.oBottomBtn = null;
-		this.playDuration = option.playDuration;
-		this.now = 0;
-		//初始化
-		this.init();
-		//绑定事件
-		this.bindEvent();
-		if(this.playDuration){
-			this.autoPlay();
-		}
+	this.oBox = document.getElementById(option.id);
+	this.oImgUl = null;
+	this.aImg = option.aImg;
+	this.width = option.width;
+	this.height = option.height;
+	this.leftBtn = null;
+	this.rightBtn = null;
+	this.oBottomBtn = null;
+	this.playDuration = option.playDuration;
+	this.now = 0;
+	//初始化
+	this.init();
+	//绑定事件
+	this.bindEvent();
+	if(this.playDuration){
+		this.autoPlay();
+	}
 }
 Carousel.prototype.init = function(){
 	//创建方图片的ul容器
@@ -90,6 +29,10 @@ Carousel.prototype.init = function(){
 	for(var i = 0;i<this.aImg.length;i++){
 		var oLi = document.createElement('li');
 		var oImg = document.createElement('img');
+		var p1=document.createElement('p');
+		var p2=document.createElement('p');
+		var p3=document.createElement('p');
+		var oDiv=document.createElement('desc');
 		oLi.style.position = 'absolute';
 		oLi.style.top = 0;
 		oLi.style.left = 0;
@@ -103,7 +46,20 @@ Carousel.prototype.init = function(){
 		}
 		oImg.style.width = this.width + 'px';
 		oImg.style.height = this.height + 'px';
+
 		oImg.src = this.aImg[i];
+		p1.className='title1';
+		p2.className='title2';
+		p3.className='title3';
+		p1.innerHTML=this.intro1[];
+		p2.innerHTML=this.intro2[];
+		p3.innerHTML=this.intro3[];
+
+
+		oLi.appendChild(p1);		
+		oLi.appendChild(p2);
+		oLi.appendChild(p3);
+		oLi.appendChild(oDiv);
 		oLi.appendChild(oImg);
 		this.oImgUl.appendChild(oLi);
 	}
@@ -188,4 +144,3 @@ Carousel.prototype.autoPlay = function(){
 		timer = setInterval(this.rightBtn.onclick,this.playDuration);			
 	}.bind(this);
 }
-	

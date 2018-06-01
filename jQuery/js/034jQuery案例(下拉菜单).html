@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034jQuery案例(下拉菜单).html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: gray;
+		}
+		.box{
+			width: 200px;
+			height: 60px;
+			margin: 0 auto;
+		}
+		.left{
+			width: 100px;
+			height: 60px;
+			text-align: center;
+			line-height: 60px;
+			float: left;
+			background:#fff;
+		}
+		.active{
+			color: #ff6700;
+		}
+		.show{
+			transform:rotateZ(180deg);
+		}
+		.right{
+			width: 100px;
+			height: 60px;
+			text-align: center;
+			line-height: 60px;
+			float: left;
+			background:#fff;
+		}
+		.list{
+			width: 200px;
+			height: 120px;
+			margin: 0 auto;
+		}
+		span{
+			transition-duration: 500ms;
+			transition-property: all;
+		}
+		.list #ul1{
+			display: none;
+			float: left;
+
+		}
+		.list #ul1 li{
+			list-style: none;
+			width: 100px;
+			height: 60px;
+			text-align: center;
+			line-height: 60px;
+			background: #fff;
+		}
+		.list #ul2{
+			display: none;
+			float: right;
+		}
+		.list #ul2 li{
+			list-style: none;
+			width: 100px;
+			height: 60px;
+			text-align: center;
+			line-height: 60px;
+			background: #fff;
+		}
+	</style>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				$('.left').hover(function(){
+					$('#ul1').slideToggle(500);
+					$(this).toggleClass('active');
+					var oSpan=$('.l1');
+					oSpan.toggleClass('show');					
+				});
+				$('.right').hover(function(){
+					$('#ul2').slideToggle(500);
+					$(this).toggleClass('active');
+					var oSpan=$('.r1');
+					oSpan.toggleClass('show');
+				});
+				$('#ul1').mouseenter(function(){
+					$(this).stop();
+					var oSpan=$('.l1');
+					oSpan.toggleClass('show');
+				})
+				$('#ul1').mouseleave(function(){
+					$(this).slideUp(500);
+				})
+
+				
+			}) 
+		</script>
+</head>
+<body>
+	<div class="box">
+		<div class="left">我的淘宝
+			<span class="l1" style="display: inline-block;">&or;</span>
+		</div>
+		<div class="right">收藏夹
+			<span class="r1" style="display: inline-block;">&or;</span>
+		</div>
+	</div>
+	<div class="list">
+		<ul id="ul1">
+			<li>已买到的宝贝</li>
+			<li>我的足迹</li>
+		</ul>
+		<ul id='ul2'>
+			<li>收藏到的宝贝</li>
+			<li>收藏的店铺</li>
+		</ul>
+	</div>	
+</body>
+</html>

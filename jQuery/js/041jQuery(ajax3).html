@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>041jQuery(ajax3)全局配置.html</title>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+
+				$.ajaxSetup(){
+					url:'http://127.0.0.1:3000/039data.json',
+					type:'GET',
+					dataType:'json',
+				}
+				$('button').click(function(data){
+					$.ajax({
+						
+					})	
+				})					
+			})
+		</script>
+</head>
+<body>
+	<button>获取数据</button>
+</body>
+</html>

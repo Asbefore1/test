@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>036jQuery删除节点.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				$('div').click(function(){
+					alert('click div');
+				});
+				$('button').click(function(){
+					// var $res=$('div').remove();  
+					// console.log($res);
+					// $('body').append($res);   //删除后再添加时事件不会再触发
+
+
+					$('div').empty();  //只删除文本,DOM结构还在,事件还存在
+
+
+					// var $res=$('div').detach();    
+					// console.log($res);
+					// $('body').append($res);    //删除后再添加时事件依然存在
+				}) 
+			}) 
+		</script>
+</head>
+<body>
+	<button>删除</button>
+	<div>我是div</div>
+</body>
+</html>

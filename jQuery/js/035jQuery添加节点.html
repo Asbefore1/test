@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>035jQuery添加节点.html</title>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				var $Li=$('<li>我是创建的li</li>');
+				//内部插入:
+				// $('ul').append($Li);   //将子节点插入到父节点内部后面
+				// $Li.appendTo($('ul'));
+
+
+
+				// $('ul').prepend($Li);   //将子节点插入到父节点内部前面
+				// $Li.prependTo($('ul'));
+
+
+				//外部插入:
+				// $('ul').after($Li);    //在ul的外部插入li
+				// $('ul').before($Li);
+			}) 
+		</script>
+</head>
+<body>
+	<ul>
+		<li>aaaaa</li>
+		<li>bbbbb</li>
+		<li>ccccc</li>
+		<li>ddddd</li>
+	</ul>
+</body>
+</html>

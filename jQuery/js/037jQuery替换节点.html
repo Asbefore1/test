@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>037jQuery替换节点.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+		<script src='jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				$('div').click(function(){
+					alert('click div');
+				})
+				$('button').click(function(){     //(后面替代前面)
+					// var $h1=$('<h1>我是标题</h1>');  
+					// $('div').replaceWith($h1);      //可以用jQuery对象来替换
+					// $('div').replaceWith('<h2>我是h2</h2>');  //可以用html代码来替换
+
+					
+					var $h1=$('<h1>我是标题</h1>');
+					$h1.replaceAll('.box');     //(前面替代后面)
+					
+				})
+			}) 
+		</script>
+</head>
+<body>
+	<button>替换</button>
+	<div>我是div</div>
+	<div class="box">我是div</div>
+	<div>我是div</div>
+	<div class="box">我是div</div>
+</body>
+</html>
