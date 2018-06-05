@@ -11,44 +11,28 @@
 		}
 	</style>
 		<script src='jquery-1.12.4.js'></script>
-		<script>
-			;(function($){
-				// $.function.setColor=function(options){
-				// 	var dafaults={
-				// 		color:'red'
-				// 	}
-				// 	options=$excend(defaults,options)
-				// 	this.each(function(){
-				// 		this.style.color=options.color;
-				// 	});
-				// }
-				$.fn.extend({
-					setColor:function(options){
-						var dafaults={
+		<script> //对象级别的插件本质就是在jQuery对象的原型对象上增加方法
+			$(function(){
+				$.prototype.setColor=function(options){
+					var defaults={
 						color:'red'
 					}
-					options=$.extend(dafaults,options)
-						this.each(function(){
-							this.style.color=options.color;
-						});
-					}
-				})				
-			})(jQuery);
-			 
-		</script>
-		<script>
-			$(function(){			
+					options=$.extend(defaults,options);
+					this.css('color',options.color)
+				}
 				$('button').click(function(){
-					$('div').setColor({
-						color:'blue'
-					});
-					// $('div').setColor();
+					// $('div').setColor({
+					// 	color:'blue'
+					// });
+					$('div').setColor();
 				})
-			})
+			}) 
 		</script>
 </head>
 <body>
-	<button>点我</button>
+	<button>点我变色</button>
+	<div>我是div</div>
+	<div>我是div</div>
 	<div>我是div</div>
 </body>
 </html>

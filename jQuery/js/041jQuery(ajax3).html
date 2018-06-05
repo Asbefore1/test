@@ -6,21 +6,33 @@
 		<script src='jquery-1.12.4.js'></script>
 		<script>
 			$(function(){
-
-				$.ajaxSetup(){
+				$.ajaxSetup({
 					url:'http://127.0.0.1:3000/039data.json',
 					type:'GET',
-					dataType:'json',
-				}
-				$('button').click(function(data){
+					dataType:'json'
+				});
+				$('button').eq(0).click(function(data){
 					$.ajax({
-						
+						type:'POST',
+						success:function(data){
+							console.log(data)
+						}
 					})	
-				})					
+				});
+				$('button').eq(1).click(function(data){
+					$.ajax({
+						success:function(data){
+							console.log(data)
+						}
+					})	
+				})
+
+				//自己设置的会覆盖全局的,没设置就用全局的				
 			})
 		</script>
 </head>
 <body>
-	<button>获取数据</button>
+	<button>获取数据1</button>
+	<button>获取数据2</button>
 </body>
 </html>

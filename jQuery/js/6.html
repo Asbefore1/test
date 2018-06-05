@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6.html</title>
+	<style>
+		.father{
+			width: 200px;
+			height: 200px;
+			background:red;
+			margin: 100px auto;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background:blue;
+			/*position: absolute;
+			top:200px;
+			left:200px;*/
+		}
+	</style>
+			<script src='jquery-1.12.4.js'></script>
+			<script>
+				$(function(){					
+					$('.son').offset({
+						top:20,
+						left:20
+					})
+					console.log($('.son').offset().top);
+				})
+			</script>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

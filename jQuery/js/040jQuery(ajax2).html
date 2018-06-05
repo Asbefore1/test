@@ -2,43 +2,59 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>040jQuery(ajax2).html</title>
+	<title>040jQuery(ajax2)接口封装.html</title>
+	<style>
+		div{
+			width: 200px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
 		<script src='jquery-1.12.4.js'></script>
 		<script>
 			$(function(){
+				// $('button').click(function(){
+				// 	$.ajax({
+				// 		url:'http://127.0.0.1:3000/039data.json',
+				// 		dataType:'json',
+				// 		Type:'GET'
+				// 	})
+					
+				// })
+
+				//发送get请求1
+				// $('button').click(function(){
+				// 	$.get('039data.json',{name:'leo',age:'88'},function(data){
+				// 		console.log(data.name);
+				// 	},'json')
+				// })
+
+				//发送get请求2
+				// $('button').click(function(){
+				// 	$.getJSON('039data.json',{name:'leo',age:88},function(data){
+				// 		console.log(data.name);
+				// 	})               // 直接获取不需要写返回数据局类型
+				// })
+				
+				//获取post请求
+				// $('button').click(function(){
+				// 	$.post('./postReq',{name:'leo',age:'88'},function(data){
+				// 		console.log(data.name);
+				// 	},'json')
+				// })
+
+				//将服务器返回的数据加载到jQuery对象的DOM元素中
 				$('button').click(function(){
-					$.ajax({
-						url:'http://127.0.0.1:3000/039data.json',
-						type:'GET',
-						// type:'POST',
-						// data:"name=leo&age=88",
-						data:{name:'leo',age:18},  //获取的是文本
-						dataType:'json',   //指定返回数据的类型
-						success:function(data,statusMsg,jqXHR){
-							console.log('success',data,statusMsg,jqXHR);
-						},
-						error:function(jqXHR,statusMsg){
-							console.log('error',jqXHR,statusMsg);
-						},
-						complete:function(jqXHR,statusMsg){
-							console.log('complete',jqXHR,statusMsg);
-						},
-						// timeout:1000,
-						statusCode:{
-							404:function(){
-								console.log('not found');
-							}
-						},
-						headers:{    //请求头
-							"test":'kuazhu'
-						},     
-					})
+					// $('div').load('039data.json');  //get请求
+					$('div').load('039jQuery(ajax1).html');
 				})
+				
 				
 			}) 
 		</script>
 </head>
 <body>
-	<button>获取数据</button>	
+	<button>获取数据</button>
+	<div></div>	
 </body>
 </html>

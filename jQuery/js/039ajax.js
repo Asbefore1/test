@@ -49,6 +49,9 @@ var server = http.createServer(function(req,res){
 			}else{
 				res.statusCode = 200;
 				res.end(data);
+				// setTimeout(function(){
+				// 	res.end(data);
+				// },2000)
 			}
 		})		
 	}

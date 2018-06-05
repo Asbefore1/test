@@ -2,29 +2,43 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>044类级别的插件.html</title>
+	<title>044类级别的插件(静态方法).html</title>
 		<script src='jquery-1.12.4.js'></script>
 		<script>
-			$(function(){
-				console.log($);
-				// $.sayHi=function(){
-				// 	alert('Hi');
-				// }
-				// $.sayHi();
-				// $.excend(){
-				// 	$.sayHi:function(){
-				// 		alert('Hi');
-				// 	}
-				// 	$.sayHi();
-				// }
-				// var obj={
-				// 	sayHi:function(){
-				// 		alert('Hi');
-				// 	}					
-				// }
-				// $.sayHi();
-					
-			}) 
+			 // function Person(){
+
+			 // }
+			 // Person.sayHi=function(){
+			 // 	alert('Hi');
+			 // }
+			 // Person.sayHi();
+
+
+
+			//1.
+			// console.log($);  //$就类似于Person这构造函数
+			// $.sayHi=function(){
+			// 	alert('Hi');
+			// }
+			// $.sayHi();
+
+
+			//2. 通过extend方法把sayHi添加到构造函数上
+			// $.extend({
+			// 	sayHi:function(){
+			// 		alert('Hi');
+			// 	}
+			// })
+			// $.sayHi();
+
+			//3.
+			var obj={
+				sayHi:function(){
+					alert('Hi');
+				}
+			}
+			$.zs=obj;
+			$.zs.sayHi();
 		</script>
 </head>
 <body>

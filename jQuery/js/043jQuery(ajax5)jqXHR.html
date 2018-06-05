@@ -12,15 +12,23 @@
 						type:'GET',
 						dataType:'json',
 					});
+
+					//请求成功时执行
 					jqXHR.done(function(data,statusMsg,jqXHR){
 						console.log('done:::',data,statusMsg,jqXHR);
-					});
-					jqXHR.fail(function(jqXHR,statusMsg){
-						console.log('fail:::',jqXHR,statusMsg);
-					});
+					}); 
+
+
+					//请求失败时执行
+					// jqXHR.fail(function(jqXHR,statusMsg){
+					// 	console.log('fail:::',jqXHR,statusMsg);
+					// });  
+
+					
+					//不管成功还是失败都会返回
 					jqXHR.always(function(arg1,arg2,arg3){
 						console.log('always:::',arg1,arg2,arg3);
-					});
+					});  
 				})
 			}) 
 				

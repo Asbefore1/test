@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>053回顾this指向问题.html</title>
+	<script>
+		function test(n1,n2){
+			console.log(this,n1,n2);
+		}
+		// window.test();  //  ==>test();
+		// test.call();
+		test.call({name:'tom'},100,200)
+		test.apply({name:'leo'},[200,300])
+		var fn=test.bind({name:'array'})();  //返回一个函数,需要再次调用一下
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

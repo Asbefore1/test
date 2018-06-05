@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>049表单验证插件.html</title>
+	<style>
+		label.error{
+			color:#ff6700;
+		}
+		input.error{
+			outline-color:pink;
+		}
+	</style>
+		<script src='jquery-1.12.4.js'></script>
+		<script src="../jquery-validation-1.17.0/dist/jquery.validate.min.js"></script>
+		<script>
+			$(function(){
+				$('#reg').validate({
+					rules:{
+						username:{
+							required:true,  //是否必须有
+							minlength:2,
+							maxlength:5,
+						}
+					},
+					messages:{
+						username:{
+							required:'必须输入用户名',
+							minlength:'长度最少是两位',
+							maxlength:'长度最多是五位'
+						}
+					}
+				})
+			}) 
+		</script>
+</head>
+<body>
+	<form action="http://www.kuazhu.com" id="reg">
+		<div>用户名:
+			<input type="text"  name='username' id="username">
+		</div>
+		<div>密码:
+			<input type="text"  name='password' id="password">
+		</div>
+		<div>个人主页:
+			<input type="text"  name='homepage' id="homepage">
+		</div>
+		<div>
+			<input type="submit" value="提交">
+		</div>
+	</form>
+</body>
+</html>

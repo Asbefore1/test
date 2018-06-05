@@ -3,13 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>042jQuery(ajax4)全局回调.html</title>
+	<style>
+		div{
+			display: none;
+		}
+	</style>
 		<script src='jquery-1.12.4.js'></script>
-		<script>
-				
+		<script>			
 			$(function(){
 				//$(document).ajaxStart(回调函数),请求开始,未完成其它请求时执行回调函数
 				$(document).ajaxStart(function(){
 					console.log('ajaxStart');
+					$('div').show();
 				});
 				//$(document).ajaxStop(回调函数),请求结束,所有请求结束时执行回调函数
 				$(document).ajaxStop(function(){
@@ -22,6 +27,7 @@
 				//$(document).ajaxComplete(回调函数),当有请求完成时执行回调函数
 				$(document).ajaxComplete(function(){
 					console.log('ajaxComplete');
+					$('div').hide();
 				});
 				//$(document).ajaxError(回调函数),当有请求失败时执行回调函数
 				$(document).ajaxError(function(){
@@ -31,17 +37,19 @@
 				$(document).ajaxSend(function(){
 					console.log('ajaxSend');
 				});
+
 				$('button').click(function(){
 					$.ajax({
 						url:'http://127.0.0.1:3000/039data.json',
 						type:'GET',
 						dataType:'json',
 						success:function(data){
-							console.log('data');
+							console.log(data);
 						},
 						error:function(){
-							console.log();
-						}
+							console.log('error');
+						},
+						global:false  //不会访问到全局回调
 					})	
 				})			
 			}) 
@@ -49,5 +57,6 @@
 </head>
 <body>
 	<button>获取数据</button>
+	<div>数据正在加载中.....</div>
 </body>
 </html>

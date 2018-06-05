@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+			<script src='jquery-1.12.4.js'></script>
+			<script>
+				$(function(){
+					// var $div=$('div');
+					// console.log($div);
+					// console.log($div[0]);
+					// $div.css({
+					// 	color:'red'
+					// })
+					// var oDiv=$div[0];
+					// var oDiv=$div.get(0);
+					// console.log(oDiv);
+					// oDiv.style.color='red'
+
+					var oBox2=document.getElementById('box2');
+					var $oBox2=$(oBox2);
+					// console.log($oBox2);
+					$oBox2.css({
+						color:'red'
+					})
+
+				})
+			</script>
+</head>
+<body>
+	<div>1111</div>
+	<div id="box2">2222</div>
+	<div>3333</div>
+	<div>4444</div>
+</body>
+</html>

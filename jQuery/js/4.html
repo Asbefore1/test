@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.html</title>
+			<script src='jquery-1.12.4.js'></script>
+			<script>
+				$(function(){
+					// console.log($('div').html());
+					// $('div').html('我是设置的');
+					// cnsole.log($('div').text());
+					// $('div').text('我是设置的')
+					// console.log($('input').val());
+					// $('input').val('1123')
+					// var $li=$('<li>我是创建的</li>');
+					// $('ul').append($li)
+					$('ul').delegate('li','click',function(){
+						alert('aa');
+					})
+					$('button').click(function(){
+						var $li=$('<li>我是创建的li</li>')
+						$('ul').append($li);
+					})
+				})
+			</script>
+</head>
+<body>
+	<div>
+		我是div
+		<p>我是段落</p>
+	</div>
+	<input type="text" value="我是设置的1">
+	<input type="text" value="我是设置的2">
+	<button>点我</button>
+	<ul>
+		<li>li1</li>
+		<li>li2</li>
+		<li>li3</li>
+	</ul>
+</body>
+</html>

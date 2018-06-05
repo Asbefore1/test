@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1</title>
+			<script src='jquery-1.12.4.js'></script>
+			<script>
+				$(function(){
+					var aLi=document.getElementsByTagName('li');
+					var arr=[11,232,33,4,55];
+					var likeArr={0:'aaa',1:'bbb',2:'ccc',length:3};
+					// arr.forEach(function(value,index){
+					// 	// console.log(value);
+					// 	// console.log(index)
+					// })
+					$.each(likeArr,function(index,value){
+						console.log(index,':::',value)
+					})
+				})
+			</script>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+</html>

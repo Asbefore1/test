@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046对象级别的插件2</title>
+	<style>
+		div{
+			width: 100px;
+			height: 50px;
+			border: 1px solid #000;
+		}
+	</style>
+		<script src='jquery-1.12.4.js'></script>
+		<script> //对象级别的插件本质就是在jQuery对象的原型对象上增加方法
+			;(function($){
+				/*
+				$.fn.setColor=function(options){
+					var defaults={
+						color:'red'
+					}
+					options=$.extend(defaults,options);  //$.extend加在了构造函数上
+					// this.css('color',options.color);
+					this.each(function(){    
+									//each去遍历(循环)DOM元素并返回给this
+						console.log(this)   //this是三个DOM节点
+						this.style.color=options.color;
+					});
+				}
+				*/
+
+				$.fn.extend({  //extend加在了原型上
+					setColor:function(options){
+						var defaults={
+							color:'red'
+						}
+						options=$.extend(defaults,options);
+						// this.css('color',options.color);
+						this.each(function(){
+							// console.log(this)   //this是三个DOM节点
+							this.style.color=options.color;
+						});
+					},
+					/*
+					setBackground:function(options){
+						var defaults={
+							background:'red'
+						}
+						options=$.extend(defaults,options);
+						// this.css('color',options.color);
+						this.each(function(){
+							// console.log(this)   //this是三个DOM节点
+							this.style.background=options.background;
+						});
+					}
+					*/
+				})
+			})(jQuery)
+			$(function(){				
+				$('button').click(function(){
+					$('div').setColor({
+						color:'blue'
+					});
+
+					/*
+					// $('div').setColor();
+					$('div').setBackground();
+					*/
+				})
+			}) 
+		</script>
+</head>
+<body>
+	<button>点我变色</button>
+	<div>我是div</div>
+	<div>我是div</div>
+	<div>我是div</div>
+</body>
+</html>
