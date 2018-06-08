@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>055真伪数组的转换.html</title>
+</head>
+<body>
+	
+	<ul>
+		<li>li1</li>
+		<li>li2</li>
+		<li>li3</li>
+		<li>li4</li>
+	</ul>
+</body>
+<script>
+	var aLi=document.getElementsByTagName('li');
+	var likeArr={0:'aaa',1:'bbb',2:'ccc',length:3};
+	var arr=[11,22,33,44];
+	function test(n1,n2){
+		console.log(this,n1,n2);
+	// }
+	// test();
+	// window.test();
+	}
+	// var obj={name:'tom'};
+	// test.call(obj,1,2);
+	// test.apply(obj,[3,4]);
+	var arr2=[];
+	arr2.push(1,2);
+	// console.log(arr2);
+
+	
+	//一.真数组转为伪数组
+	var obj={};
+	[].push.apply(obj,arr);  //第一个参数是改变this指向,第二个参数是向obj里面push什么 
+	// [].push.apply(obj,aLi);
+	// console.log(obj);
+						//首先this指向前面的[],apply转换了this的指向,现在this指向了obj
+
+
+	/*//伪数组转真数组(不用)
+	var arr3=[];
+	// [].push.apply(arr3,aLi);
+	// [].push.apply(arr3,arr);
+	// [].push.apply(arr3,likeArr); 
+	 					
+	 					//首先this指向前面的[],arr3还是真数组,最后this指向arr3这个真数组,ali里面的内容是arr3;
+	// console.log(arr3);
+	
+	//push存在兼容性问题
+	*/
+
+
+	//二.伪转真
+	// var arr4=arr.slice();  //slice传下标,什么都不传返回arr;
+	var arr5=[].slice.call(likeArr);   //只改变this指向                                                         
+	// console.log(arr5);
+
+
+	
+</script>
+</html>

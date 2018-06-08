@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>056extend测试.html</title>
+	<script>
+		function Person(){
+
+		}
+		var obj={
+			test1:function(){
+				console.log('test1');
+			},
+			test2:function(){
+				console.log('test2');
+			}
+		}
+		// for(key in obj){
+		// 	Person[key]=obj[key];
+		// }
+		// Person.test1();
+		// Person.test2();
+
+		Person.extend=Person.prototype.extend=function(obj){
+			// console.log(this);
+			for(key in obj){
+				this[key]=obj[key];  //key就是test1,test2
+			}
+		}
+		Person.extend(obj);  //调用
+		Person.test1();
+		Person.test2();
+
+
+		var obj2={
+			test3:function(){
+				console.log('test3');
+			},
+			test4:function(){
+				console.log('test4');
+			}
+		}
+		/*Person.prototype.extend=function(obj){
+			console.log(this);
+			for(key in obj){
+				this[key]=obj[key];  //key就是test3,test4
+			}
+		}	*/	
+		Person.prototype.extend(obj2);
+		var p=new Person();
+		p.test3();
+		p.test4();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>057原型上的方法测试.html</title>
+	<script src="051kQuery.js"></script>
+	<!-- <script src='jquery-1.12.4.js'></script> -->
+	<script>
+		// console.log($(''));
+		// var $obj=$('');
+		// console.log($obj.push(10));  
+		//push返回参数的长度,10是一个参数,所以返回1
+		// console.log($obj);
+
+
+		$(function(){
+			// console.log($('li').toArray()); 
+						//伪数组转化为真数组
+			// console.log($('li').get());  //把数组返回回来
+			// console.log($('li').get(0)); //返回第一个DOM元素
+			// console.log($('li').get(-1));//返回最后一个DOM元素
+
+
+			// console.log($('li').eq());  //返回一个空的jQuery对象
+			// console.log($('li').eq(0));//返回第一个包含DOM的jquery对象
+			// console.log($('li').eq(-1));//返回最后一个包含DOM的jquery对象
+
+
+
+			console.log($('li').first());
+			console.log($('li').last());
+		})		
+	</script>
+</head>
+<body>
+	<ul>
+		<li>li1</li>
+		<li>li2</li>
+		<li>li3</li>
+		<li>li4</li>
+	</ul>
+</body>
+</html>

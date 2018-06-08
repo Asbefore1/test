@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>058each和map测试.html</title>
+	<script src="jquery-1.12.4.js"></script>
+	<!-- <script src="051kQuery.js"></script> -->
+	<script>
+		$(function(){
+			var aLi=document.getElementsByTagName('li');
+			var arr=[11,32,33,44];
+			var likearr={0:'aaa',1:'bbb',2:'ccc',length:3};
+			var obj={name:'tom',age:18,sex:'boy'};
+
+			/*$.each(obj,function(index,value){
+				// if(index==1){
+				// 	return false;
+				// }
+				// console.log(index,value);
+				// console.log(this)  //this是window,加上了call,this指向了li里面具体的内容
+			});*/
+
+			
+			/*$.each(obj,function(index,value){ //可以是函数也可以是数组
+				// console.log(index,value);				
+				// if(index==1){ 
+				// 	return false;// 只打印第0个,其余的结束
+				// }
+				// console.log(index,value)
+				// if(index==1){
+				// 	return true; //仅结束本次,其余的依旧执行
+				// }
+
+
+				// if(index=='age'){
+				// 	return false;
+				// }
+				if(index=='age'){
+					return true;
+				}
+				console.log(index,value)
+			})*/
+			// var res=$.map(arr,function(value,index){
+			// 	console.log(value,index);
+				// console.log(this);  //this是window(不需要做处理)
+				// if(index==1){
+
+				// 	return value;				
+				// }
+				// return value+10; 
+					//map()方法:若这个回调函数有返回值，map()方法会产生一个新数组，这个新数组由原数组元素对应的回调函数的返回值构成.若没有返回值，则新数组的所有元素为undefined.				
+			// })
+			// console.log(res);
+			// console.log(arr);
+
+
+
+
+
+			// var res=$('li').each(function(index,value){
+			// 	// console.log(index,value)
+			// 	console.log(this);  //this是每一个DOM节点
+				
+			// });
+			// console.log(res);
+
+
+			var res=$('li').map(function(index,value){
+				return value;  //不写value返回空的jQuery对象,写return返回jQuery对象,是由数组包装成jQuery对象
+			})
+			console.log(res);
+		})
+	</script>
+</head>
+<body>
+	<ul>
+		<li>11111</li>
+		<li>22222</li>
+		<li>33333</li>
+		<li>44444</li>
+	</ul>
+</body>
+</html>
