@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>061属性方法测试3.html</title>
+	<style>
+		.box1{
+			width: 100px;
+			height: 100px;
+			background:pink;
+			color:purple;
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			background:skyblue;
+			color:yellow;
+		}
+	</style>
+	<!-- <script src='jquery-1.12.4.js'></script> -->
+	<script src='051kQuery.js'></script>
+	<script>
+		$(function(){
+			$('button')[0].onclick=function(){
+				console.log($('div').css('width'));//获取到第一个DOM节点的属性
+				// console.log($('div').css('width','300'));//两个同时都设置
+				// console.log($('div').css({
+				// 	width:'300',
+				// 	height:'300'
+				// }))
+			}
+		})
+	</script>
+</head>
+<body>
+	<button>测试</button>
+	<div class="box1" name='aaa'>div1</div>
+	<div class="box2" name='bbb'>div2</div>
+</body>
+</html>

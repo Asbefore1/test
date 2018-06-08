@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>060属性方法测试2.html</title>
+	<!-- <script src='jquery-1.12.4.js'></script> -->
+	<script src='051kQuery.js'></script>
+	<script>
+		$(function(){
+			$('button')[0].onclick=function(){
+				// console.log($('div').attr('name'));//传一个参数是获取,并且只能获取到第一个
+				// console.log($('div').attr('name','ccc'))//传两个参数是设置(给那个设置,设置成什么);
+				// console.log($('div').attr({
+				// 	name:'ccc',
+				// 	class:'box3'
+				// }))//同时设置
+
+
+
+				// console.log($('div').removeAttr());//什么都不传就返回自身,所有的属性都还在
+				// console.log($('div').removeAttr('class'));//传一个参数把属性删除
+
+
+
+				// console.log($('input').val());//什么都不传,返回第一个value值
+				console.log($('input').val('ddd'))//传一个参数,所有的value值都改变
+			};
+		})
+	</script>
+</head>
+<body>
+	<button>测试</button>
+	<div class="box1" name='aaa'>div1</div>
+	<div class="box2" name='bbb'>div2</div>
+	<input type="text" value="aaa">
+	<input type="text" value="ccc">
+</body>
+</html>

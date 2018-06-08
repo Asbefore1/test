@@ -118,6 +118,7 @@ kQuery.extend=kQuery.fn.extend=function(obj){
 	}
 }
 //kQuery的静态方法
+//this是构造函数kQuery
 kQuery.extend({
 	isFunction:function(str){
 		return typeof str=='function';
@@ -155,9 +156,9 @@ kQuery.extend({
 							//fn接收两个参数:index和value(下标和里面的内容)
 							//call把this指向改变了,原来指向window,现在指向具体的DOM元素里面的内容
 				if(res==false){
-					break;
+					break; //结束整个循环
 				}else if(res==true){
-					continue;
+					continue; //结束本次循环
 				}
 			} 
 		}else{  //否则是对象
@@ -191,6 +192,89 @@ kQuery.extend({
 		}
 		return retArr;
 	}
+
+})
+
+//kQuery对象上的属性相关的操作方法
+kQuery.fn.extend({ //this是kQuery.fn原型对象
+	html:function(content){
+		// console.log('html....');
+		if(content){
+			//设置所有DOM原始的innerhtml;
+				//this就是传进来的li返回出去的jQuery,通过each方法改变其中的this指向,将ths指向DOM元素
+			this.each(function(){ 
+				this.innerHTML=content; //里面的this是DOM元素
+			});
+			return this;
+		}else{
+			return this[0].innerHTML;
+		}
+	},
+	text:function(content){
+		if(content){
+			this.each(function(){
+				this.innerText=content;
+			});
+			return this;
+		}else{
+			var str='';
+			this.each(function(){
+				str+=this.innerText;
+			})
+			return str;
+		}
+	},
+	attr:function(arg1,arg2){
+		if(kQuery.isObject(arg1)){//是对象的情况
+			//设置所有的DOM属性值为对象中的值
+			this.each(function(){
+				var dom=this;//此时的this是DOM元素
+				kQuery.each(arg1,function(attr,val){//循环DOM元素去改变里面的参数和值
+					dom.setAttribute(attr,val);
+				})
+			})
+		}else{//不是对象
+			if(arguments.length==1){//参数为一个的情况
+				return this[0].getAttribute(arg1);
+			}else if(arguments.length==2){//参数为两个
+				this.each(function(){
+					this.setAttribute(arg1,arg2);
+				})
+			}
+		}
+		return this;
+	},
+	removeAttr:function(arg1){
+		if(arg1){//传参数就删除
+			this.each(function(){
+				this.removeAttr(arg1);
+			})
+		}//不传就返回本身的jQuery对象,可以直接不写
+		return this;
+	},
+	val:function(arg1){
+		if(arg1){
+			this.each(function(){
+				this.value=arg1;
+			})
+			return this;
+		}else{
+			return this[0].value;
+		}
+	},
+	css:function(arg1,arg2){
+		if(kQuery.isString(arg1)){//是字符串的情况
+			if(arguments.length==1){
+				// return this[0].style[arg1];//只能获取行间样式
+				// return getComputedStyle(this[0],false)[arg1];  //存在兼容性问题
+			}else if(arguments.length==2){
+
+			}
+		}else if(kQuery.isObject(arg1)){//不是字符串的情况,也就是对象的情况
+
+		}	
+	}
+
 })
 
 kQuery.fn.init.prototype=kQuery.fn;

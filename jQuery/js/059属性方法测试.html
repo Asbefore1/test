@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>059属性方法测试.html</title>
+		<!-- <script src='jquery-1.12.4.js'></script> -->
+		<script src="051kQuery.js"></script>
+		<script>
+			$(function(){
+				//$('li').html()是在原型对象上调用方法
+				//$.html()是在构造函数上调用静态方法
+				// console.log($('li').html()); //什么都不传返回第一个DOM里面的内容
+				// console.log($('li').html('我是p标签'));//改变里面的内容
+				// console.log($('li').html('<p>我是p标签啊啊啊啊</p>'));//添加新的标签,并改变里面的内容
+
+
+
+
+				// console.log($('li').text());//把所有的内容拼接到一块返回出去
+				// console.log($('li').text('我是p标签'));//改变里面的内容
+				// console.log($('li').text('<p>我是p标签啊啊啊啊</p>'));//将p标签当做文本,不再当做htnl代码
+			})
+		</script>
+</head>
+<body>
+	<ul>
+		<li>li1</li>
+		<li>li2</li>
+		<li>li3</li>
+		<li>li4</li>
+	</ul>
+</body>
+</html>
