@@ -1,0 +1,42 @@
+/*公共样式开始*/
+    a{
+    	text-decoration: none;
+    }
+	body{
+		font-size: 14px;
+	}
+	.container{
+		width:1200px;
+		margin:0 auto;
+	}
+/*公共样式结束*/
+	
+
+/*公共链接样式开始*/
+	.link{
+		color:#4d555d;
+	}
+	.link:hover{
+		color:#ea675a;
+	}
+/*公共链接样式结束*/
+
+
+/*浮动相关的样式开始*/
+	.fl{
+		float: left;
+	}
+	.fr{
+		float: right;
+	}
+	.clearfix:after{
+		clear:both;
+		display: block;
+		content:'';
+		height:0px;
+		visibility: hidden;
+	}
+	.clearfix{
+		*zoom:1;
+	}
+/*浮动相关的样式结束*/

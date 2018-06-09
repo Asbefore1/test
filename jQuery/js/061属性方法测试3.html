@@ -22,19 +22,40 @@
 	<script>
 		$(function(){
 			$('button')[0].onclick=function(){
-				console.log($('div').css('width'));//获取到第一个DOM节点的属性
+				// console.log($('div').css('width'));//获取到第一个DOM节点的属性
 				// console.log($('div').css('width','300'));//两个同时都设置
 				// console.log($('div').css({
 				// 	width:'300',
 				// 	height:'300'
 				// }))
+
+
+				// console.log($('div').hasClass());//什么都不传返回false;
+				// console.log($('div').hasClass('box1'))//有的话返回true;
+				// console.log($('div').hasClass('box3'))//没有的话返回false;
+
+
+				// console.log($('div').addClass('box1'));//有的话不加,没有的话加
+				// console.log($('div').addClass('box3'));//没有的话都加上
+				// console.log($('div').addClass('box3 box1'));
+
+
+				// console.log($('div').removeClass());//没有字符串所有的都删除掉
+				// console.log($('div').removeClass('box1'));//有一个就删除一个
+				// console.log($('div').removeClass('box1 box3')); 
+
+
+
+				// console.log($('div').toggleClass());//不传全都删除
+				// console.log($('div').toggleClass('box1'));//有删除,没有就添加
+				// console.log($('div').toggleClass('box1 box2'));
 			}
 		})
 	</script>
 </head>
 <body>
 	<button>测试</button>
-	<div class="box1" name='aaa'>div1</div>
-	<div class="box2" name='bbb'>div2</div>
+	<div class="box1 box3" name='aaa'>div1</div>
+	<div class="box2 box3 box4" name='bbb'>div2</div>
 </body>
 </html>

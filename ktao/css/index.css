@@ -1,0 +1,61 @@
+/*顶部导航开始*/
+.nav-site{
+	height: 44px;
+	background:#f3f5f7;
+}
+.login{
+	color: #ea675a;
+}
+.nav-left li{
+	margin-right: 10px;
+	line-height: 44px;
+}
+.nav-right .dropdown{
+	line-height: 44px;
+	margin-right: 10px;
+}
+.nav-right .dropdown-layer .dropdown-item{
+	line-height: 44px;
+	margin-right: 10px;
+}
+
+/*顶部导航结束*/
+/*头部开始*/
+.header-site{
+	height: 100px;
+	background:purple;
+}
+/*头部结束*/
+/*主导航开始*/
+.main-nav{
+	height: 50px;
+	background:pink;
+}
+/*主导航结束*/
+/*主要区域开始*/
+.primary-site{
+	height: 500px;
+	background:green;
+}
+/*主要区域结束*/
+/*今日热销开始*/
+.today-site{
+	height: 100px;
+	background:orange;
+}
+/*今日热销结束*/
+/*楼层1开始*/
+.floor1{
+	height: 300px;
+	background:blue;
+}
+/*楼层1结束*/
+/*楼层2开始*/
+.floor2
+/*楼层2结束*/
+/*楼层3开始*/
+.floor3
+/*楼层3结束*/
+/*楼层4开始*/
+.floor4
+/*楼层4结束*/

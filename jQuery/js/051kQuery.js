@@ -106,9 +106,8 @@ kQuery.fn=kQuery.prototype={
 	},
 	map:function(fn){ 
 		return kQuery(kQuery.map(this,fn));  //fn返回一个jQuery对象,由数组包装成
-	} 
-	
-
+	},
+		
 }
 
 kQuery.extend=kQuery.fn.extend=function(obj){
@@ -191,6 +190,9 @@ kQuery.extend({
 			}
 		}
 		return retArr;
+	},
+	toWords:function(str){
+		return str.match(/\b\w+\b/g);//match方法将其转化成数组
 	}
 
 })
@@ -264,16 +266,134 @@ kQuery.fn.extend({ //this是kQuery.fn原型对象
 	},
 	css:function(arg1,arg2){
 		if(kQuery.isString(arg1)){//是字符串的情况
-			if(arguments.length==1){
+			if(arguments.length==1){//字符串有一个时(获取)
 				// return this[0].style[arg1];//只能获取行间样式
 				// return getComputedStyle(this[0],false)[arg1];  //存在兼容性问题
-			}else if(arguments.length==2){
-
+				if(this[0].currentStyle){//兼容低级浏览器
+					return this[0].currentStyle[arg1];
+				}else{
+					return getComputedStyle(this[0],false)[arg1];
+				}
+			}else if(arguments.length==2){//字符串有两个时(设置)
+				this.each(function(){
+					this.style[arg1]=arg2;
+				});
 			}
 		}else if(kQuery.isObject(arg1)){//不是字符串的情况,也就是对象的情况
-
-		}	
+			this.each(function(){
+				for(key in arg1){
+					this.style[key]=arg1[key];
+				}
+			});		
+		}
+		return this;			
+	},
+	hasClass:function(str){
+		var res=false;
+		if(str){//有字符串
+			//判断是否存在指定单词的正则
+			var reg=eval('/\\b'+str+'\\b/');
+			//要计算的字符串,传入的是字符串
+			//eg:eval('var a=1')返回a=1
+			this.each(function(){
+				//判断传入的参数是否在DOM节点上
+				if(reg.test(this.className)){
+					//正则test方法用来匹配是否满足条件,匹配到返回true;没匹配到返回false
+					// console.log(this.className);
+					res=true;
+					return false; //结束本次循环
+				}
+			})
+			
+		}
+		return res;
+	},
+	addClass:function(str){
+		//把传入的参数转化为数组
+		var names=kQuery.toWords(str); //names是转化过来的数组
+		this.each(function(){
+			var $this=kQuery(this);
+			for(var i=0;i<names.length;i++){
+				if(!$this.hasClass(names[i])){
+					this.className=this.className+' '+names[i];
+				}
+			}			
+		})
+		return this;
+	},
+	removeClass:function(str){
+		if(str){
+			//把传入的参数转化为数组
+			var names=kQuery.toWords(str);
+			this.each(function(){
+				var $this=kQuery(this);
+				for(var i=0;i<names.length;i++){
+					if($this.hasClass(names[i])){//DOM节点上有class
+						//有----->删除,用正则来判断删除的条件
+						var reg=eval('/\\b'+names[i]+'\\b/');
+						this.className=this.className.replace(reg,'');
+					}
+				}
+			})
+		}else{
+			this.each(function(){
+				this.className='';
+			})
+		}
+		return this;
+	},
+	toggleClass:function(str){
+		if(str){//有字符串
+			var names=kQuery.toWords(str);
+			this.each(function(){
+				var $this=kQuery(this);
+				for(var i=0;i<names.length;i++){
+					if($this.hasClass(names[i])){//有的话删除class
+						$this.removeClass(names[i]);
+					}else{//没有的话添加class
+						$this.addClass(names[i]);
+					}
+				}
+			});
+		}else{//没有字符串全删除
+			this.each(function(){
+				this.className='';
+			})
+		}
+		return this;
 	}
+
+})
+//kQuery对象上的DOM操作方法
+kQuery.fn.extend({
+	empty:function(){
+		this.each(function(){
+			this.innerHTML='';
+		})
+	},
+	remove:function(selector){
+		if(selector){
+			var doms=document.querySelectorAll(selector);
+			this.each(function(){
+				for(var i=0;i<doms.length;i++){
+					if(doms[i]==this){
+						var parentNode=this.parentNode;
+						parentNode.removeChild(this);
+					}
+				}
+			})			
+		}else{
+			this.each(function(){
+				var parentNode=this.parentNode;
+				parentNode.removeChild(this);
+			})
+		}
+		return this;
+	},
+	append:function(){
+		
+	}
+
 
 })
 

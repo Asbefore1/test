@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>062DOM属性操作测试.html</title>
+	<script src='jquery-1.12.4.js'></script>
+	<!-- <script src='051kQuery.js'></script> -->
+	<script>
+		$(function(){
+			$('button')[0].onclick=function(){
+				// console.log($('div').empty());//只删除内容;
+
+
+				// console.log($('div').remove());//连同DOM节点一块删除了
+				
+				// console.log($('div').remove('.box1'));//把选中的class的DOM节点删除,其余的不删除,还是返回四个jQuery对象
+
+				// console.log($('div').append());
+				// console.log($('div').append('<p>我是p标签</p'));//插入html代码片段
+				// console.log($('div').append($('p')));//插入jQuery对象
+				console.log($('div').append($('p')[0]));//插入DOM节点
+
+			}
+		})
+	</script>
+</head>
+<body>
+	<button>测试</button>
+	<div class="box1">11111</div>
+	<div>22222</div>
+	<div class="box2">33333</div>
+	<div class="box1">44444</div>
+	<p class="box1">ppppppp</p>
+</body>
+</html>
