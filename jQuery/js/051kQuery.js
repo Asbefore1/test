@@ -132,7 +132,7 @@ kQuery.extend({
 	},
 
 	isObject:function(str){
-		typeof str=='object';
+		return typeof str=='object';
 	},
 
 	isArr:function(str){

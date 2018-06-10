@@ -1,7 +1,5 @@
 /*公共样式开始*/
-    a{
-    	text-decoration: none;
-    }
+    
 	body{
 		font-size: 14px;
 	}
@@ -13,6 +11,10 @@
 	
 
 /*公共链接样式开始*/
+	a{
+    	text-decoration: none;
+    	color:#4d555d;
+    }
 	.link{
 		color:#4d555d;
 	}
