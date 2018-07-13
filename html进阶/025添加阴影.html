@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>025添加阴影.html</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width='600' height='600' id="canvas">
+	</canvas>
+</body>
+<script>
+	
+	var oCanvas=document.getElementById('canvas');
+	var ctx=oCanvas.getContext('2d');
+	ctx.beginPath();
+	ctx.fillStyle='red';
+	ctx.shadowOffsetX=10;
+	ctx.shadowOffsetY=10;
+	ctx.shadowBlur=10;//模糊大小
+	ctx.shadowColor='rgba(0,0,0,0.2)';
+	ctx.fillRect(300,300,100,50);
+
+
+</script>
+</html>

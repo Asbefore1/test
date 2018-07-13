@@ -70,7 +70,7 @@
 	.dropdown-loading{
 		width: 32px;
 		height: 32px;
-		background: url(../images/loading.gif) no-repeat;
+		background: url(../images/focus/loading.gif) no-repeat;
 		margin:20px;
 	}
 	[class*='-active'] .dropdown-arrow{
@@ -106,67 +106,61 @@
 		left:0px;
 	}
 /*搜索框公共样式结束*/
-/*轮播图公共样式开始*/
+/*中心轮播图公共样式开始*/
 	.carousel-container{
 		position: relative;
 		overflow: hidden;
+	}
+    .carousel-container .carousel-Li{
+		position: absolute;
+		left: 0px;
+		right: 0px;
 		width: 768px;
 		height: 504px;
-		background: red;
-	}
-	.carousel-container .carousel-item{
-		position: absolute;
-		left:0;
-		top:0;
-		width: 100%;
-		height: 100%;
-	
-	}
-	.carousel-container .carousel-item img{
-		width: 100%;
-		height: 100%;
-	}
-	.carousel-container .btns{
-		position: absolute;
-		left:50%;
-		bottom: 20px;
-	}
-	.carousel-container .btn-item{
-		float: left;
+    }
+    .carousel-container .btn-Ul{
+    	position: absolute;
+    	left: 50%;
+    	bottom: 20px;
+    }
+    .carousel-container .btn-Li{
 		width: 12px;
 		height: 12px;
+		float: left;
 		background: rgba(0,0,0,0.8);
 		border-radius: 50%;
-		margin-right: 5px;
+		margin-left: 10px;	
 		cursor: pointer;
-	}
-	.carousel-container .btn-item.active{
-		background: red;
-	}
-
-	.carousel-container .control {
+    }
+    .carousel-container .btn-Li.active{
+    	background: red;
+    }
+    .carousel-container .control{
 		position: absolute;
-		top:50%;
+		top: 50%;
 		width: 30px;
 		height: 60px;
 		line-height: 60px;
-		text-align: center;
 		background: rgba(0,0,0,0.8);
 		font-size: 20px;
 		color: #fff;
+		text-align: center;
 		margin-top: -30px;
+		display: none;
 		cursor: pointer;
-	}
-	.carousel-container .control-left{
-		left:0;
-	}
-	.carousel-container .control-right{
-		right: 0;
-	}
-	.carousel-container.fade .carousel-item{
-		/*display: none;*/
-	}
-
-/*轮播图公共样式结束*/
+    } 
+    .carousel-container .control-left{
+		left: 0px;
+    }
+    .carousel-container .control-right{
+		right: 0px;
+    }
+    .carousel-container.fade .carousel-Li{
+    	display: none;
+    }
+    .carousel-container.slide .carousel-Li{
+    	left: 100%;
+    }
+/*中心轮播图公共样式结束*/
 
 

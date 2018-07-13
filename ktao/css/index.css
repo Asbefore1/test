@@ -114,6 +114,7 @@
 		border: 1px solid #ccc;
 		border-top: none;
 		box-sizing: border-box;
+		z-index: 1000;
 	}
 	.header .search-item{
 		width: 100%;
@@ -147,12 +148,12 @@
 /*主要内容开始*/
 	.focus{
 		height: 500px;
-		background: pink;
+		/*background: pink;*/
 	}
 	.category{
 		position: relative;
 		width: 208px;
-		margin-top: -54px;
+		margin-top: -62px;
 	}
 	.category-title{
 		display: block;
@@ -235,16 +236,207 @@
 		margin: 220px auto;
 
 	}
+	.focus .carousel-container,
+	.focus .carousel-container .carousel-Li img{
+		width: 768px;
+		height: 504px;
+	}
+	.sidebar{
+		margin-top: 10px;
+		margin-left: 10px;
+		width: 203px;
+		height: 486px;
+		background: #fff;
+		border:solid 1px gray;
+		box-sizing: border-box;
+	}
+	.up{
+		width: 203px;
+	}
+	.up-left{
+		font-size: 25px;
+		float: left;
+		margin-left: 10px;
+		margin-top: 15px;
+		color: #e6595e;
+	}
+	.up-right{
+		float: right;
+		margin-right: 15px;
+		font-size: 15px;
+		margin-top: 15px;
+	}
+	.sidebar .ul{
+		display: inline-block;
+		margin-top: 15px;
+	}
+	.ul li{
+		font-size:13px;
+		margin-left: 3px;
+	}
+	.ul li:last-child{
+		margin-bottom: 20px;
+	}
+	.center{
+		width: 203px;
+		height: 216px;		
+	}
+	.intro{
+		line-height: 60px;
+	}
+	.intro li{
+		float: left;
+		margin-left: 15px;
+		font-size: 14px;
+	}
+	.down{
+		width: 203px;
+		height: 90px;
+	}
+	.down img{
+		margin-top: -24px;
+		width: 100%;
+		height: 100%;
+	}
 /*主要内容结束*/
 /*今日热销开始*/
 	.todays{
-		height: 100px;
-		background: black;
+		height: 158px;
+		background: #fff;
 	}
+	.todays .carousel-container{
+		width: 100%;
+		height: 158px;
+	}
+	.todays .carousel-container .carousel-items img {
+		width: 240px;
+		height: 158px;
+		float: left;
+	}	
 /*今日热销结束*/
 /*楼层开始*/
 	.floor{
 		height: 300px;
-		background: red;
+		/*background: skyblue;*/
+	}
+	.floor .container{
+		width: 1200px;
+		height: 70px;
+		/*z-index: 2000;*/
+	}
+	.floor .floor-hd{
+		height: 70px;
+		border-bottom: 1px solid #e6595e;
+	}
+	.floor .floor-p{
+		margin-top: 10px;
+		height: 60px;
+		line-height: 60px;
+	}
+	.floor .floor-span-num{
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+		background: #000;
+		font-size: 13px;
+		color: #fff;
+		border-radius: 50%;
+		text-align: center;		
+	}
+	.floor .floor-span-intro{
+		font-size: 14px;
+		margin-left: 5px;
+	}
+	.floor .floor-ul{
+		margin-top: 10px;
+		height: 60px;
+		line-height: 60px;
+	}
+	.floor .floor-ul li{
+		float: left;
+	}
+	.floor .floor-ul li .floor-li-a{
+		display: inline-block;
+		font-size: 14px;		
+		height: 60px;
+		line-height: 60px;
+		margin-left: 5px;		
+	}
+	.floor .floor-li-a:hover{
+		color: #e6595e;
+	}
+	.floor .floor-li-a.floor-li-a-active{
+		color:#e6595e;
+		background:url(../images/floor/floor-aa.png) no-repeat center bottom;
+	}
+	.floor .line{
+		margin-left: 5px;
+	}
+	.floor .floor-bd{
+		width: 1200px;
+	}
+	.floor .floor-bd-ul{
+		position:relative;
+		left: 0px;
+		top:0px; 		
+		margin-top: 24px;
+		display: none;
+	}
+	.floor .floor-bd-li{
+		width: 200px;
+		height: 234px;
+		text-align: center;
+	}
+	.floor .floor-bd-li img{
+		margin-top: 10px;
+	}
+	.floor .floor-bd-li:hover{
+		box-shadow: 0px 5px 5px rgba(0,0,0,0.3);
+	}
+	.floor .floor-bd-li-intro{
+		font-size: 14px;
+		margin-top: 10px;
+	}
+	.floor .floor-bd-li-price{
+		color: red;
+		font-weight: bold;
+		font-size: 14px;
+		margin-top: 10px;
 	}
 /*楼层结束*/
+/*电梯开始*/
+	.elevactor{
+		position: fixed;
+		left: 50%;
+		top:50%;
+		margin-left: -700px;
+	}
+	.elevactor-a{
+		display: block;
+		width: 70px;
+		height: 30px;
+		text-align: center;
+		line-height: 30px;
+		border-top: 1px solid #ccc;
+		color:black;
+		font-size: 14px;
+	}
+	.elevactor-a:hover .elevactor-num{		
+		display: none;
+	}
+	.elevactor-a:hover .elevactor-text{
+		color:#ea675a;
+		display: block;
+	}
+	.elevactor-a.elevactor-a-active .elevactor-num{
+		display: none;
+	}
+	.elevactor-a.elevactor-a-active .elevactor-text{
+		color:#ea675a;
+		display: block;
+	}
+	.elevactor-text{
+		display: none;
+	}
+/*电梯结束*/

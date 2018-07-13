@@ -98,36 +98,6 @@
 	}
 	/*搜索框结束*/	
 
-
-	/*中心轮播图开始*/
-	var $carouselContainer=$('.focus .carousel-container');
-	//接收事件
-	$carouselContainer.on('carousel-show carousel-shown carousel-hide carousel-hidden',function(ev,index,elem){
-		console.log(index,ev.type);
-	})
-
-	$carouselContainer.on('carousel-show',function(ev,index,elem){
-		var $img=$(elem).find('img');
-		var imgUrl=$img.data('src');
-		// $img.attr('src',imgUrl);
-
-		var image=new Image();
-		image.onload=function(){
-			$img.attr('src',imgUrl);
-		}
-		image.src=imgUrl;
-	})
-
-	/*调用轮播图插件*/
-	$carouselContainer.carousel({//此时是在调用carousel插件
-		activeIndex:0,//如果默认指定显示第几张,调用时也指定了,以调用时为准
-		// interval:1000,
-		mode:'slide',
-	})
-	/*中心轮播图结束*/
-
-
-
 	/*分类导航开始*/
 	var $category = $('.category .dropdown');
 
@@ -159,45 +129,43 @@
 	});
 
 	/*分类导航结束*/
-	
-	
 
-
-	/*楼层一开始*/
-	var $floor = $ ('.floor');
-	
-	$floor.on('tab-show tab-shown tab-hide tab-hidden',function(ev,index,elem){
-		console.log(index,elem,ev.type);
+	/*中心轮播图开始*/
+	var $focusCarousel = $('.focus .carousel-container');
+	/*
+	$focusCarousel.on('carousel-show carousel-shown carousel-hide carousel-hidden',function(ev,index,elem){
+		console.log(index,ev.type);
 	})
-
-	$floor.tab({
-		activeIndex:0,
-	})
-	/*楼层一结束*/
-
-
-	/*电梯开始*/
-	
-	
-	/*判断楼层号*/
-	function whichFloor(){
-		var num=-1;
-		$floor.each(function(index,elem){
-			if($win.scrollTop() < $(elem).offset().top){//不满足条件
-				return false;
+	*/
+	var item = {};
+	var totalItemNum =  $focusCarousel.find('img').length;
+	var loadedItemNum = 0;
+	var loadFn = null;
+	$focusCarousel.on('carousel-show',loadFn = function(ev,index,elem){
+		console.log('carousel-show loading...');
+		if(item[index] != 'loaded'){
+			console.log(index,'loading...');
+			var $img = $(elem).find('img');
+			var imgUrl = $img.data('src');
+			loadImage(imgUrl,function(url){
+				$img.attr('src',url);
+			},function(url){
+				$img.attr('src','images/focus-carousel/placeholder.png');
+			});
+			item[index] = 'loaded';
+			loadedItemNum++;
+			if(loadedItemNum == totalItemNum){
+				$focusCarousel.off('carousel-show',loadFn)
 			}
-		})
-		return num;
-	}
+		}
+	})
 
-	var $elevactor=$('#elevactor');
-	var $elevactorA=$('.elevactor-a');
-	/*设置电梯*/
-	function setElevactor(){
-		whichFloor();
-		var num=index;
-		// .removeClass('elevactor-a-active');
-	
-	}
-	/*电梯结束*/
+	/*调用轮播图插件*/
+	$focusCarousel.carousel({
+		activeIndex:0,
+		mode:'fade',
+		interval:0
+	});
+
+	/*中心轮播图结束*/
 })(jQuery);

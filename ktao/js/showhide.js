@@ -163,7 +163,7 @@
 			show:function($elem){
 				js._show($elem,'fadeIn');
 			},
-			hide:function(){
+			hide:function($elem){
 				js._hide($elem,'fadeOut');
 			}
 		},
@@ -316,7 +316,7 @@
 		}else{//slietn
 			showHideFn = slient;
 		}
-
+		
 		showHideFn.init($elem);
 		
 		return {

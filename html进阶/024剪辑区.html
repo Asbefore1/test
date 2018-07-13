@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024剪辑区.html</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width='600' height='600' id="canvas">
+	</canvas>
+</body>
+<script>
+	// 
+// var oCanvas=document.getElementById('canvas');
+	// var ctx=oCanvas.getContext('2d');
+	// ctx.beginPath();
+	// ctx.fillStyle='red';
+	// ctx.arc(300,300,50,0,2*Math.PI,true);
+	// ctx.fill();
+	// ctx.clip();//剪切
+
+	// ctx.beginPath();
+	// ctx.fillStyle='yellow';
+	// ctx.fillRect(300,300,100,50);
+
+
+
+	var oCanvas=document.getElementById('canvas');
+	var ctx=oCanvas.getContext('2d');
+	ctx.beginPath();
+	ctx.fillStyle='yellow';
+	ctx.rect(100,100,100,50);  //把fillRect变成rect
+	
+	ctx.clip();//剪切
+
+	ctx.beginPath();
+	ctx.fillStyle='red';
+	ctx.arc(100,100,50,0,2*Math.PI,true);
+	ctx.fill();
+</script>
+</html>

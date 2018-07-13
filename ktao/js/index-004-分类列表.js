@@ -1,6 +1,5 @@
 ;(function($){
-
-	function loadHtmlOnce($elem,callBack){
+	function loadHtmlOnce($elem,callback){
 		//获取需要请求的地址
 		var loadUrl = $elem.data('load');
 		//如果页面上没有设置请求地址直接返回
@@ -8,34 +7,22 @@
 
 		var isLoaded = $elem.data('isLoaded');
 		//如果已经加载过数据了直接返回
-		if(isLoaded) return;		
+		if(isLoaded) return;
 		//如果有请求地址,发送请求获取数据
 		$.getJSON(loadUrl,function(data){
-			console.log('get data ...',data);
-			callBack($elem,data);
-		});		
+			console.log('ddd');
+			callback($elem,data);
+		});
 	}
 
-	function loadImage(url,success,error){
-		var image = new Image();
-
-		image.onload = function(){
-			if(typeof success == 'function') success(url);
-		}
-
-		image.onerror = function(){
-			if(typeof error == 'function') error(url);
-		}
-
-		image.src = url;		
-	}
 	/*顶部下拉菜单开始*/
 	var $menu = $('.nav-site .dropdown');
 	
 	$menu.on('dropdown-show',function(ev){
 		loadHtmlOnce($(this),buildMenuItem)
 	});
-	//构建菜单并加重
+
+	//当需要显示时从服务器获取数据并且加载
 	function buildMenuItem($elem,data){
 		var html = '';
 		for(var i = 0;i<data.length;i++){
@@ -47,6 +34,7 @@
 			$elem.data('isLoaded',true);
 		},1000);
 	}
+	
 	$menu.dropdown({
 		css3:false,
 		js:true,
@@ -99,44 +87,14 @@
 	/*搜索框结束*/	
 
 
-	/*中心轮播图开始*/
-	var $carouselContainer=$('.focus .carousel-container');
-	//接收事件
-	$carouselContainer.on('carousel-show carousel-shown carousel-hide carousel-hidden',function(ev,index,elem){
-		console.log(index,ev.type);
-	})
-
-	$carouselContainer.on('carousel-show',function(ev,index,elem){
-		var $img=$(elem).find('img');
-		var imgUrl=$img.data('src');
-		// $img.attr('src',imgUrl);
-
-		var image=new Image();
-		image.onload=function(){
-			$img.attr('src',imgUrl);
-		}
-		image.src=imgUrl;
-	})
-
-	/*调用轮播图插件*/
-	$carouselContainer.carousel({//此时是在调用carousel插件
-		activeIndex:0,//如果默认指定显示第几张,调用时也指定了,以调用时为准
-		// interval:1000,
-		mode:'slide',
-	})
-	/*中心轮播图结束*/
-
-
 
 	/*分类导航开始*/
 	var $category = $('.category .dropdown');
 
 	$category.on('dropdown-show',function(ev){
-
-		loadHtmlOnce($(this),buildCategorItem);
-
+		loadHtmlOnce($(this),buildcategoryItem)
 	});
-	function buildCategorItem($elem,data){
+	function buildcategoryItem($elem,data){
 		var html = '';
 		for(var i = 0;i<data.length;i++){
 			html += '<dl class="category-details clearfix"><dt class="category-details-title fl"><a href="#" class="category-details-title-link">'+data[i].title+'</a></dt><dd class="category-details-item fl">';
@@ -149,7 +107,7 @@
 		setTimeout(function(){
 			$elem.find('.dropdown-layer').html(html);
 			$elem.data('isLoaded',true);
-		},1000);		
+		},1000);
 	}
 
 	$category.dropdown({
@@ -159,45 +117,5 @@
 	});
 
 	/*分类导航结束*/
-	
-	
 
-
-	/*楼层一开始*/
-	var $floor = $ ('.floor');
-	
-	$floor.on('tab-show tab-shown tab-hide tab-hidden',function(ev,index,elem){
-		console.log(index,elem,ev.type);
-	})
-
-	$floor.tab({
-		activeIndex:0,
-	})
-	/*楼层一结束*/
-
-
-	/*电梯开始*/
-	
-	
-	/*判断楼层号*/
-	function whichFloor(){
-		var num=-1;
-		$floor.each(function(index,elem){
-			if($win.scrollTop() < $(elem).offset().top){//不满足条件
-				return false;
-			}
-		})
-		return num;
-	}
-
-	var $elevactor=$('#elevactor');
-	var $elevactorA=$('.elevactor-a');
-	/*设置电梯*/
-	function setElevactor(){
-		whichFloor();
-		var num=index;
-		// .removeClass('elevactor-a-active');
-	
-	}
-	/*电梯结束*/
 })(jQuery);

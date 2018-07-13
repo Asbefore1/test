@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>100.html</title>
+	<style>
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		a{
+			text-decoration: none;
+			color: blue;
+			font-size: 14px;
+		}
+		.nav-site{
+			width: 100%;
+			height: 44px;
+			background: #ccc;
+		}
+		.nav-left{
+			float: left;			
+		}
+		.nav-left li{
+			list-style: none;
+			float: left;
+			margin-left: 10px;
+			line-height: 44px;			
+		}
+		.nav-a:hover{
+			color:red;
+		}
+		.nav-login{
+			color: red;
+		}
+		.nav-right{
+			float: right;
+			margin-right: 100px;
+		}
+		.dropdown{
+			list-style: none;
+			position: relative;			
+		}
+		.dropdown-toggle{			
+			z-index: 3;	
+			display: inline-block;
+			height: 44px;
+			line-height: 44px;
+			padding: 0 5px;
+		}
+		.dropdown-toggle:hover{
+			color:red;
+			background: skyblue;
+			display: block;
+		}
+		.dropdown-layer{
+			border: 1px solid #f3f5f7;
+			position: absolute;
+			top:43px;
+			left: 0px;
+			background:pink;
+			z-index: 2;
+			display: none;
+		}
+		.dropdown-layer li{
+			list-style: none;
+		}
+		.dropdown-item{
+			z-index: 1;
+			display: inline-block;
+			line-height: 30px;
+			width: 100px;	
+			padding: 0 5px;	
+		}
+		.dropdown-item:hover{
+			background: #ccc;
+		}
+		.dropdown:hover .dropdown-layer{
+			display: block;
+		}
+		.dropdown:hover .dropdown-toggle{
+			background:pink;
+			border-left: 1px solid #f3f5f7;
+			border-right: 1px solid #f3f5f7;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav-site">
+	<div class="container">
+		<ul class="nav-left">
+			<li><a href="javascript:;" class="nav-login">亲,请登录</a></li>
+			<li><a href="javascript:;" class="nav-a">免费注册</a></li>
+			<li><a href="#" class="nav-a">手机逛跨淘</a></li>
+		</ul>
+		<ul class="nav-right">
+			<li class="dropdown">
+				<a href="javascript:;" class="dropdown-toggle">我的跨淘<i class="fas dropdown-arrow">+</i></a>
+				<ul class="dropdown-layer dropdown-left">
+					<li><a href="#" class="dropdown-item">已买到的宝贝</a></li>
+					<li><a href="#" class="dropdown-item">我的足迹</a></li>
+				</ul>
+			</li>						
+		</ul>
+	</div>
+</div>
+</body>
+</html>

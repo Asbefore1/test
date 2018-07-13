@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>call,bind,apply.html</title>
+</head>
+<body>
+
+</body>
+<script>
+	/*
+	var name='tom',age='17';
+	var obj={
+		name:'Leo',
+		age:'88',
+		myfun:function(){
+			console.log(this.name+'年龄'+this.age);//this是obj
+		}
+	}
+	obj.myfun();
+	*/
+
+
+	/*
+	var name='mary';
+	function show(){
+		// console.log(this) //this是window
+		console.log(this.name);
+	}
+	show();
+	*/
+
+
+
+	var name='tom',age='17';
+	var obj={
+		name:'Leo',
+		age:'88',
+		myfun:function(fr,to){
+			console.log(this.name+'年龄'+this.age,'来自'+fr+'去往'+to);//this是obj
+		}
+	}
+	var person={
+		name:'xiaozhang',
+		age:'66'
+	}
+	obj.myfun.call(person,'成都','上海');//传参的语法不同
+	obj.myfun.apply(person,['成都','上海']);
+	obj.myfun.bind(person,'成都','上海')();
+</script>
+</html>

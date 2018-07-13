@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014canvas画布2.html</title>
+	<style>
+		#canvas,#canvas1{
+			border: 1px solid #000;
+		}
+		#canvas{
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<canvas width='100' height='100' id="canvas">
+	</canvas>
+	<canvas width='200' height='200' id="canvas1">
+	</canvas>
+</body>
+<script>
+	//获取canvas的DOM元素
+	var oCanvas=document.getElementById('canvas');
+
+	//获取canvas上下文环境
+	var ctx=oCanvas.getContext('2d');
+	ctx.moveTo(0,0);//指定起始坐标
+	ctx.lineTo(100,100);//指定终止坐标
+	ctx.strokeStyle='red';
+	ctx.lineWidth=10;
+	ctx.stroke();
+	//(在样式里面有设置一个会使100等比例拉伸到200,中间的线也会加粗)
+
+
+
+	//获取canvas的DOM元素
+	var oCanvas=document.getElementById('canvas1');
+
+	//获取canvas上下文环境
+	var ctx1=oCanvas.getContext('2d');
+	ctx1.moveTo(0,0);//指定起始坐标
+	ctx1.lineTo(200,200);//指定终止坐标
+	ctx1.strokeStyle='red';//线条的颜色
+	ctx1.lineWidth=10;//线条的宽度
+	ctx1.stroke();//调一下线条告诉浏览器这是一个线条
+</script>
+</html>

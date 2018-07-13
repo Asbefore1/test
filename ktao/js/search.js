@@ -1,10 +1,5 @@
-/*
-* @Author: TomChen
-* @Date:   2018-06-13 18:30:03
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-06-15 18:32:15
-*/
 ;(function($){
+	//缓存
 	var cache = {
 		data:{},
 		count:0,
@@ -88,7 +83,7 @@
 			if(this.jqXHR){
 				this.jqXHR.abort();
 			}
-			//获取服务器数据
+			//获取服务器数据(解决跨域问题)
 			this.jqXHR = $.ajax({
 				url:this.options.url+inputVal,
 				dataType:'jsonp',

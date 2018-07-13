@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017坐标系移动缩放.html</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width='500' height='500' id="canvas">
+	</canvas>
+</body>
+<script>
+	var oCanvas=document.getElementById('canvas');
+	var ctx=oCanvas.getContext('2d');
+
+	ctx.save();
+	ctx.beginPath();
+	ctx.strokeStyle='red';
+	ctx.translate(100,100);//平移坐标原点
+	ctx.rotate(Math.PI/4);
+	ctx.strokeRect(0,0,100,50);//以平移后的坐标为原点画100*50的矩形
+	
+	ctx.restore();
+	ctx.beginPath();
+	ctx.arc(300,150,50,0,2*Math.PI,true);
+	ctx.stroke();
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022填充图片.html</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+<body>
+	<canvas width='600' height='600' id="canvas">
+	</canvas>
+</body>
+<script>
+	var oCanvas=document.getElementById('canvas');
+	var ctx=oCanvas.getContext('2d');
+	ctx.beginPath();
+	var imgs=new Image();
+	imgs.src='./images/h.jpg';
+	imgs.onload=function(){
+		// ctx.drawImage(imgs,0,0);
+		ctx.drawImage(imgs,0,0,300,300);
+		ctx.drawImage(imgs,0,0,300,300,100,100,300,300);
+	}
+	
+</script>
+</html>

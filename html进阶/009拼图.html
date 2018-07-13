@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009拼图.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 500px;
+			height: 500px;
+			margin:100px auto;
+		}
+		.container li{
+			list-style: none;
+			width: 100px;
+			height: 150px;
+			float: left;
+		}
+		.container li img{
+			width: 100px;
+			height: 150px;
+		}
+	</style>
+</head>
+<body>
+	<ul class="container">
+		<li draggable='true'><img src="images/01.png" alt=""></li>
+		<li draggable='true'><img src="images/03.png" alt=""></li>
+		<li draggable='true'><img src="images/05.png" alt=""></li>
+		<li draggable='true'><img src="images/06.png" alt=""></li>
+		<li draggable='true'><img src="images/09.png" alt=""></li>
+		<li draggable='true'><img src="images/10.png" alt=""></li>
+		<li draggable='true'><img src="images/08.png" alt=""></li>
+		<li draggable='true'><img src="images/07.png" alt=""></li>
+		<li draggable='true'><img src="images/02.png" alt=""></li>
+		<li draggable='true'><img src="images/04.png" alt=""></li>
+	</ul>
+</body>
+		<script src='js/jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				var targetEle=null;
+				$('.container')
+				.on('dragstart','li',function(){//元素
+					targetEle=this;
+					// console.log(targetEle)
+				})
+				.on('drop','li',function(){//容器
+					//交换li里面的img				
+					if(targetEle != this){
+						var tmp=targetEle.innerHTML;
+						targetEle.innerHTML=this.innerHTML;
+						this.innerHTML=tmp;
+					}				
+				})
+				.on('dragover','li',function(ev){
+					ev.preventDefault();
+				})
+			})
+		</script>
+</html>

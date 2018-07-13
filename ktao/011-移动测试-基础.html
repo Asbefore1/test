@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-移动测试-基础.html</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/fontawesome-all.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<style>
+	.box{
+		position: absolute;
+		/*top:100px;
+		left: 0px;*/
+		width: 100px;
+		height: 100px;
+		background:red;
+	}
+	button{
+		width: 50px;
+		height: 50px;
+	}
+</style>
+<body>
+	<button>&lt;</button><button>&gt;</button>
+	<div class="box transition"></div>
+</body>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/transition.js"></script>
+<script>
+	//parseFloat括号之内的是带像素的,进行转化,化成不带像素的
+	//如果传进来的值和原来的值相等,就不走下一步,直接返回
+	//把移动过后的值赋给current重新进行判断
+	;(function($){
+		function Slient($elem){//让谁移动
+			this.$elem=$elem;//this.$elem是box
+			this.$elem.removeClass('transition');
+			// console.log(this.$elem.css('left'))//取出来是带像素的;
+			// console.log(parseFloat(this.$elem.css('left')));//取出来是不带像素的
+			this.currentX=parseFloat(this.$elem.css('left'));
+								//获取值(jQuery对象.css('样式名称'))
+			this.currentY=parseFloat(this.$elem.css('top'));
+		}
+		Slient.prototype={
+			constructor:Slient,
+			to:function(x,y){
+				x = (typeof x=='number' ? x : this.currentX);
+				y = (typeof y=='number' ? y : this.currentY);
+
+				if(this.currentX==x && this.currentY==y) return;
+				// console.log('move...');//初始点击时一直在打印
+				this.$elem.trigger('move');//移动之前
+				this.$elem.css({
+					left:x,
+					top:y
+				})
+				this.$elem.trigger('moved');//移动之后
+				this.currentX=x;//把x,y设置成新的当前值
+				this.currentY=y;
+				// console.log(this);//this是Slient构造函数
+			},
+			x:function(x){
+				this.move(x);
+			},
+			y:function(y){
+				this.move(null,y);
+			}
+		}
+
+
+
+
+		function Css3($elem){//让谁移动
+			this.$elem=$elem;//this.$elem是box
+			this.$elem.addClass('transition');
+			// console.log(this.$elem.css('left'))//取出来是带像素的;
+			// console.log(parseFloat(this.$elem.css('left')));//取出来是不带像素的
+			this.currentX=parseFloat(this.$elem.css('left'));
+								//获取值(jQuery对象.css('样式名称'))
+			this.currentY=parseFloat(this.$elem.css('top'));
+
+			this.$elem.css({
+					//没有设置的left和top时,会影响过渡效果,回来的时候才有过渡效果,因为不确定初始值需要人为的设置
+				left:this.currentX,
+				top:this.currentY
+			})
+		}
+		Css3.prototype={
+			constructor:Css3,
+			to:function(x,y){
+				var self=this;
+				x = (typeof x=='number' ? x : this.currentX);
+				y = (typeof y=='number' ? y : this.currentY);
+
+				if(this.currentX==x && this.currentY==y) return;
+				// console.log('move...');//初始点击时一直在打印
+				this.$elem.trigger('move');//移动之前
+					//(由于trigger是一个异步的过程,在自动触发时依旧会走下面的程序,所以会在还没移动好后就打印moved,需要监听一下过渡完成事件)
+
+				this.$elem.css({
+					left:x,
+					top:y
+				})
+
+				//监听过渡完成事件
+				this.$elem
+				.off(kuazhu.transition.end)//为了解决用户频繁点击触发事件多次执行
+				.one(kuazhu.transition.end,function(){//用one绑定事件是为了事件只触发一次后就移除
+					self.$elem.trigger('moved');//移动之后
+				});
+
+				this.currentX=x;//把x,y设置成新的当前值
+				this.currentY=y;
+				// console.log(this);//this是Slient构造函数
+			},
+			x:function(x){
+				this.move(x);
+			},
+			y:function(y){
+				this.move(null,y);
+			}
+		}
+
+
+
+		function JS($elem){//让谁移动
+			this.$elem=$elem;//this.$elem是box
+			this.$elem.removeClass('transition');
+			// console.log(this.$elem.css('left'))//取出来是带像素的;
+			// console.log(parseFloat(this.$elem.css('left')));//取出来是不带像素的
+			this.currentX=parseFloat(this.$elem.css('left'));
+								//获取值(jQuery对象.css('样式名称'))
+			this.currentY=parseFloat(this.$elem.css('top'));
+
+			this.$elem.css({
+					//没有设置的left和top时,会影响过渡效果,回来的时候才有过渡效果,因为不确定初始值需要人为的设置
+				left:this.currentX,
+				top:this.currentY
+			})
+		}
+		JS.prototype={
+			constructor:JS,
+			to:function(x,y){
+				var self=this;
+				x = (typeof x=='number' ? x : this.currentX);
+				y = (typeof y=='number' ? y : this.currentY);
+
+				if(this.currentX==x && this.currentY==y) return;
+				// console.log('move...');//初始点击时一直在打印
+				this.$elem.trigger('move');//移动之前
+					//(由于trigger是一个异步的过程,在自动触发时依旧会走下面的程序,所以会在还没移动好后就打印moved,需要监听一下过渡完成事件)
+
+				this.$elem
+				.stop()//把之前的动画结束掉
+				.animate({//开启新的动画
+					left:x,
+					top:y
+				},function(){
+					self.$elem.trigger('moved');//移动之后
+				})
+
+				this.currentX=x;//把x,y设置成新的当前值
+				this.currentY=y;
+				// console.log(this);//this是Slient构造函数
+				},
+			x:function(x){
+				this.move(x);
+			},
+			y:function(y){
+				this.move(null,y);
+			}
+		}
+
+		var move=new JS($('.box'));
+
+		$('.box').on('move moved',function(ev){
+			console.log(ev.type);
+		})
+
+		$('button').eq(0).on('click',function(){
+			move.to(0,100)
+			// move.to(100)
+			// move.to(null,100)
+		});
+
+		$('button').eq(1).on('click',function(){
+			move.to(200,200);
+			// move.to(200)
+			// move.to(0,200)
+		})
+
+	})(jQuery)
+</script>
+</html>

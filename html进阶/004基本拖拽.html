@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004基本拖拽.html</title>
+	<style>
+	*{
+		margin:0px;
+		padding: 0px;
+	}
+		.container{
+			width: 400px;
+			height: 400px;
+			background: orange;
+		}
+		.target{
+			width: 100px;
+			height: 100px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="container"></div>
+	<div class="target" id="target" draggable='true'></div>
+</body>
+		<script src='js/jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				$('#container')
+				.on('drop',function(){//放在容器上时触发事件
+					$('#container').append($('#target'));
+				})
+				.on('dragover',function(ev){
+					ev.preventDefault();//阻止默认行为
+				})
+			})
+		</script>
+</html>

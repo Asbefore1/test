@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001Cooks.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//存储
+	document.cookie='name=tom';
+	//获取
+	console.log(document.cookie);
+	
+	//时间有效值设置
+	var oDate = new Date();
+    oDate.setDate(oDate.getDate() + 14);
+    document.cookie = "name=Tom;expires="+oDate;
+	//删除
+</script>
+</html>

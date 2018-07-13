@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006拖拽中事件.html</title>
+	<style>
+	*{
+		margin:0px;
+		padding: 0px;
+	}
+		.container{
+			width: 400px;
+			height: 400px;
+			background: orange;
+		}
+		.target{
+			width: 100px;
+			height: 100px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="container"></div>
+	<div class="target" id="target" draggable='true'></div>
+</body>
+		<script src='js/jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				$('#target')
+				.on('dragstart',function(ev){//当元素开始拖动时记录元素的id
+					ev.originalEvent.dataTransfer.setData('targetId',ev.target.id)
+				})
+				.on('drag',function(){//被拖动元素拖动时触发
+					console.log('target drag');
+				})
+				.on('dragend',function(){//拽时松开鼠标时触发
+					console.log('target draged');
+				})
+
+				$('#container')
+				.on('drop',function(ev){//当放置被拖动元素时触发获取到记录下来的id
+					var target=ev.originalEvent.dataTransfer.getData('targetId')
+					// console.log(target);
+					$('#container').append($('#'+'target'));//把元素添加到container中
+				})
+				.on('dragover',function(ev){//被拖动元素正在到放置到容器时触发
+					ev.preventDefault();
+				})
+				.on('dragenter',function(){//当被拖动元素进入容器时触发
+					console.log('target dragenter')
+				})
+				.on('dragleave',function(){//当被拖动元素离开容器时触发
+					console.log('target dragleave')
+				})
+				.on('dragend',function(){//被拖动元素在容器中松开鼠标时触发
+					console.log('target dragend')
+				})
+			})
+		</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005拖拽中传递数据.html</title>
+	<style>
+	*{
+		margin:0px;
+		padding: 0px;
+	}
+		.container{
+			width: 400px;
+			height: 400px;
+			background: orange;
+		}
+		.target{
+			width: 100px;
+			height: 100px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="container"></div>
+	<div class="target" id="target" draggable='true'></div>
+</body>
+		<script src='js/jquery-1.12.4.js'></script>
+		<script>
+			$(function(){
+				$('#target')
+				.on('dragstart',function(ev){//当元素开始拖动时记录元素的id
+					ev.originalEvent.dataTransfer.setData('targetId',ev.target.id)
+				})
+				$('#container')
+				.on('drop',function(ev){//获取到记录下来的id
+					var target=ev.originalEvent.dataTransfer.getData('targetId')
+					// console.log(target);
+					$('#container').append($('#'+'target'));//把元素添加到container中
+				})
+				.on('dragover',function(ev){
+					ev.preventDefault();
+				})
+			})
+		</script>
+</html>

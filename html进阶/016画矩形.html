@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016画矩形.html</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width='500' height='500' id="canvas">
+	</canvas>
+</body>
+<script>
+	var oCanvas=document.getElementById('canvas');
+	var ctx=oCanvas.getContext('2d');
+	ctx.strokeStyle='red';
+	ctx.fillStyle='yellow';
+	ctx.strokeRect(50,50,100,50);
+	ctx.fillRect(100,100,150,150)
+	
+</script>
+</html>

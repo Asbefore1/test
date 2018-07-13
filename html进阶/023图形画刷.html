@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023图形画刷.html</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width='600' height='600' id="canvas">
+	</canvas>
+</body>
+<script>
+	var oCanvas=document.getElementById('canvas');
+	var ctx=oCanvas.getContext('2d');
+	ctx.beginPath();
+	var img=new Image();
+	img.src='./images/02.png';
+	img.onload=function(){
+		var pattern=ctx.createPattern(img,'no-repeat');
+		ctx.fillStyle=pattern;
+		ctx.fillRect(0,0,oCanvas.width,oCanvas.height);
+	}
+	
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014canvas画布1.html</title>
+	<style>
+		#canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas width='100' height='100' id="canvas">
+	</canvas>
+</body>
+<script>
+	//获取canvas的DOM元素
+	var oCanvas=document.getElementById('canvas');
+
+	//获取canvas上下文环境
+	var ctx=oCanvas.getContext('2d');//在2d环境下
+	ctx.moveTo(0,0);//指定起始坐标
+	ctx.lineTo(100,100);//指定终止坐标
+	ctx.strokeStyle='red';//线条的颜色
+	ctx.lineWidth=10;//线条的宽度
+	ctx.stroke();
+</script>
+</html>
