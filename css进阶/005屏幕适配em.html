@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005屏幕适配em.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			font-size: 15px;
+		}
+		img{
+			float: left;/*1em=当前元素(继承container)的font-size,font-size最小值是12px*/
+			width:30em;/*em是一个相对单位,相对于当前元素进行变化，当前元素由于继承会经常变化*/
+		}
+		h1{
+			font-size: 1em;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">我是
+		<img src="images/2.jpg" alt="">
+		<h1>学习学习学习</h1>
+	</div>
+</body>
+</html>

@@ -53,5 +53,17 @@
 		ctx.lineWidth=2;
 		ctx.stroke();
 	}
+	function start(){
+		var today=new Date();
+		var hours=today.getHours();
+		var minutes=today.getMinutes();
+		var second=today.getSeconds();
+		hour=hour>12 ? hour-12 :hour;
+		for(var i=0;i<60;i++){
+			if(i%5==0){
+				ctx.beginPath();
+			}
+		}
+	}
 </script>
 </html>
