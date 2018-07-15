@@ -7,16 +7,14 @@
 <script>
 	function Person(name,age){
 		this.name=name;
-		this.age=age;	
-		Person.prototype.showName=function(){
-			console.log('I am' + this.name);
-		}		
-		Person.prototype.showAge=function(){
-			console.log('I am' +this.age+'years old');
-		}
-		
+		this.age=age;			
 	}
-	
+	Person.prototype.showName=function(){
+		console.log('I am' + this.name);
+	}		
+	Person.prototype.showAge=function(){
+		console.log('I am' +this.age+'years old');
+	}
 	
 
 	function Student(name,age,classname){

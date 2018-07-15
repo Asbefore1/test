@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>27选项卡面向过程.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.btn{
+			overflow: hidden;
+			/*height: 30px;*/
+		}
+		.btn li{
+			list-style: none;
+			width: 60px;
+			height: 30px;
+			color:#fff;
+			background: #000;
+			text-align: center;
+			line-height: 30px;
+			float: left;
+			margin-right: 10px;
+			cursor: pointer;			
+		}
+		.btn li.active{
+			background:skyblue;
+		}
+		.content li{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			display: none;
+		}
+		/*.content .content1{
+			clear: both;
+		}*/
+	</style>
+</head>
+<body>
+	<ul class="btn" id="btn">
+		<li class="active">btn1</li>
+		<li>btn2</li>
+		<li>btn3</li>
+		<li>btn4</li>
+	</ul>
+	<ul class="content" id="content">
+		<li style="display: block;">content1</li>
+		<li>content2</li>
+		<li>content3</li>
+		<li>content4</li>
+	</ul>
+</body>
+<script>
+	window.onload=function(){
+		var aBtn=document.getElementById('btn').children;
+		var aContent=document.getElementById('content').children;
+		for(var i=0;i<aBtn.length;i++){
+			// console.log(this)//window是this
+			aBtn[i].index=i;
+			// console.log(aBtn[i].index);//0,1,2,3
+			aBtn[i].onclick=function(){
+				//console.log(this);//点那个this就是那个
+				for(var j=0;j<aBtn.length;j++){
+					aBtn[j].className='';
+					aContent[j].style.display='none';
+				}
+				aBtn[this.index].className='active';
+				aContent[this.index].style.display='block';
+			}
+		}
+
+	}
+</script>
+</html>

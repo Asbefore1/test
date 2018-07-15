@@ -24,8 +24,7 @@
 			float: left;
 			margin-right: 10px;
 			cursor: pointer;
-		}
-		
+		}		
 		.content li{
 			width: 300px;
 			height: 300px;
@@ -50,21 +49,18 @@
 			 // console.log(this);
 			var _self=this;
 			for(var i=0;i< this.aBtn.length;i++){
-				this.aBtn[i].index=i;
-				
-				this.aBtn[i].onclick=_self.fnclick(this);   //解决length错误
-					
-				
+				this.aBtn[i].index=i;			
+				this.aBtn[i].onclick=_self.fnclick(this);   //解决length错误			
 			}
 		}
 		Tab.prototype.fnclick=function(oBtn){		//oBtn解决index错误		
-					for(var j=0;j< this.aBtn.length;j++){
-						this.aBtn[j].className='';
-						this.acont[j].style.display='none';					
-					}
-					this.aBtn[oBtn.index].className='active';
-					this.acont[oBtn.index].style.display='block';
-				}
+			for(var j=0;j< this.aBtn.length;j++){
+				this.aBtn[j].className='';
+				this.acont[j].style.display='none';					
+			}
+			this.aBtn[oBtn.index].className='active';
+			this.acont[oBtn.index].style.display='block';
+		}
 	</script>
 </head>
 <body>

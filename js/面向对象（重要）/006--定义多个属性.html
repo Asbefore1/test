@@ -12,13 +12,19 @@
 			enumerable:true,
 			writable:true,
 			configurable:true
+		},
+		"age":{
+			value:18,
+			enumerable:true,
+			writable:true,
+			configurable:true
 		}
 	});
 	// delete obj.name;
 	for(key in obj){    
 		console.log(obj[key]);
 	}
-	Object.getOwnPropertyDescriptor(obj,"name");
+	// console.log(Object.getOwnPropertyDescriptor(obj,"age"));
 </script>
 <body>
 	
