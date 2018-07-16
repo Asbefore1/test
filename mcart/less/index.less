@@ -1,0 +1,36 @@
+// *{
+// 	margin: 0;
+// 	padding: 0;
+// }
+@rem:32;
+@border-color: #d7d7da;
+
+.rem(@attr,@px1){
+	@{attr}:unit(@px1/@rem,rem);
+}
+.rem(@attr,@px1,@px2){
+	@{attr}:unit(@px1/@rem,rem) unit(@px2/@rem,rem);
+}
+.rem(@attr,@px1,@px2,@px3){
+	@{attr}:unit(@px1/@rem,rem) unit(@px2/@rem,rem) unit(@px3/@rem,rem);
+}
+
+.header{
+	.rem(height,45);
+	.rem(line-height,45);
+	.rem(font-size,20);
+	border: 1px solid @border-color;
+	.header-back{
+		.rem(width,50);		
+		text-align: center;
+	}
+	.header-title{
+		.rem(width,180);
+		display: inline-block;		
+		text-align: center;
+	}
+	.header-more{
+		.rem(width,40);
+		text-align: center;
+	}
+}

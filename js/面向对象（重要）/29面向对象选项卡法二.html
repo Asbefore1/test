@@ -66,11 +66,10 @@
 			this.aBtn[i].index=i;
 			// console.log(aBtn[i].index);//0,1,2,3
 			this.aBtn[i].onclick=this.fnClick.bind(this,this.aBtn[i]);
-			console.log(this);
 		}
 	}
 	Tab.prototype.fnClick=function(obtn){
-		//console.log(this);//点那个this就是那个
+		console.log(this);//点那个this就是那个
 		for(var j=0;j<this.aBtn.length;j++){
 			this.aBtn[j].className='';
 			this.aContent[j].style.display='none';

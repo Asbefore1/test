@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+img {
+  width: 3.75rem;/*3.75=120/32是在iphone5上,如果要在其他设备上,要更换32这个变量*/
+  float: left;
+  margin: 0.3125rem 0.625rem;
+}
+h1 {
+  font-size: 0.3125rem;
+}
