@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-catch.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let getLoadImgPromise=(url)=>{
+		let promise=new Promise((resolve,reject)=>{//resolve成功 reject失败
+			let image=new Image();
+			image.onload=()=>{
+				resolve();
+			}
+			image.onerror=()=>{
+				reject();			
+			}
+			image.src=url;
+		});
+		return promise;
+	}
+	let promise=getLoadImgPromise('images/b11.jpg');
+	console.log(promise);//pending表示正在进行中
+	promise
+	.then(()=>{
+		console.log('success loaded...');//不写失败时会走到catch
+	})
+	// .catch((error)=>{
+	// 	console.log('error..',error);
+	// })
+	.catch((err)=>{
+		// let throw new Error;
+		console.log('error',error);
+	})
+</script>
+</html>

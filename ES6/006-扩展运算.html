@@ -9,7 +9,15 @@
 </body>
 <script>
 	/*var arr=[11,22,33,44];
+	console.log(arr);
 	console.log(...arr);*/
+
+	function show(n1,n2,n3){
+		console.log(n1,n2,n3)
+	}
+	var arr=[11,22,33,44,55];
+	// show(11,22,33);
+	show.apply(null,arr);
 
 	/*var arr=[11,22,33,44];
 	function sum(){		
@@ -45,10 +53,10 @@
 	console.log(obj1,obj2);*/
 
 
-	var obj1={name:'Tom',age:18,friend:{name:'leo',age:40}};
+	/*var obj1={name:'Tom',age:18,friend:{name:'leo',age:40}};
 	var obj2={...obj1};//本身是浅拷贝,由于'朋友'是对象,进行了深拷贝
 	obj2.name='Amy';
 	obj2.friend.name='Mike';
-	console.log(obj1,obj2);
+	console.log(obj1,obj2);*/
 </script>
 </html>
