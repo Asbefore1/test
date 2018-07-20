@@ -47,5 +47,7 @@
 	obj.myfun.call(person,'成都','上海');//传参的语法不同
 	obj.myfun.apply(person,['成都','上海']);
 	obj.myfun.bind(person,'成都','上海')();
+
+	//call和apply是在调用的过程中把this改变了,bind是新生成一个函数,在生成函数时改变this
 </script>
 </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	class Person{
+		constructor(name,age){
+			this.name=name;
+			this.age=age;
+			//return this;//由系统来做
+		}
+		showName(){//名字后面加括号
+			console.log('I am'+this.name);
+		}
+		showAge(){
+			console.log('I am'+this.age+'years old');
+		}
+		static sayHi(){//静态方法,不属于原型链,属于person
+			console.log('Hi.....');
+		}
+	}
+
+	//继承
+	class Student extends Person{//class没有声明的提升,不能先定义在使用
+		constructor(name,age,major){
+			super(name,age);
+			this.major=major;
+		}
+		showName(){//名字后面加括号(如果有自己的方法先找实例对象上的方法,再往上找)
+			console.log('I am'+this.name + 'and I am a student');
+		}
+		showMajor(){
+			console.log('I am from'+this.major);
+		}
+	}
+
+	// let p=new Person('Tom',18);
+	// console.log(p);//对象
+	// console.log(typeof Person);//function
+	let s=new Student('Tom',18,'Computer');
+	s.showName();
+	s.showAge();
+	s.showMajor();
+	// Person.sayHi();
+	Student.sayHi();
+</script>
+</html>

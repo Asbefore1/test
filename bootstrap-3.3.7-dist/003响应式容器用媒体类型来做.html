@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003响应式容器用媒体类型来做.html</title>
+	<meta name="viewport" content="width=device-width"> <!-- 一定要引入 -->
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			height: 50px;
+			margin: 0 auto;
+			background:red;
+		}
+		@media screen and (max-width:768px){
+			.container{
+				width: 100%;
+			}
+		}
+		@media screen and (min-width:768px) and (max-width:992px){
+			.container{
+				width: 750px;
+			}
+		}
+		@media screen and (min-width:992px) and (max-width:1200px){
+			.container{
+				width: 970px;
+			}
+		}
+		@media screen and (min-width:1200px){
+			.container{
+				width: 1170px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container"></div>
+</body>
+</html>

@@ -6,11 +6,11 @@
 </head>
 <body>
 	<input type="button" value="获取数据" id="btn">
-	<ul id="ul1"></ul>
+	<ul id="ul"></ul>
 </body>
 <script>
 	var oBtn=document.getElementById('btn');
-	var oUl=document.getElementById('ul1');
+	var oUl=document.getElementById('ul');
 	oBtn.onclick=function(){
 		var oAjax=new XMLHttpRequest();
 		oAjax.open('GET','http://127.0.0.1:3000/026data.json',true);
@@ -20,8 +20,10 @@
 			if(oAjax.readyState==4){
 				if(oAjax.status==200){
 					console.log('getdata  scuess::',oAjax.responseText);
-					console.log(typeof oAjax.responseText);
-					var obj=JSON.parse(oAjax.responseText);
+					// console.log(typeof oAjax.responseText);//类型是字符串
+					var obj=JSON.parse(oAjax.responseText);//把字符串转化成对象
+					//JSON.parse() 方法用于将一个 JSON 字符串转换为对象
+					// console.log(obj);
 					// console.log(obj.name);
 					// console.log(obj.age);
 					var oLi=document.createElement('li');

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002响应式容器用js来做.html</title><!-- 响应式容器是为了适应不同的设备 -->
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			height: 50px;
+			margin: 0 auto;
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<div class="container"></div>
+</body>
+<script>
+	(function(win,doc){
+		var oContainer=doc.querySelector('.container');
+		function Resize(){
+			var iWidth=doc.body.clientWidth ||doc.documentElement.clientWidth;
+			if(iWidth>=1200){        /*clientWidth是指可视区域*/
+				oContainer.style.width='1170px';
+			}else if(iWidth>=992){
+				oContainer.style.width='970px';
+			}else if(iWidth>=768){
+				oContainer.style.width='750px';
+			}else{
+				oContainer.style.width='100%';
+			}
+		}
+		win.addEventListener('resize',Resize,false);//在屏幕拉伸时  绑定事件
+		doc.addEventListener('DOMContentLoaded',Resize,false);//在刷新页面时
+	})(window,document);
+</script>
+</html>

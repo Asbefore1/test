@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-let变量定义.html</title>
+</head>
+<body>
+	<button>btn1</button>
+	<button>btn2</button>
+	<button>btn3</button>
+	<button>btn4</button>
+</body>
+<script>
+	/*
+	var name='tom';
+	var name='leo';
+	console.log(name);
+	*/
+
+	/*
+	let name='tom';
+	let name='leo';
+	console.log(name); 区别一:let只能定义一次变量,var可以定义多次
+	*/
+
+
+
+	/*console.log(age);   区别二：
+	var age=18;  //var有变量声明的提升 打印出来undefined
+	*/
+
+	/*console.log(age);
+	let age=18;  //let没有变量声明的提升 会报错并且不会打印出来undefined
+	*/
+	
+
+
+	/*
+	{
+		var age=18;
+	}
+	console.log(age);  //区别三:打印时可以打印出来,相当于在window中,是一个全局变量
+	*/
+
+	/*
+	{
+		let age=18;
+	}
+	console.log(age);//打印时不可以打印出来
+	*/
+
+	/*{
+		let age=18;
+		console.log(age);  //放在块级作用域中可以打印出来
+	}*/
+	
+	/*var oBtn=document.getElementsByTagName('button');
+	for(var i=0;i<oBtn.length;i++){
+		oBtn[i].onclick=function(){
+			console.log(i);//只能打印出来4
+		}
+	}*/
+	
+	/*//解决法一:
+	var oBtn=document.getElementsByTagName('button');
+	for(var i=0;i<oBtn.length;i++){
+		oBtn[i].index=i;
+		oBtn[i].onclick=function(){
+			console.log(this.index);//
+		}
+	}*/
+
+	/*//解决法二:
+	var oBtn=document.getElementsByTagName('button');
+	for(var i=0;i<oBtn.length;i++){
+		(function(i){		
+			oBtn[i].onclick=function(){
+				console.log(i);
+			}
+		})(i);
+	}*/
+	
+
+	/*//解决法三:
+	var oBtn=document.getElementsByTagName('button');
+	for(let i=0;i<oBtn.length;i++){ //用let
+		oBtn[i].index=i;
+		oBtn[i].onclick=function(){
+			console.log(this.index);
+		}
+	}*/
+
+
+	/*function show(){
+		var age=18;
+		console.log('first::',age);//18
+		function showAgain(){//闭包：定义在一个函数内部的函数
+			var age=19;
+			console.log('second::',age);//19
+		}
+		showAgain();
+		console.log('shird::',age);//18
+	}
+	show();
+	*/
+
+	/*function show(){
+		var age=18;
+		console.log('first::',age);//18
+		function showAgain(){
+			age=19;//等于修改了全局变量
+			console.log('second::',age);//19
+		}
+		showAgain();
+		console.log('shird::',age);//19
+	}
+	show();*/
+
+	function show(){ //用let和var一样
+		let age=18;
+		console.log('first::',age);//18
+		function showAgain(){
+		let age=19;//等于修改了全局变量
+			console.log('second::',age);//19
+		}
+		showAgain();
+		console.log('shird::',age);//19
+	}
+	show();
+</script>
+</html>

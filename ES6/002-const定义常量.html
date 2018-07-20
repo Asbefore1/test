@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-const定义常量.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*var PI=3.14;
+	PI=PI+1;
+	console.log(PI);
+	*/
+	
+	/*const PI=3.17;
+	PI=PI+1;
+	console.log(PI); //会报错,因为const不能重新再赋值
+	*/
+
+	/*const CONFIG={//配置
+		evn:'dev',
+		username:'root',
+		passwordL:'root',
+	}
+	CONFIG.evn='prod';
+	console.log(CONFIG);  //如果指向了数组或对象可以更改,因为复杂的数据放在了堆内存中,(简单的数据类型放在栈内存中)改变时只改变了对象,没有更改地址
+	*/
+
+	/*console.log(age); //不能先打印在定义,因为const没有声明的提升,应该先定义在打印
+	const age=18;*/
+	
+
+	/*
+	{
+		const age=18;
+	}
+	console.log(age);//打印时不可以打印出来
+	*/
+	/*
+	{
+		const age=18;
+		console.log(age);  //放在块级作用域中可以打印出来
+	}*/
+</script>
+</html>

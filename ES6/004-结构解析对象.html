@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-结构解析对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// let{name:name1,age:age1}={name:'tom',age:'18'};
+	// console.log(name1,age1);
+
+	let{person:{name,age},cat:{name1,age1}}={person:{
+		name:'leo',
+		age:18
+	},cat:{
+		name1:'tom',
+		age1:6
+	}}
+	console.log(name1,age1);
+</script>
+</html>

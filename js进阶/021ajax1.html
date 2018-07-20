@@ -10,15 +10,23 @@
 <script>
 	var oBtn=document.getElementById('btn');
 	oBtn.onclick=function(){
-		var oAjax=new XMLHttpRequest();
+		//1.创建ajax对象
+		var oAjax=new XMLHttpRequest();//XHR
+		//2.和服务器建立连接
 		oAjax.open('GET','http://127.0.0.1:3000/026data.json',true);
+		//第一个参数是请求的方式
+		//第二个参数是请求的地址
+		//第三个是确定是异步还是同步,true代表异步
+
+		//3.发送请求
 		oAjax.send();
+		//4.监听方法获取数据
 		oAjax.onreadystatechange=function(){
-			console.log(oAjax.readyState);
-			if(oAjax.readyState==4){
-				if(oAjax.status==200){
-					console.log('getdata  scuess::',oAjax.responseText);
-				}else{
+			// console.log(oAjax.readyState);//查看状态
+			if(oAjax.readyState==4){//4是数据完全返回
+				if(oAjax.status==200){ //oAjax.status是404,判断状态是不是200,等于200是成功
+					console.log('getdata  scuess::',oAjax.responseText);//oAjax.responseText用来显示数据返回的是文本
+				}else{//否则是失败
 					console.log('getdata faild::',oAjax.responseText);
 				}
 				

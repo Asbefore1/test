@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007-set数据结构.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*let s=new Set();
+	console.log(typeof s);
+	let arr=[];
+	console.log(typeof arr);
+	s.add(11);
+	s.add(22);
+	s.add(33);
+	s.add(44);
+	s.add(44);
+	s.delete(33);
+	s.clear();//清除所有
+	console.log(s);//有重复的会删掉(唯一)
+	console.log(s.size);//相当于length
+	console.log(s.has(11));//判断有没有这个值
+	*/
+
+	/*let arr=[11,22,33,44,55,22];
+	let s=new Set(arr);//去除了重复的
+	let arr2=[...s];
+	console.log(s);//对象
+	console.log(arr2);//数组
+	*/
+
+	let arr=[11,22,33,44,55,22];
+	let s=new Set(arr); //set只有值没有键,所以key和value一样
+	// console.log(s.keys());//遍历器
+
+	//法一：
+	// for(key of s.keys()){
+	// 	console.log(key);
+	// }
+
+	//法二：
+	// for(value of s.values()){
+	// 	console.log(value);
+	// }
+
+	//法三：
+	// for(entry of s.entries()){
+	// 	console.log(entry); //数组
+	// 	console.log(entry[0],entry[1]);
+	// }
+
+	//法四：
+	// s.forEach(function(value,key){
+	// 	console.log(value,key)
+	// })
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>028ajax4.html</title>
+</head>
+<body>
+	<input type="button" value="获取数据" id="btn">
+	<ul id="ul1"></ul>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	var oUl=document.getElementById('ul1');
+	oBtn.onclick=function(){
+		//1.创建ajax对象
+		var oAjax=new XMLHttpRequest();
+		//2.和服务器建立连接
+		oAjax.open('GET','http://127.0.0.1:3000/028arr.txt',true);  
+		//第一个参数是请求的方式
+		//第二个参数是请求的地址
+		//第三个是确定是异步还是同步,true代表异步
+
+		//3.发送请求
+		oAjax.send();
+		//4.监听方法获取数据
+		oAjax.onreadystatechange=function(){
+			// console.log(oAjax.readyState);//查看状态
+			if(oAjax.readyState==4){//4是数据完全返回
+				if(oAjax.status==200){//oAjax.status是404,判断状态是不是200,等于200是成功
+					console.log('getdata success::',oAjax.responseText);
+					// console.log(oAjax.responseText[0]);    
+									//不能获取数组,只能获取字符串,需要转化一下
+					var arr=JSON.parse(oAjax.responseText);//把字符串转化成数组
+					//JSON.parse() 方法用于将一个 JSON 字符串转换为对象,数组也是对象的一种
+					// console.log(arr[0]);
+					for(var i=0;i<arr.length;i++){
+						var oLi=document.createElement('li');
+						oLi.innerHTML='姓名:'+arr[i].name+"年龄"+arr[i].age;
+						oUl.appendChild(oLi);
+					}
+				}else{
+					console.log('getdata faild::',oAjax.responseText);
+				}
+				
+			}
+		}
+	}
+</script>
+</html>
