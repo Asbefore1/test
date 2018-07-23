@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-扩展运算对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*var obj1={name:'Tom',age:18};
+	// var obj2=obj1;//浅拷贝(地址发生了改变)
+	var obj2={...obj1};
+	// console.log(obj2);
+	obj2.name='leo';//深拷贝(重新申请了内存,又生成一个数组)
+	console.log(obj1,obj2);*/
+
+
+	var obj1={name:'Tom',age:18,friend:{name:'leo',age:40}};
+	var obj2={...obj1};
+	obj2.name='Amy';//外面自身的属性进行深拷贝
+	obj2.friend.name='Mike';//如果里面是对象进行浅拷贝
+	console.log(obj1,obj2);
+</script>
+</html>

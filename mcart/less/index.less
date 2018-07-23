@@ -24,24 +24,26 @@
 	.rem(height,45);
 	.rem(line-height,45);
 	.rem(font-size,20);
+	.rem(width,320);
 	border: 1px solid @border-color;
-	text-align: center;
+	box-sizing: border-box;
 	.header-back{
-		.rem(width,50);				
+		.rem(width,70);
+		text-align: center;			
 	}
 	.header-title{
-		.rem(width,180);
-		display: inline-block;				
-	}
-	.header-more{
-		.rem(width,40);	
+		.rem(width,180);			
+		text-align: center;
+		display: inline-block;	
 	}
 }
 .space{
 	.rem(height,45);
 	.rem(line-height,45);
+	.rem(width,320);
 	text-align: center;	
 	border: 1px solid @border-color;
+	box-sizing: border-box;
 	border-top: none;	
 	.logo{
 		.rem(margin-left,10);
@@ -58,7 +60,7 @@
 	}
 	.right{  	
     	.rem(font-size,15);
-    	.rem(margin-right,10);
+    	.rem(margin-right,30);
     	float: right;
     	color:red;
   	}
@@ -67,16 +69,10 @@
 	.rem(height,45);
 	.rem(line-height,45);
 	.rem(font-size,18);
+	.rem(width,320);
+	box-sizing: border-box;
 	border: 1px solid @border-color;
 	border-top: none;
-	.circle-JD{
-		.rem(line-height,45);
-		.rem(margin-left,10);
-		color:#db292f;
-	}
-	.jd-circle{
-		.rem(line-height,45);
-	}
 	.logo{
 		.rem(margin-left,10);
 		color:#969696;
@@ -91,6 +87,8 @@
 	.rem(height,45);
 	.rem(line-height,45);
 	.rem(font-size,15);
+	.rem(width,320);
+	box-sizing: border-box;
 	color: #969696;
 	border:1px solid @border-color;
 	border-top: none;
@@ -104,29 +102,20 @@
 		.rem(margin-left,6);
 	}
 }
-.intro-size{
-	.rem(font-size,13);
-}
 .product{
-	.rem(height,155);
+	.rem(height,160);
+	.rem(width,320);
+	box-sizing: border-box;
 	border: 1px solid @border-color;
 	border-top: none;
 	cursor: pointer;
 	.left{
 		float: left;
-		.circle-product{
-			.rem(margin-top,40);
-		}
 		.product-img{
 			.rem(width,60);
 			.rem(height,77);
 			.rem(margin-top,15);
 			.rem(margin-left,25);
-		}
-		.left-circle{
-			.rem(margin-left,10);
-			.rem(font-size,18);
-			color:#db292f;
 		}
 	}
 	.right{
@@ -140,39 +129,24 @@
 			font-weight: bold;
 		}
 		.design{
+			display: block;
 			float: left;
 			.rem(font-size,17);
 			.rem(margin-left,0);			
-		}
-		.box{
-			.rem(width,85);
-			.rem(height,30);
-			// .rem(margin-left,-60); 
-			background: skyblue;
-			.symbol{
-				.rem(font-size,20);
-				color:#db292f;
-			}			
-			.number-price{
-				.rem(font-size,25);
-				color:#db292f;
-			}
-		}				
-		.symbol-left{
-			clear: both;
-			.rem(margin-left,-60);
-			// .rem(margin-top,-8);
-		}
-		.treasure{
-			.rem(margin-left,10);
 		}
 		.heavy{
 			.rem(height,20);
 			.rem(line-height,20);
 			.rem(font-size,15);
 			.rem(margin-top,8);
-			float: left;
 		}
+		.symbol{
+			.rem(font-size,20);
+			color:#db292f;
+		}		
+		.treasure{
+			.rem(margin-left,10);
+		}		
 		.price{
 			.rem(margin-left,-70);
 			.rem(margin-top,35);
@@ -199,6 +173,7 @@
 				.rem(margin-top,3);
 				.rem(margin-left,2);
 				position: absolute;
+				color:#db292f;
 			}
 			.zero{
 				.rem(width,20);
@@ -221,27 +196,20 @@
 		.focus{
 			.rem(font-size,15);
 			.rem(margin-top,10);
-			.rem(margin-left,45);
+			.rem(margin-left,35);
 			color:#929292;
 			float:left;
-		}
-		.focus-left{
-			.rem(margin-top,20);
-			.rem(margin-left,65);
 		}
 		.del{
 			.rem(font-size,15);
 			.rem(margin-top,10);
-			.rem(margin-right,10);
+			.rem(margin-right,30);
 			color:#929292;
 			float: right;
 		}
-		.del-left{
-			.rem(margin-top,20);
-		}
 	}
 	.bottom{
-		.rem(width,265);
+		.rem(width,285);
 		.rem(height,40);
 		.rem(margin-left,30);
 		.rem(line-height,40);
@@ -261,52 +229,47 @@
 			float: right;
 			color:#ccc;
 		}
-	}
-	.bottom-top{
-		.rem(margin-top,30);
 	}	
 }
-.product-height{
-	.rem(height,205);
-}
 .payment{
+	.rem(width,320);
 	.rem(height,50);
-	.rem(font-size,10);
 	.rem(bottom,0);
+	.rem(left,0);
+	box-sizing: border-box;
 	border: 1px solid @border-color;
 	border-top:none;
 	position: fixed;	
 	background: #fff;
 	.left{
 		.rem(width,45);
-		.rem(height,50);		
-		.rem(font-size,16);
+		.rem(height,50);				
 		float: left;
 		position: relative;
 		.left-logo{
 			color:#db292f; 
 			position: absolute;
 			.rem(left,10);
-			.rem(top,10);
+			.rem(font-size,20);
 		}
-		.left-circle{
+		.pay-circle{
 			color:#969696;
 			position: absolute;
 			.rem(left,5);
 			.rem(top,10);
-
 		}
 		.check{
 			color:#969696;
 			position: absolute;
-			.rem(left,5);
-			.rem(top,30);
+			.rem(left,10);
+			.rem(top,25);
+			.rem(font-size,13);
 		}
 	}
 	.center{
-		.rem(width,195);
+		.rem(width,170);
 		.rem(height,50);
-		.rem(font-size,15); 
+		.rem(font-size,12); 
 		float: left;
 		position: relative;
 		.sum{
@@ -315,11 +278,11 @@
 			font-weight:bold;
 			position: absolute;
 			.sum-text{
-				.rem(font-size,17);
+				.rem(font-size,15);
 			}
 			.sum-center{
 				.rem(font-size,17);
-				.rem(margin-left,50);
+				.rem(margin-left,30);
 				text-align: center;
 			}
 			.sum-number{
@@ -328,9 +291,9 @@
 			}
 		}
 		.total{
-			.rem(top,30);
-			.rem(left,10);
-			.rem(font-size,14); 
+			.rem(top,25);
+			.rem(left,8);
+			.rem(font-size,12); 
 			color: #969696;
 			position: absolute;
 			.total-number{
@@ -339,12 +302,12 @@
 		}
 	}
 	.right{
-		.rem(width,78);
+		.rem(width,100);
 		.rem(height,50);
 		float: right;
 		background: #db292f;
 		.settle{
-			.rem(margin-left,8);
+			.rem(margin-left,5);
 			.rem(font-size,15);
 			.rem(line-height,50);
 			color:#fff;

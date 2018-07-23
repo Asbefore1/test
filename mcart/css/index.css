@@ -12,24 +12,26 @@
   height: 1.40625rem;
   line-height: 1.40625rem;
   font-size: 0.625rem;
+  width: 10rem;
   border: 1px solid #d7d7da;
-  text-align: center;
+  box-sizing: border-box;
 }
 .header .header-back {
-  width: 1.5625rem;
+  width: 2.1875rem;
+  text-align: center;
 }
 .header .header-title {
   width: 5.625rem;
+  text-align: center;
   display: inline-block;
-}
-.header .header-more {
-  width: 1.25rem;
 }
 .space {
   height: 1.40625rem;
   line-height: 1.40625rem;
+  width: 10rem;
   text-align: center;
   border: 1px solid #d7d7da;
+  box-sizing: border-box;
   border-top: none;
 }
 .space .logo {
@@ -47,7 +49,7 @@
 }
 .space .right {
   font-size: 0.46875rem;
-  margin-right: 0.3125rem;
+  margin-right: 0.9375rem;
   float: right;
   color: red;
 }
@@ -55,16 +57,10 @@
   height: 1.40625rem;
   line-height: 1.40625rem;
   font-size: 0.5625rem;
+  width: 10rem;
+  box-sizing: border-box;
   border: 1px solid #d7d7da;
   border-top: none;
-}
-.jd .circle-JD {
-  line-height: 1.40625rem;
-  margin-left: 0.3125rem;
-  color: #db292f;
-}
-.jd .jd-circle {
-  line-height: 1.40625rem;
 }
 .jd .logo {
   margin-left: 0.3125rem;
@@ -79,6 +75,8 @@
   height: 1.40625rem;
   line-height: 1.40625rem;
   font-size: 0.46875rem;
+  width: 10rem;
+  box-sizing: border-box;
   color: #969696;
   border: 1px solid #d7d7da;
   border-top: none;
@@ -92,11 +90,10 @@
 .intro .carriage {
   margin-left: 0.1875rem;
 }
-.intro-size {
-  font-size: 0.40625rem;
-}
 .product {
-  height: 4.84375rem;
+  height: 5rem;
+  width: 10rem;
+  box-sizing: border-box;
   border: 1px solid #d7d7da;
   border-top: none;
   cursor: pointer;
@@ -104,19 +101,11 @@
 .product .left {
   float: left;
 }
-.product .left .circle-product {
-  margin-top: 1.25rem;
-}
 .product .left .product-img {
   width: 1.875rem;
   height: 2.40625rem;
   margin-top: 0.46875rem;
   margin-left: 0.78125rem;
-}
-.product .left .left-circle {
-  margin-left: 0.3125rem;
-  font-size: 0.5625rem;
-  color: #db292f;
 }
 .product .right {
   width: 5.78125rem;
@@ -130,36 +119,23 @@
   font-weight: bold;
 }
 .product .right .design {
+  display: block;
   float: left;
   font-size: 0.53125rem;
   margin-left: 0rem;
-}
-.product .right .box {
-  width: 2.65625rem;
-  height: 0.9375rem;
-  background: skyblue;
-}
-.product .right .box .symbol {
-  font-size: 0.625rem;
-  color: #db292f;
-}
-.product .right .box .number-price {
-  font-size: 0.78125rem;
-  color: #db292f;
-}
-.product .right .symbol-left {
-  clear: both;
-  margin-left: -1.875rem;
-}
-.product .right .treasure {
-  margin-left: 0.3125rem;
 }
 .product .right .heavy {
   height: 0.625rem;
   line-height: 0.625rem;
   font-size: 0.46875rem;
   margin-top: 0.25rem;
-  float: left;
+}
+.product .right .symbol {
+  font-size: 0.625rem;
+  color: #db292f;
+}
+.product .right .treasure {
+  margin-left: 0.3125rem;
 }
 .product .right .price {
   margin-left: -2.1875rem;
@@ -188,6 +164,7 @@
   margin-top: 0.09375rem;
   margin-left: 0.0625rem;
   position: absolute;
+  color: #db292f;
 }
 .product .right .stock .zero {
   width: 0.625rem;
@@ -209,26 +186,19 @@
 .product .right .focus {
   font-size: 0.46875rem;
   margin-top: 0.3125rem;
-  margin-left: 1.40625rem;
+  margin-left: 1.09375rem;
   color: #929292;
   float: left;
-}
-.product .right .focus-left {
-  margin-top: 0.625rem;
-  margin-left: 2.03125rem;
 }
 .product .right .del {
   font-size: 0.46875rem;
   margin-top: 0.3125rem;
-  margin-right: 0.3125rem;
+  margin-right: 0.9375rem;
   color: #929292;
   float: right;
 }
-.product .right .del-left {
-  margin-top: 0.625rem;
-}
 .product .bottom {
-  width: 8.28125rem;
+  width: 8.90625rem;
   height: 1.25rem;
   margin-left: 0.9375rem;
   line-height: 1.25rem;
@@ -249,16 +219,12 @@
   float: right;
   color: #ccc;
 }
-.product .bottom-top {
-  margin-top: 0.9375rem;
-}
-.product-height {
-  height: 6.40625rem;
-}
 .payment {
+  width: 10rem;
   height: 1.5625rem;
-  font-size: 0.3125rem;
   bottom: 0rem;
+  left: 0rem;
+  box-sizing: border-box;
   border: 1px solid #d7d7da;
   border-top: none;
   position: fixed;
@@ -267,7 +233,6 @@
 .payment .left {
   width: 1.40625rem;
   height: 1.5625rem;
-  font-size: 0.5rem;
   float: left;
   position: relative;
 }
@@ -275,9 +240,9 @@
   color: #db292f;
   position: absolute;
   left: 0.3125rem;
-  top: 0.3125rem;
+  font-size: 0.625rem;
 }
-.payment .left .left-circle {
+.payment .left .pay-circle {
   color: #969696;
   position: absolute;
   left: 0.15625rem;
@@ -286,13 +251,14 @@
 .payment .left .check {
   color: #969696;
   position: absolute;
-  left: 0.15625rem;
-  top: 0.9375rem;
+  left: 0.3125rem;
+  top: 0.78125rem;
+  font-size: 0.40625rem;
 }
 .payment .center {
-  width: 6.09375rem;
+  width: 5.3125rem;
   height: 1.5625rem;
-  font-size: 0.46875rem;
+  font-size: 0.375rem;
   float: left;
   position: relative;
 }
@@ -303,11 +269,11 @@
   position: absolute;
 }
 .payment .center .sum .sum-text {
-  font-size: 0.53125rem;
+  font-size: 0.46875rem;
 }
 .payment .center .sum .sum-center {
   font-size: 0.53125rem;
-  margin-left: 1.5625rem;
+  margin-left: 0.9375rem;
   text-align: center;
 }
 .payment .center .sum .sum-number {
@@ -315,9 +281,9 @@
   color: #db292f;
 }
 .payment .center .total {
-  top: 0.9375rem;
-  left: 0.3125rem;
-  font-size: 0.4375rem;
+  top: 0.78125rem;
+  left: 0.25rem;
+  font-size: 0.375rem;
   color: #969696;
   position: absolute;
 }
@@ -325,13 +291,13 @@
   margin-left: 0.15625rem;
 }
 .payment .right {
-  width: 2.4375rem;
+  width: 3.125rem;
   height: 1.5625rem;
   float: right;
   background: #db292f;
 }
 .payment .right .settle {
-  margin-left: 0.25rem;
+  margin-left: 0.15625rem;
   font-size: 0.46875rem;
   line-height: 1.5625rem;
   color: #fff;

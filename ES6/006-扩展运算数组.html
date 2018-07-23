@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-扩展运算数组.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*var arr=[11,22,33,44];
+	console.log(arr);
+	console.log(...arr);*/
+
+
+	// function show(n1,n2,n3){
+	// 	console.log(n1,n2,n3);  //打印出纯数字字符串
+	// }	
+	// show(11,22,33);
+
+	
+
+	/*function show(n1,n2,n3,n4,n5){
+		console.log(n1,n2,n3,n4,n5);   //打印出字符串
+	}
+	var arr=[11,22,33,44,55];
+	// show.apply(null,arr);
+	show(...arr);*///...arr是参数列表把数组转化为字符串打印出来和show.apply(null,arr)效果一样
+
+
+	/*var arr=[11,22,33,44,55];
+	function sum(...arr){		
+		var result=0;
+		for(var i=0;i<arguments.length;i++){
+			result+=arguments[i];
+		}
+		return result;
+	}	
+	console.log(sum(...arr));*/
+
+
+	/*function sum(...arr){		
+		var result=0;
+		for(var i=0;i<arguments.length;i++){
+			result+=arguments[i];
+		}
+		return result;
+	}	
+	console.log(sum(11,22,33,44,55));*/
+
+
+	// console.log(Math.max(1,4,3));
+
+
+
+	//浅拷贝是对地址直接进行复制
+	//深拷贝是重新申请内存,新生成一个数组
+
+
+
+
+	//求数组的最大值
+	//法一:
+	// var arr=[11,55,44];
+	// console.log(Math.max.apply(null,arr)); //用apply将数组中的数字拿出来进行比较(转化为字符串)
+
+	//法二:
+	// var arr=[11,55,44];
+	// console.log(Math.max(...arr));
+
+
+	//浅拷贝,地址发生了改变,arr2和arr1里面都添加了111
+	/*var arr1=[11,44,77,55];
+	var arr2=arr1;
+	arr2.push(111);
+	console.log(arr2==arr1);*/  
+
+
+	//深拷贝,只有arr2里面添加了88
+	/*var arr1=[11,44,77,55];
+	var arr2=[];
+	for(var i=0;i<arr1.length;i++){
+		arr2.push(arr1[i]);
+	}
+	arr2.push(88);
+	console.log(arr1,arr2);*/
+
+	//深拷贝,不用循环的做法
+	/*var arr1=[11,44,77,55];
+	var arr2=arr1.concat();
+		//concat是将arr1和concat进行合并之后返回一个新数组，concat里面是一个空数组
+	arr2.push(111);
+	console.log(arr1,arr2);*/
+
+	//深拷贝
+	/*var arr1=[11,44,77,55];
+	var arr2=arr1.slice();
+	arr2.push(888);
+	console.log(arr1,arr2);*/
+
+	//使用扩展运算进行深拷贝
+	/*var arr1=[11,44,77,55];
+	var arr2=[...arr1];
+	arr2.push(111);
+	console.log(arr1,arr2);*/
+
+	
+</script>
+</html>
