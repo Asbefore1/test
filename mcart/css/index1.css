@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 10rem;
+}
+.header {
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 0.625rem;
+  width: 10rem;
+  border: 1px solid #d7d7da;
+  box-sizing: border-box;
+}
+.header .header-back {
+  width: 2.1875rem;
+  text-align: center;
+}
+.header .header-title {
+  width: 5.625rem;
+  text-align: center;
+  display: inline-block;
+}
+.space {
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  width: 10rem;
+  text-align: center;
+  border: 1px solid #d7d7da;
+  box-sizing: border-box;
+  border-top: none;
+}
+.space .logo {
+  margin-left: 0.3125rem;
+  font-size: 0.625rem;
+  line-height: 1.40625rem;
+  float: left;
+  color: #969696;
+}
+.space .path {
+  font-size: 0.46875rem;
+  margin-left: 0.25rem;
+  float: left;
+  color: #969696;
+}
+.space .right {
+  font-size: 0.46875rem;
+  margin-right: 0.9375rem;
+  float: right;
+  color: red;
+}
+.jd {
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 0.5625rem;
+  box-sizing: border-box;
+  border: 1px solid #d7d7da;
+  border-top: none;
+}
+.jd .red-circle {
+  color: #db292f;
+  margin-left: 0.3125rem;
+  font-size: 0.625rem;
+}
+.jd .logo {
+  margin-left: 0.3125rem;
+  color: #969696;
+  font-weight: bold;
+}
+.jd .home {
+  margin-left: 0.3125rem;
+  font-weight: bold;
+}
+.intro {
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 0.46875rem;
+  box-sizing: border-box;
+  color: #969696;
+  border: 1px solid #d7d7da;
+  border-top: none;
+}
+.intro .ticket {
+  margin-left: 0.375rem;
+}
+.intro .heavy {
+  margin-left: 0.1875rem;
+}
+.intro .carriage {
+  margin-left: 0.1875rem;
+}
+.product {
+  height: 4.78125rem;
+  box-sizing: border-box;
+  border: 1px solid #d7d7da;
+  border-top: none;
+  cursor: pointer;
+}
+.product .left {
+  width: 1.25rem;
+  height: 4.78125rem;
+  float: left;
+}
+.product .left .empty-circle {
+  font-size: 0.625rem;
+  margin-left: 0.3125rem;
+  margin-top: 1.25rem;
+  color: #969696;
+}
+.product .center {
+  width: 3.21875rem;
+  height: 4.34375rem;
+  margin-top: 0.4375rem;
+  float: left;
+}
+.product .right {
+  width: 5.46875rem;
+  height: 4.28125rem;
+  margin-top: 0.5rem;
+  float: left;
+}
+.product .right .top {
+  width: 4.78125rem;
+  height: 1.09375rem;
+  font-size: 0.40625rem;
+  font-weight: bold;
+}
+.product .right .top .treasure {
+  margin-left: 0.3125rem;
+}
+.product .right .heavy {
+  width: 4.78125rem;
+  font-size: 0.40625rem;
+  margin-top: 0.40625rem;
+  color: #969696;
+}
+.product .right .number {
+  width: 4.78125rem;
+  height: 0.625rem;
+  margin-top: 0.3125rem;
+}
+.product .right .number .price {
+  width: 2.03125rem;
+  font-size: 0.46875rem;
+  float: left;
+  color: #db292f;
+}
+.product .right .number .stock {
+  width: 1.875rem;
+  font-size: 0.46875rem;
+  margin-left: 0.8125rem;
+  float: left;
+}
+.product .right .number .stock .reduce {
+  color: #db292f;
+}
+.product .right .number .stock .zero {
+  margin-left: 0.15625rem;
+}
+.product .right .number .stock .add {
+  margin-left: 0.15625rem;
+  color: #db292f;
+}
+.product .right .last {
+  width: 4.78125rem;
+  margin-top: 0.3125rem;
+  height: 0.625rem;
+}
+.product .right .last .focus {
+  font-size: 0.4375rem;
+  margin-left: 1.5625rem;
+  float: left;
+}
+.product .right .last .del {
+  font-size: 0.4375rem;
+  float: right;
+}
+.payment {
+  bottom: 0rem;
+  height: 1.5625rem;
+  position: fixed;
+  background: #fff;
+  border: 1px solid #d7d7da;
+  box-sizing: border-box;
+  border-top: none;
+}
+.payment .payment-left {
+  width: 0.9375rem;
+  height: 1.5625rem;
+  margin-left: 0.3125rem;
+  float: left;
+}
+.payment .payment-left .payment-circle {
+  position: absolute;
+  font-size: 0.625rem;
+  margin-top: 0.15625rem;
+  color: #db292f;
+}
+.payment .payment-left .check {
+  font-size: 0.3125rem;
+  margin-top: 0.9375rem;
+  color: #969696;
+}
+.payment .payment-center {
+  width: 4.84375rem;
+  margin-left: 0.3125rem;
+  margin-top: 0.1875rem;
+  float: left;
+}
+.payment .payment-center .sum {
+  width: 3.75rem;
+  font-size: 0.4375rem;
+}
+.payment .payment-center .sum .sum-text {
+  font-weight: bold;
+}
+.payment .payment-center .sum .sum-number {
+  margin-left: 0.46875rem;
+  color: #db292f;
+  font-weight: bold;
+}
+.payment .payment-center .total {
+  width: 4.84375rem;
+  font-size: 0.375rem;
+  margin-top: 0.125rem;
+  color: #969696;
+}
+.payment .payment-center .total .total-number {
+  margin-left: 0.1875rem;
+}
+.payment .payment-right {
+  float: left;
+  background: #db292f;
+  width: 3.28125rem;
+  height: 1.5625rem;
+  font-size: 0.4375rem;
+  margin-left: 0.25rem;
+  line-height: 1.5625rem;
+  text-align: center;
+  color: #fff;
+}

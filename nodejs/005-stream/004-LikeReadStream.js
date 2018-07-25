@@ -26,11 +26,13 @@ class LikeReadableStream extends EventEmitter{
 	}
 }
 let data=`aaaaaaaaaabbbbbbbbbb`;
-
+let count=0;
+let body='';
 let rs=new LikeReadableStream(data,10);
 
 rs.on('data',(chunk)=>{
-	console.log(chunk.toString());
+	console.log(count++,':::',chunk.toString());
+	body+=chunk;
 })
 rs.on('end',()=>{
 	console.log('end...');
