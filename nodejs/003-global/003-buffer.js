@@ -1,4 +1,4 @@
-//语法:Buffer是一个存储二进制的容器,是一个数组
+//语法:Buffer是一个存储二进制的容器,相当于是一个数组
 //语法:Buffer.from(string);
 //语法:Buffer.alloc(size);
 
@@ -13,6 +13,6 @@
 
 
 const buf=Buffer.alloc(10);
-buf[1]=10;
+buf[1]=10;//如果不指定具体的内容是什么,就默认是0
 console.log(buf);
 

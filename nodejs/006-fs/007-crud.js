@@ -5,12 +5,12 @@ let filePath='./data.json';
 let add=(name,callBack)=>{
 	fs.readFile(filePath,(err,data)=>{
 		if(!err){
-			let obj=JSON.parse(data);//将字符串转化为对象
-			obj.push({
+			let json=JSON.parse(data);//将字符串转化为json数组
+			json.push({
 				id:uuidv1(),
 				name:name,
 			})
-			let str=JSON.stringify(obj);//将对象转化为字符串
+			let str=JSON.stringify(json);//将json数组转化为字符串
 			fs.writeFile(filePath,str,(err)=>{
 				if(!err){
 					callBack(null,str);
@@ -23,22 +23,23 @@ let add=(name,callBack)=>{
 		}	
 	})	
 }
-// let get=(id,callBack)=>{
+// let get=(id,callBack)=>{//获取时通过id进行获取
 // 	fs.readFile(filePath,(err,data)=>{
 // 		if(!err){
+// 			// console.log(data);//没转化之前的data是一个buffer,类似于字符串
 // 			let obj=JSON.parse(data);
 // 			let result=null;
 // 			for(key in obj){
-// 				if(obj[key]['id']==id){
-// 					result = obj[key];
+// 				if(obj[key]['id']==id){//obj[key]['id']是传进来的id,后面的id是对象上有的所有的id
+// 					result = obj[key];//返回obj上的key键,id和name
 // 					break;
 // 				}
 // 			}
-// 			obj.some((val)=>{
-// 				if(val['id']==id){
-// 					return true;
-// 				}
-// 			})
+// 			// obj.some((val)=>{
+// 			// 	if(val['id']==id){
+// 			// 		return true;
+// 			// 	}
+// 			// })
 // 			callBack(null,result);
 // 		}else{
 // 			callBack(err);
@@ -95,6 +96,8 @@ let add=(name,callBack)=>{
 // 		}
 // 	})
 // }
+
+
 add('Tom',(err,data)=>{
 	if(!err){
 		console.log(data);
@@ -104,7 +107,7 @@ add('Tom',(err,data)=>{
 });
 
 
-// get('a9598236-4c76-4a85-a69c-8340efe122d1',(err,data)=>{
+// get('faa1d600-8fdb-11e8-bf05-f1d8ee1a90fc',(err,data)=>{
 // 	if(!err){
 // 		console.log(data);
 // 	}else{
