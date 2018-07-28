@@ -2,7 +2,7 @@ const http=require('http');
 const fs=require('fs');
 const server=http.createServer((req,res)=>{
 	let pathName=req.url;
-	// console.log(pathName);
+	// console.log(pathName);//返回在浏览器输入的地址
 	if(pathName=='/index.html'){//在浏览器里输入的名字,找不到会出现文件走丢了....
 		fs.readFile('./index.html',(err,data)=>{//去读当前文件夹里面的文件,找不到会出现index 出错了...
 			if(!err){

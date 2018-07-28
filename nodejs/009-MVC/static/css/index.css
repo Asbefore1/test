@@ -1,0 +1,78 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background:url(../images/bd.jpg) no-repeat;
+	background-size: cover;
+}
+.wall{
+	width: 900px;
+	height: 600px;
+	border: 1px solid #000;
+	float: left;
+	margin: 20px;
+	
+}
+.wish{
+	width: 150px;
+	height: 200px;
+	background:orange;
+	padding: 20px 10px 10px 10px;
+	overflow: hidden;
+	box-sizing: border-box;
+	position: relative;
+}
+.form-box{
+	float: right;
+	margin: 20px;
+}
+textarea{
+	resize: none;
+	outline: 0;
+}
+.sub-btn{
+	display: block;
+	width: 230px;
+	height: 50px;
+	line-height: 50px;
+	background:red;
+	color:#fff;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 5%;
+}
+.sub-btn:hover{
+	box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+}
+.close{
+	position: absolute;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	right: 5px;
+	top:2px;
+}
+.close:hover::before,
+.close:hover::after{
+	background: #f00;
+}
+.close::before,
+.close::after{
+	content: "";
+	position: absolute;
+	height: 2px;
+	width: 100%;
+	top:50%;
+	left: 0;
+	background: #000;
+
+}
+.close::before{
+	transform: rotate(45deg);
+}
+.close::after{
+	transform: rotate(-45deg);
+}
