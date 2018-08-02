@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>回调函数.html</title>
+	<style>
+		textarea{
+			resize: none;
+			outline: 0;
+		}
+	</style>
+</head>
+<body>
+	
+	<!-- <form action="www.kuazhu.com">
+		<input type="text" value="小明">
+		<input type="button" value="小猪">
+		<input type="reset">
+		<input type="submit">
+		<input type="checkbox" name="hobby" value="basketball">篮球
+		<input type="checkbox" name="hobby" value="football">足球
+		<input type="radio"  name='sex' value="male">男
+		<input type="radio"  name='sex' value="female">女
+		<input type="image" src="images/bd.jpg">
+		<input type="file">
+		<div>
+			<label for="text">点我</label>
+			<input type="text" id="text">
+		</div>
+		<textarea name="建议" id="textarea" cols="30" rows="10"></textarea>
+	</form> -->
+</body>
+<script>
+	window.onload=function(){
+		// function say () {
+ 			//alert('hello');
+		// }
+		// alert(say());
+
+		function say(value){
+			alert(value)
+		}
+		say('hello');
+
+		function show(fn,value){
+			fn(value);
+		}
+		show(say,'hello');
+
+
+		// function show(fn,value){
+		// 	fn(value)
+		// }
+		// show(function(value){
+		// 	alert(value)
+		// },'hello');
+	}
+	
+</script>
+</html>

@@ -25,11 +25,11 @@
 		});
 		//改变显示顺序
 		$elem.hover(function(){
-			$(this).css({
+			$(this).css({//移入
 				zIndex:999
 			})
 		},function(){
-			$(this).css({
+			$(this).css({//移出
 				zIndex:0
 			})
 		});		
@@ -37,7 +37,7 @@
 
 	handleWish($wish);
 
-	//监听删除事件,绑定在wall，因为如果绑定在a上,而a是动态生成的,所以用委托代理事件,代理给父元素
+	//委托代理监听删除事件,绑定在wall，因为如果绑定在a上,而a是动态生成的,所以用委托代理事件,代理给父元素
 	$wall.on('click','.close',function(){
 		// console.log(this);//this是叉号,通过'.close'绑定在$wall父元素上,this就是叉号
 		var $this = $(this);
@@ -78,7 +78,7 @@
 
 				handleWish($dom);
 
-				$('#content').val('');				
+				$('#content').val('');//插入之后把框里的内容变空			
 			}else{
 				alert('许愿失败了');
 			}

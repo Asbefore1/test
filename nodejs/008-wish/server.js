@@ -1,20 +1,21 @@
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
-const mime = require('./mime.json');
+const mime = require('./mime.json');//必须写当前文件夹下
 const url = require('url');
 const WishModel = require('./WishModel.js');
 const querystring = require('querystring');
 const swig = require('swig');
 
 const server = http.createServer((req,res)=>{
-	console.log("req.url:::",req.method,req.url);
-	let reqUrl = url.parse(req.url,true);
-
-	let pathname = reqUrl.pathname;
-
 	let fileName = req.url;
+	// console.log("req.url:::",req.method,req.url);
 	
+	let reqUrl = url.parse(req.url,true);	
+	// console.log(reqUrl);//拿出来是一个大对象Url:{},(里面的query也是一个对象,在这里用不到)
+	
+	let pathname = reqUrl.pathname;//做路由的判断,del/add/get
+
 	if(pathname === '/index.html' || pathname === '/'){//显示首页
 		WishModel.get((err,data)=>{
 			// console.log('ddd');
@@ -29,8 +30,9 @@ const server = http.createServer((req,res)=>{
 							</head>
 							<body>
 								<div class="wall">`
-					
-					data.forEach((val)=>{
+
+					//有几个对象就循环几次,就有几个卡片
+					data.forEach((val)=>{//val就相当于obj
 						html += `<div class="wish" style="background: ${val.color}">
 										<a href="javascript:;" class="close" data-id='${val.id}'></a>
 										${val.content}
@@ -57,6 +59,7 @@ const server = http.createServer((req,res)=>{
 				let html = template({
 				   data:data
 				});
+				//通过res可写流返回给前端
 				res.setHeader('Content-Type','text/html;charset=UTF-8');
 				res.end(html);	
 			}else{
@@ -103,13 +106,14 @@ const server = http.createServer((req,res)=>{
 		});
 	}else{
 		//静态资源处理
-		//如果用户的请求是文件夹的话,就返回文件夹下面的index.html
-		if(fileName.lastIndexOf('.') == -1){//文件夹
-			fileName = fileName + '/index.html';
-		}
 
-		let filePath = path.normalize(__dirname+'/static'+fileName);
-		let fileExtName = path.extname(filePath);
+		//如果用户的请求是文件夹的话,就返回文件夹下面的index.html
+		// if(fileName.lastIndexOf('.') == -1){//文件夹
+		// 	fileName = fileName + '/index.html';
+		// }
+		//路径		
+		let filePath = path.normalize(__dirname+'/static'+fileName);//__dirname绝对路径,normalize去掉多余的/
+		let fileExtName = path.extname(filePath);//获取到原来路径的扩展名,即是哪种类型的文件
 
 		fs.readFile(filePath,(err,data)=>{
 			if(!err){
@@ -123,8 +127,6 @@ const server = http.createServer((req,res)=>{
 			}
 		});		
 	}
-	
-
 });
 
 server.listen(3000,'127.0.0.1',()=>{
