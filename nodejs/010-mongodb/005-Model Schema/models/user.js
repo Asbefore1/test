@@ -39,16 +39,48 @@ const UserSchema=new mongoose.Schema({
 		}
 });
 
+
+
+/*
+//实例方法
+
+//UserSchema.methods是doc
 UserSchema.methods.findMyblogs=function(callback){//UserSchema是一个实例对象
-	// console.log(this);//是调用findMyblogs,this就是谁
+	// console.log(this);//谁调用findMyblogs,this就是谁,这里的this就是doc,包含name,age,sex等
 	// console.log(this._id);
 
 
 	//有Model.prototype.model()方法,该方法返回一个指定的Model,在model上调用方法相当于调用构造函数上的方法
-	this.model('blog').find(this._id,(err,docs)=>{
-		callback(null,docs);
+	this.model('Blog').find({author:this._id},(err,docs)=>{
+		callback(null,docs);//执行的传进来的回调函数
 	})
 }
+*/
+
+
+//静态方法
+//UserSchema.statics是UserModel
+	/*
+	UserSchema.statics.findMyPhone=function(phone,callback){
+		// console.log(this);//this就是UserSchema这个构造函数
+		// console.log(this.model('User')===this);//true
+		this.findOne({phone:phone},(err,docs)=>{
+			callback(null,docs);
+		})
+	}
+	*/
+
+
+	/*
+	UserSchema.statics.findMyPhone=function({name:name},callback){
+		// console.log(this);//this就是UserSchema这个构造函数
+		// console.log(this.model('User')===this);//true
+		this.findOne({name:name},(err,docs)=>{
+			callback(null,docs);
+		})
+	}
+	*/
+
 
 //3.用定义好的Schema去生成model
 //注意:model的第一个参数会生成数据库中集合的名称,数据库中把它变成小写加复数
