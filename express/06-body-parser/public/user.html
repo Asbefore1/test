@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>http请求的四种方式</title>
+</head>
+<body>
+	<button id="get">GET请求</button>
+	<button id="post">POST请求</button>
+	<button id="put">PUT请求</button>
+	<button id="delete">DELETE请求</button>
+</body>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$(function(){
+		$('#get').on('click',function(){
+			$.ajax({
+				url:'/user',//如果地址是/abc,对应的app.js中get请求也要改成/abc
+				type:'GET'
+			})
+			.done(function(data){
+				console.log(data)
+			})
+		})
+		$('#post').on('click',function(){
+			$.ajax({
+				url:'/user',
+				type:'POST',
+				data:{name:'tom',age:18}
+			})
+			.done(function(data){
+				console.log(data)
+			})
+		})
+		$('#put').on('click',function(){
+			$.ajax({
+				url:'/user',
+				type:'PUT'
+			})
+			.done(function(data){
+				console.log(data)
+			})
+		})
+		$('#delete').on('click',function(){
+			$.ajax({
+				url:'/user',
+				type:'DELETE'
+			})
+			.done(function(data){
+				console.log(data)
+			})
+		})
+	})
+</script>
+	
+
+</html>
