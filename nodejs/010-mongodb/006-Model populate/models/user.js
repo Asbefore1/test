@@ -26,7 +26,7 @@ const UserSchema=new mongoose.Schema({
 				message:'{VALUE}不是合法电话号码'
 			}			
 		},
-		locked:{
+		locked:{//文本是否可以被编辑(修改)
 			type:Boolean
 		},
 		createdAt:{

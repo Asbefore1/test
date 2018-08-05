@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><!-- layout布局的意思 -->
+<head><!-- lauout是一个模板,供其他页面使用,改的时候只改这个页面 -->
 	<meta charset="UTF-8">
-	<title>{% block title %}index{% endblock %}</title>
+	<title>{% block title %}{% endblock %}</title>
 	<style>
 		*{
 			margin: 0;
@@ -29,19 +29,19 @@
 </head>
 <body>
 	<nav>
-		{% block head %}{% endblock %}
 		<a href="#">我的博客</a>
 		<a href="#">关注我哦</a>
 	</nav>
 	<div>
 		<div class="content">
 			{% block content %}{% endblock %}
-			content
 		</div>
 		<div class="side">
 			slide
 		</div>
 	</div>
 </body>
-{% include "./footer.html" %}
+{% include "./footer.html" %}<!-- 引进js或css -->
 </html>
+
+

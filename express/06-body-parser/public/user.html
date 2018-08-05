@@ -15,7 +15,7 @@
 	$(function(){
 		$('#get').on('click',function(){
 			$.ajax({
-				url:'/user',//如果地址是/abc,对应的app.js中get请求也要改成/abc
+				url:'/user',
 				type:'GET'
 			})
 			.done(function(data){

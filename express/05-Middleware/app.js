@@ -2,9 +2,23 @@ const express=require('express');
 const app=express();
 
 
-app.get('/',(req,res)=>{//req请求 res回复
-	res.send('hello 你好,世界')
+app.use((req,res,next)=>{
+	console.log('before A::::');
+	next();
+	console.log('after A::::');
 })
+app.use((req,res,next)=>{
+	console.log('before B::::');
+	next();
+	console.log('after B::::');
+})
+
+app.use((req,res,next)=>{
+	console.log('before C::::');
+	// next();
+	console.log('after C::::');
+})
+
 
 
 app.listen(3000,'127.0.0.1',()=>{
