@@ -42,8 +42,10 @@
 	console.log(promise);//pending表示正在进行中
 	let p=promise.then((url)=>{
 		console.log(url,'success loaded...');
+		console.log(promise)
 	},()=>{
 		console.log(url,'fail loaded...');
+		console.log(promise)
 	})
 </script>
 </html>

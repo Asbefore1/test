@@ -42,8 +42,8 @@ router.post('/',(req,res)=>{
 //删除愿望
 router.delete('/:id',(req,res)=>{
 	// console.log(req.params.id);
-	let id=req.params.id;
-	WishModel.remove({_id:args[0]},(err,result)=>{
+	let id=req.params.id;  
+	WishModel.remove({_id:id},(err,result)=>{
 		if(!err){
 			let resultJson = JSON.stringify({
 				status:0

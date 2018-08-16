@@ -2,6 +2,7 @@ const express=require('express');
 const swig=require('swig');
 const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
+
 //1.启动数据库
 mongoose.connect('mongodb://localhost:27017/kuazhu', { useNewUrlParser: true });
 const db=mongoose.connection;
