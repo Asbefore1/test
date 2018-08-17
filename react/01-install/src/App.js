@@ -1,9 +1,9 @@
-import React from 'react';
+import React,{ Component,Fragment } from 'react';
 
 
 //定义组件
-//必须继承React.Component
-class App extends React.Component{
+//必须继承React.Component,Component是react上的一个方法
+class App extends Component{
 	//必须有一个render方法
 	render(){
 		return(
@@ -12,4 +12,5 @@ class App extends React.Component{
 	}
 }
 
+//导出组件==module.exports==App
 export default App;
