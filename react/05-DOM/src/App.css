@@ -1,0 +1,16 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.box{
+	margin-top: 100px;
+	margin-left: 300px;
+}
+
+li{
+	width: 300px;
+	margin-top: 20px;
+	list-style: none;
+	border-bottom: 1px dashed #000;
+}
