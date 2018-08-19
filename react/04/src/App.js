@@ -4,6 +4,7 @@ import React,{ Component,Fragment } from 'react';
 import './App.css';
 
 import Item from './Item.js';
+import Test from './Test.js';
 
 
 
@@ -23,7 +24,7 @@ class App extends Component{
 		//初始化state,state代表当前页面中的数据
 		this.state={
 			value:'',
-			list:[]
+			list:['aaaa','bbb','ccc']//初始化Item打印几次与初始值有几个有关
 		};
 		// console.log('1::',this)
 		this.handleChange=this.handleChange.bind(this);
@@ -41,9 +42,9 @@ class App extends Component{
 		})
 		*/
 		this.setState((preState)=>({
-				list:[...preState.list,preState.value],
-				value:''
-			}))
+			list:[...preState.list,preState.value],//将框里的值拿出来放到list中
+			value:''
+		}))
 		// console.log('2::',this)
 	}
 
@@ -57,7 +58,7 @@ class App extends Component{
 		*/
 		const value=e.target.value;
 		this.setState((preState)=>({
-			value:value//如果赋值的名字和值的名字相同,就可以只写一个
+			value:value//如果赋值的名字和值的名字相同,就可以只写一个			
 		}))
 	}
 
@@ -92,12 +93,13 @@ class App extends Component{
 					index={index}
 					data={this.handleDelete}
 					test='hahah'
-				/> 
+				/>
 			)				
 		})
 	}
 
 	render(){//渲染(相当于调用)注意:setState执行,render就执行,子组件的render就执行
+		console.log('App render...')
 		return(
 			<div className='box'>	
 				<input value={this.state.value} onChange={this.handleChange}  />
@@ -107,6 +109,7 @@ class App extends Component{
 						this.getItems()
 					}
 				</ul>
+				<Test />
 			</div>
 		)
 	}

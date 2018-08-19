@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 class Item extends Component{
 
 	constructor(props){
-		super(props);
+		super(props);//props发生改变,render会执行
 		this.handleDelete=this.handleDelete.bind(this)
 	};
 
@@ -21,6 +21,7 @@ class Item extends Component{
 	};
 
 	render(){//渲染(调用)
+		console.log('Item render...')
 		const {content,test}=this.props; 
 		return(
 			<li onClick={this.handleDelete}>

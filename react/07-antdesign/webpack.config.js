@@ -39,9 +39,13 @@ module.exports={
 		        use: {
 		            loader: 'babel-loader',
 		            options: {
-		                presets: ['env', 'react']
+		                presets: ['env', 'react'],
+		                //按需加载
+				        plugins: [
+						    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` 会加载 less 文件
+						] 
 		            }
-		        }              
+		        }		                     
         	}
 	    ]
   	},
