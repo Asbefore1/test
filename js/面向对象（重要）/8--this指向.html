@@ -6,11 +6,19 @@
 </head>
 <script>
 	function show(n1,n2){
-		console.log(this);
+		console.log(this,n1,n2);//this是window
 	}
+	// show()
+
+
+	//call和apply是在调用时改变this的指向,传参的语法不同
 	show.call({name:'tom'},50,20);
 	show.apply({name:'tom'},[30,10]);
+
+	//bind是新生成了一个函数,在生成函数时改变this的指向
 	show.bind({name:'tom'},20,700)();
+	
+
 </script>
 <body>
 	
