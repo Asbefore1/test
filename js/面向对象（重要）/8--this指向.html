@@ -11,12 +11,12 @@
 	// show()
 
 
-	//call和apply是在调用时改变this的指向,传参的语法不同
+	//call和apply是在调用时改变this的指向,两者传参的语法不同
 	show.call({name:'tom'},50,20);
 	show.apply({name:'tom'},[30,10]);
 
 	//bind是新生成了一个函数,在生成函数时改变this的指向
-	show.bind({name:'tom'},20,700)();
+	show.bind({name:'tom'},20,700)();//加一个括号时调用函数
 	
 
 </script>

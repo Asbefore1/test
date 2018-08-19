@@ -8,6 +8,16 @@
 	
 </body>
 <script>
-	
+	//new了一个实例,promise接收两个一个函数,这个函数接收两个参数resolve和reject,这两个参数都是一个异步处理的
+	let promise=new Promise((resolve,reject)=>{
+		console.log('1:::')//在promise里是同步的
+		resolve();//默认是成功的
+	})
+
+	promise.then(()=>{
+		console.log('2:::')//由于前面默认是成功的,所以会走到then方法里面,但是他是一个异步处理的过程,会放在最后执行
+	})
+
+	console.log('3:::')//同步
 </script>
 </html>

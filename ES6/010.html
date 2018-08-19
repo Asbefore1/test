@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	class Person{
+		//属性
+		constructor(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		//实例方法
+		showName(){
+			console.log('I am '+this.name);
+		}
+		showAge(){
+			console.log('I am '+this.age+'years old')
+		}
+
+		//静态方法
+		static sayHi(){
+			console.log('Hi....')
+		}
+
+	}
+
+	/*
+	//静态方法
+	Person.sayHi=function(){
+		console.log('Hi....')
+	}
+	*/
+
+	class Student extends Person{
+		constructor(){
+			super()
+		}
+	}
+	// console.log(Student.prototype)
+
+
+
+	// //new了一个实例对象
+	// let p=new Person('Tom',18);
+	// // console.log(p);
+	// // console.log(typeof Person)//function
+	// p.showName();
+	// p.showAge();
+	// Person.sayHi()
+
+
+	let s=new Person();
+	s.showName();
+	s.showAge();
+</script>
+</html>

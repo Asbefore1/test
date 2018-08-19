@@ -248,7 +248,7 @@ db.once('open',()=>{
 
 
 			/*
-			UserModel.deleteOne({age:51},(err,result)=>{//默认删除所有
+			UserModel.deleteOne({age:51},(err,result)=>
 				if(!err){
 					console.log(result);
 				}else{
@@ -258,7 +258,7 @@ db.once('open',()=>{
 			*/
 
 			/*
-			UserModel.deleteMany({age:{$lte:57}},(err,result)=>{//默认删除所有
+			UserModel.deleteMany({age:{$lte:57}},(err,result)=>{
 				if(!err){
 					console.log(result);
 				}else{
