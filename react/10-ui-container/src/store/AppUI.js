@@ -26,6 +26,7 @@ import React,{ Component } from 'react';
 // 		    			style={{ marginTop: 20 }}
 // 		      			bordered
 // 		      			dataSource={this.props.list}
+						{/*将render单独拿出来时,handledelete去掉bind(this),将其改为一个函数,且不传参*/}
 // 		      			renderItem={(item,index) => (<List.Item onClick={()=>{this.props.handleDelete(index)}}>{item}</List.Item>)}
 // 		    		/>
 // 			    </Col>	

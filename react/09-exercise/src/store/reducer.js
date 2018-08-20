@@ -1,4 +1,4 @@
-import { CHANGE_VALUE,ADD_ITEM,DELETE_ITEM } from './actionTypes.js';
+import { CHANGE_VALUE,ADD_ITEM,DELETE_ITEM,LOAD_INIT_DATA } from './actionTypes.js';
 
 const defaultState={
 	value:'hi',
@@ -27,7 +27,11 @@ export default (state=defaultState,action)=>{
 		NewState.list.splice(action.payload,1);
 		return NewState;	
 	}
-
+	if(action.type==LOAD_INIT_DATA){
+		const NewState=JSON.parse(JSON.stringify(state));
+		NewState.list=action.payload;
+		return NewState
+	}
 
 	return state
 }

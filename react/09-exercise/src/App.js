@@ -3,9 +3,11 @@ import store from './store/index.js';
 //引入css
 import './App.css';
 
-import { Input,Button,Row,Col,List } from 'antd';//先引入
+import AppUI from './store/AppUI.js';
 
-import './store/actionCreator.js';
+
+
+import  { handleChangeAction,handleAddAction,handleDeleteAction,getInitDataAction } from './store/actionCreator.js';
 
 
 //定义组件
@@ -21,6 +23,7 @@ class App extends Component{
 		
 		this.handleChange=this.handleChange.bind(this);
 		this.handleAdd=this.handleAdd.bind(this);
+		this.handledelete=this.handledelete.bind(this);
 
 		//接收修改成功的数据
 		store.subscribe(() =>
@@ -35,50 +38,39 @@ class App extends Component{
 	}
 
 	handleAdd(){
-		const action={
-			//不用告诉修改到哪个地方
-			type:ADD_ITEM
-		}
+		const action=handleAddAction()
 		store.dispatch(action)
 	}
 
 	handledelete(index){
-		const action={
-			type:DELETE_ITEM,
-			payload:index
-		}
+		const action=handleDeleteAction(index)
 		store.dispatch(action)
 	}
 
+	componentDidMount(){
+		// axios
+		// .get('http://127.0.0.1:3001/')
+		// .then((data)=>{
+		// 	const action=loadInitDataAction(data.data)
+		// 	store.dispatch(action)
+		// })
+		// .catch((err)=>{
+		// 	console.log('err...',err)
+		// })
 
+		const action=getInitDataAction()
+		store.dispatch(action)
+	}
 
 	render(){
 		return(
-			<div className='App'>
-				<Row>
-			      	<Col span={6}>
-				      	<Input 
-				      		value={this.state.value} 
-				      		onChange={this.handleChange} 
-				      	/>
-			      	</Col>
-			      	<Col span={6}>
-				      	<Button 
-				      		type="primary"
-				      		onClick={this.handleAdd}
-				      	>提交
-				      	</Button>
-				    </Col>			     		       
-			    </Row>
-			   	<Col span={6}>
-		      		<List
-		    			style={{ marginTop: 20 }}
-		      			bordered
-		      			dataSource={this.state.list}
-		      			renderItem={(item,index) => (<List.Item onClick={this.handledelete.bind(this,index)}>{item}</List.Item>)}
-		    		/>
-			    </Col>	
-			</div>
+			<AppUI
+				value={this.state.value}
+				list={this.state.list}
+				handleChange={this.handleChange}
+				handleAdd={this.handleAdd}
+				handledelete={this.handledelete}
+			/>
 		)
 	}
 }
