@@ -8,26 +8,29 @@
 	
 </body>
 <script>
-	//ES5
+	//ES5设置默认值
 
 
-
-	/*function show(msg){
-		msg=msg || 'hello';
+	/*
+	function show(msg){
+		msg=msg || 'hello';//如果前面是真就返回前面的,是假的话就走后面的
 		console.log(msg);
 	}
 	// show('hi');
 	// show('');
 	*/
-
-	/*function show(msg){
+	
+	/*
+	function show(msg){
 		if(typeof msg=='undefined'){
 			msg='hello';			
 		}
-		console.log(msg);
+		console.log(msg,typeof msg);
 	}
-	// show('');
-	// show();*/
+	show('');//传一个'',它的类型是string
+	// show();//什么都不传它的类型是undefined
+	*/
+
 
 
 	//ES6:
@@ -37,28 +40,35 @@
 	/*function show(name,msg='hello'){//设置默认值,一般默认参数写在最后
 		console.log(msg,name);
 	}
-	show('Tom');*/
+	show('Tom');
+	*/
 
 	//法二:
 	//结构解析
-	/*function show(name,{age=18,sex='woman'}={}){
+	/*
+	function show(name,{age=18,sex='woman'}={}){
 		console.log(name,age,sex);
 	}
-	show('Leo',{age:88,sex:'man'});*/
+	show('Leo',{age:88,sex:'man'});
+	*/
 
 	//法三:
 	//扩展运算
-	/*function show(name,...arg){ //reset参数
+	/*
+	function show(name,...arg){ //reset参数
 		console.log(name,arg[0],arg[1]);
 	}
-	show('Amy',18,'man');*/
+	show('Amy',18,'man');
+	*/
 
-	let i=98;
+	
+	let i=99;
 	function show(age=i+1){
 		console.log(age);
 	}
 	show();
 	i=100;//以重新定义的计算
 	show();
+	
 </script>
 </html>

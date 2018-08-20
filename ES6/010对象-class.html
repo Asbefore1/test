@@ -52,7 +52,8 @@
 	//继承
 	class Student extends Person{//class没有声明的提升,不能先定义在使用
 		constructor(name,age,major){
-			super(name,age);//super的作用在于继承父亲的constructor,用super来继承
+			//super的作用在于去继承(或调用)父亲的constructor来初始化
+			super(name,age);
 			this.major=major;
 		}
 		showName(){//名字后面加括号(如果有自己的方法先找实例对象上的方法,再往上找)

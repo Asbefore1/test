@@ -3,7 +3,7 @@ import React,{ Component,Fragment } from 'react';
 //引入css
 import './App.css';
 
-import { Input,Button,Row,Col,List } from 'antd';
+import { Input,Button,Row,Col,List } from 'antd';//先引入
 
 const data = [
   'Racing car sprays burning fuel into crowd.',
