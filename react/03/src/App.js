@@ -42,6 +42,8 @@ class App extends Component{
 		this.setState({
 			value:e.target.value
 		})
+		// console.log(e.target.value)
+		// console.log(this.state)
 	}
 
 	//单向数据流:父组件可以向子组件传值,但子组件不能改变父组件的值

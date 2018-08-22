@@ -8,16 +8,30 @@
 	
 </body>
 <script>
-	// function show(){ //打印出callee
-	// 	console.log(arguments);
-	// }
-	// show();
+	/*
+	let Person=()=>{
 
-	// let show=(...args)=>{//箭头函数用...args来传参
-	// 	console.log(args);
-	// }
-	// show(11,22,33);
+	}
+	let p=new Person();//没有constructor
+	console.log(Person)
+	console.log(Person.prototype)//undefined
+	*/
 
+
+
+	/*
+	function show(){ //打印出callee
+		console.log(arguments);
+	}
+	show();
+	*/
+
+	let show=(...args)=>{//箭头函数用...args来传参
+		console.log(args);
+	}
+	show(11,22,33);
+
+	/*
 	function fact(n){//阶乘
 		if(n<=1){
 			return 1;
@@ -31,5 +45,20 @@
 	let fnfact=fact;
 	fact=null;
 	console.log(fnfact(5));
+	*/
+
+
+
+	function add(...arr){
+    	let result = 0;
+	    for(let i = 0;i<arr.length;i++){
+	        result += arr[i];
+	         return result;
+	         console.log(result)
+
+	    }
+   		
+	}
+	add(11,22);
 </script>
 </html>

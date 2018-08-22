@@ -56,7 +56,11 @@ const AppUI=(props)=>{
 	    			style={{ marginTop: 20 }}
 	      			bordered
 	      			dataSource={props.list}
-	      			renderItem={(item,index) => (<List.Item onClick={()=>{props.handleDelete(index)}}>{item}</List.Item>)}
+	      			renderItem={(item,index) => 
+	      				(<List.Item onClick={()=>{
+	      					props.handleDelete(index)}}
+	      				>{item}
+	      				</List.Item>)}
 	    		/>
 		    </Col>	
 		</div>

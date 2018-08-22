@@ -19,6 +19,7 @@ module.exports={
 	//配置loader
 	module: {
 	    rules: [
+	    	//处理配置css
 	      	{
 		        test: /\.css$/,
 		        use: [
@@ -26,6 +27,7 @@ module.exports={
 		          'css-loader'
 		        ]
 	      	},
+	      	//处理配置图片
 	      	{
 		        test:/\.(png|jpg|gif)$/,
 		        use:[

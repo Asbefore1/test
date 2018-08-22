@@ -12,7 +12,7 @@ import './App.css';
 
 //定义组件
 //必须继承React.Component,Component是react上的一个方法
-//处理业务逻辑的组件-UI组件
+//App组件（父组件）是容器组件负责处理业务逻辑
 //如果一个组件只有一个render方法的话,这个组件也叫做无状态组件
 //无状态组件可以只写一个方法
 class App extends Component{
@@ -26,8 +26,7 @@ class App extends Component{
 		this.state=store.getState()
 		// console.log(store.getState())
 
-		//在组件中接收到修改的值
-		//当store里
+		//subscribe的作用在于当store里的state发生改变也就是修改值成功后,告诉组件修改成功了,在组件中接收到修改的值
 		store.subscribe(()=>{
 			this.setState(store.getState())//store.getState()作为一个参数传进来
 		})

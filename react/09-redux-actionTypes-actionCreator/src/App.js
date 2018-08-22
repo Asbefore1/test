@@ -24,8 +24,7 @@ class App extends Component{
 		this.state=store.getState()
 		// console.log(store.getState())
 
-		//在组件中接收到修改的值
-		//当store里
+		//subscribe的作用在于当store里的state发生改变也就是修改值成功后,告诉组件修改成功了,在组件中接收到修改的值
 		store.subscribe(()=>{
 			this.setState(store.getState())//store.getState()作为一个参数传进来
 		})

@@ -8,44 +8,45 @@
 	
 </body>
 <script>
+	/*
 	function Timer(id){
 		this.id=id;
-		setTimeout(function(){  //调用的时候去执行
-			console.log(this,this.id);
+		setTimeout(function(){  //用function定义的是在调用的时候去执行
+			console.log(this,this.id);//this是window
 		},500)
 	}
 	var timer=new Timer('100'); //new只是定义 
+	*/
 
-
-
-	/*function Timer(id){
+	/*
+	function Timer(id){
 		this.id=id;
 		setTimeout(function(){  //调用的时候去执行
 			console.log(this,this.id);
 		}.bind({id:'111'}),500)
 	}
-	var timer=new Timer('100');*/
+	var timer=new Timer('100');
+	*/
 
-
-
-	/*function Timer(id){
+	/*
+	function Timer(id){
 		this.id=id;
 		setTimeout(function(){  //调用的时候去执行
 			console.log(this,this.id);
 		}.bind(this),500)//bind把this改变了
 	}
-	var timer=new Timer('100');*/
+	var timer=new Timer('100');
+	*/
 
-
-
-	/*function Timer(id){
+	/*
+	function Timer(id){
 		this.id=id;
-		setTimeout(()=>{//定义的时候去执行,正好在new的时候去执行,所以是100
+		setTimeout(()=>{//定义的时候已经确定好了,谁定义的this就是谁
 			console.log(this,this.id);
 		},500)//不能bind
 	}
-	var timer=new Timer('100');*/ //new的时候去定义
-
+	var timer=new Timer('100'); //new的时候去定义
+	*/
 
 </script>
 </html>

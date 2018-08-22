@@ -1,4 +1,4 @@
-import React,{ Component,Fragment } from 'react';
+import React,{ Component } from 'react';
 
 import store from './store/index.js'; 	
 
@@ -16,18 +16,21 @@ class App extends Component{
 	
 	constructor(props){
 		super(props);
+		/*
 		this.state={
 			value:'hello',
 			list:['aa','bb']
 		}
-		this.state=store.getState()
+		*/
 		// console.log(store.getState())
-
-		//在组件中接收到修改的值
-		//当store里
-		store.subscribe(()=>{
+		// console.log(store)
+		this.state=store.getState()
+		
+		//subscribe的作用在于当store里的state发生改变也就是修改值成功后,告诉组件修改成功了,在组件中接收到修改的值
+		store.subscribe(()=>{//setState是App上的方法
 			this.setState(store.getState())//store.getState()作为一个参数传进来
 		})
+
 		this.handleChange=this.handleChange.bind(this);
 		this.handleAdd=this.handleAdd.bind(this);
 	}
@@ -64,7 +67,7 @@ class App extends Component{
 	}
 
 	render(){
-		return(
+		return(//return只能返回一个,div外面的都是js代码,div里面的都是html代码,这种语法是JSX语法
 			<div className='App'>
 				<Row>
 			      	<Col span={6}>

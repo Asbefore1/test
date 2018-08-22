@@ -21,6 +21,7 @@ export const deleteItemAction=(payload)=>{
 		payload
 	}
 }
+//发送ajax请求用到的
 export const loadInitDataAction=(payload)=>{
 	return {
 		type:LOAD_INIT_DATA,

@@ -18,19 +18,22 @@ class App extends Component{
 	}
 
 	handleAdd(){
-		// console.log(this.state)//{value: ""}
+		console.log(this.state.value)
 		this.setState({
 			list:[...this.state.list,this.state.value],//...扩展运算符
 			value:''
 		})
+
 	}
 
 	handleChange(e){
+		// console.log(this)//bind(this)是让函数内部的this也变成App
 		// console.log(e.target)//拿到input框
 		// console.log(e.target.value)//拿到input框里的值
 		this.setState({
 			value:e.target.value
-		})
+		})	
+		// console.log(this.state)//state是app上的
 	}
 
 	handleDelete(index){

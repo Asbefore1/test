@@ -5,15 +5,18 @@
 //2.reducer负责处理逻辑但不改变数据,数据的改变由store负责
 //3.action中的type在整个应用中必须唯一
 const defaultState={
-
 	value:'hi',
 	list:['ccc','ddd']
 }
 
 export default (state=defaultState,action)=>{
+	// console.log(action,value)//action是App传过来的
 	if(action.type=='change_value'){
+		//生成新的state,不能改变原来的
+		// state.value=action.payload;//错误的写法
+		
+		//正确的写法:先把原先的复制一份,再在将复制的基础上做操作
 		//深拷贝
-
 		// const NewState=state;//浅拷贝
 		const NewState=JSON.parse(JSON.stringify(state));
 

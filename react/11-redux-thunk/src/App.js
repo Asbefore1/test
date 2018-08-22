@@ -26,8 +26,9 @@ class App extends Component{
 		this.state=store.getState()
 		// console.log(store.getState())
 
-		//在组件中接收到修改的值
-		//当store里
+		//subscribe的作用在于当store里的state发生改变也就是修改值成功后,
+		//又调用store里面的getState(),拿到修改后的值
+		//使用setState把组件里的值进行更新,引起页面的渲染
 		store.subscribe(()=>{
 			this.setState(store.getState())//store.getState()作为一个参数传进来
 		})
@@ -60,17 +61,21 @@ class App extends Component{
 	}
 
 	componentDidMount(){
-		// axios
-		// .get('http://127.0.0.1:3001/')
-		// .then((data)=>{
-		// 	console.log(data)
-		// 	const action=loadInitDataAction(data.data)
-		// 	store.dispatch(action)
-		// })
-		// .catch((err)=>{
-		// 	console.log('err...',err)
-		// })
-		const action=getInitDataAction()
+		/*
+		axios
+		.get('http://127.0.0.1:3001/')
+		.then((data)=>{
+			// console.log(data)
+			const action=loadInitDataAction(data.data)
+			store.dispatch(action)
+		})
+		.catch((err)=>{
+			console.log('err...',err)
+		})
+		*/
+		//action现在是一个函数
+		const action=getInitDataAction();
+		//当action作为一个函数传到dispatch中时,就会把dispatch自身再返回到函数中作为参数
 		store.dispatch(action)
 	}
 
