@@ -21,8 +21,9 @@ export const deleteItemAction=(payload)=>{
 		payload
 	}
 }
-//发送ajax请求用到的
+//发送ajax请求用到的(获取到服务器的数据)
 export const loadInitDataAction=(payload)=>{
+	// console.log(payload)//payload就是传进来的data.data
 	return {
 		type:LOAD_INIT_DATA,
 		payload

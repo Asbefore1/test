@@ -6,12 +6,12 @@
 //3.action中的type在整个应用中必须唯一
 import { CHANGE_VALUE,ADD_ITEM,DELETE_ITEM,LOAD_INIT_DATA } from './actionTypes.js';
 const defaultState={
-
 	value:'hi',
-	list:['ccc','ddd']
+	list:['cc','dd']
 }
 
 export default (state=defaultState,action)=>{
+
 	if(action.type==CHANGE_VALUE){
 		//深拷贝
 
@@ -25,7 +25,7 @@ export default (state=defaultState,action)=>{
 		*/
 
 		NewState.value=action.payload;
-
+		// console.log(state,action)//state是previousState原来的state,action是接收state=defaultState,action这里面的参数
 		return NewState//return之后就结束了本次执行,不会再往下走了
 	}
 

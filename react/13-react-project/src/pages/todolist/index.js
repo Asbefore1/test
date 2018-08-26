@@ -1,6 +1,10 @@
+//index.js是出口文件
+
+
 import React,{ Component } from 'react';
 import { Input,Button,Row,Col,List } from 'antd';
 import { connect } from 'react-redux';
+//由于store中的index中导出了多个,引入过来时也要加上{},表示从多个中引入的
 import { actionCreator } from './store/index.js';//如果不写index.js就默认去找store里面的index.js
 //引入css
 import './Todolist.css';
@@ -8,9 +12,10 @@ import './Todolist.css';
 
 //定义组件
 //必须继承React.Component,Component是react上的一个方法
-//处理业务逻辑的组件-UI组件
 //如果一个组件只有一个render方法的话,这个组件也叫做无状态组件
 //无状态组件可以只写一个方法
+
+//处理业务逻辑的组件-UI组件
 class Todolist extends Component{
 
 	componentDidMount(){
@@ -50,8 +55,9 @@ class Todolist extends Component{
 }
 
 const mapStateToProps=(state)=>{
-	console.log(state)	
+	// console.log(state)	//state.todolist就相当于map
 	return{
+		//合并reducer之后就要加上对应组件的名字
 		value:state.todolist.get('value'),
 		list:state.todolist.get('list')
 	}

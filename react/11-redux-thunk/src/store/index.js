@@ -1,8 +1,8 @@
-
+//定义store
 import reducer from './reducer.js' ;
 
 import { createStore,applyMiddleware  } from 'redux';
-//中间件来处理调试信息
+//中间件来处理调试信息	
 import { createLogger } from 'redux-logger';
 
 import thunk from 'redux-thunk';//中间件来处理派送函数

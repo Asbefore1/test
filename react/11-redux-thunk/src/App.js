@@ -63,7 +63,7 @@ class App extends Component{
 	componentDidMount(){
 		/*
 		axios
-		.get('http://127.0.0.1:3001/')
+		.get('http://127.0.0.1:3001/')//返回promise
 		.then((data)=>{
 			// console.log(data)
 			const action=loadInitDataAction(data.data)

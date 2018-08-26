@@ -5,7 +5,6 @@
 //3.action中的type在整个应用中必须唯一
 import { CHANGE_VALUE,ADD_ITEM,DELETE_ITEM,LOAD_INIT_DATA } from './actionTypes.js';
 const defaultState={
-
 	value:'hi',
 	list:['ccc','ddd']
 }

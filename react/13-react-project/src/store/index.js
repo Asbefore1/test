@@ -1,4 +1,7 @@
+//入口文件定义store(要显示的内容都在写在这)
 
+
+//引入reducer和store,中间件
 import reducer from './reducer.js' ;
 
 import { createStore,applyMiddleware  } from 'redux';

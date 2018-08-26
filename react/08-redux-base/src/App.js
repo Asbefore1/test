@@ -14,7 +14,7 @@ import { Input,Button,Row,Col,List } from 'antd';//先引入再使用
 //必须继承React.Component,Component是react上的一个方法
 class App extends Component{
 	
-	constructor(props){
+	constructor(props){//this代表的是App
 		super(props);
 		/*
 		this.state={
@@ -25,9 +25,9 @@ class App extends Component{
 		// console.log(store.getState())
 		// console.log(store)
 		this.state=store.getState()
-		
 		//subscribe的作用在于当store里的state发生改变也就是修改值成功后,告诉组件修改成功了,在组件中接收到修改的值
 		store.subscribe(()=>{//setState是App上的方法
+			// console.log(store.getState())//获取到改变后的值
 			this.setState(store.getState())//store.getState()作为一个参数传进来
 		})
 
@@ -60,8 +60,7 @@ class App extends Component{
 		const action={
 			type:'delete_item',
 			payload:index
-		}
-
+		}	
 		//将要修改的数据派送给store
 		store.dispatch(action)
 	}
@@ -89,6 +88,7 @@ class App extends Component{
 		    			style={{ marginTop: 20 }}
 		      			bordered
 		      			dataSource={this.state.list}
+		      			//item 是this.state.list,render是渲染的意思,将list渲染到页面上
 		      			renderItem={(item,index) => (<List.Item onClick={this.handleDelete.bind(this,index)}>{item}</List.Item>)}
 		    		/>
 			    </Col>	
