@@ -42,7 +42,7 @@ export default (state=defaultState,action)=>{
 		return NewState//return之后就结束了本次执行,不会再往下走了
 		*/
 		const NewList=[...state.get('list'),state.get('value')];
-		return state .merge({
+		return state.merge({
 			list:NewList,
 			value:''
 		})

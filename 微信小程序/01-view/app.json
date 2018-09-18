@@ -1,0 +1,9 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/article/article"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#adbf21"
+  }
+}

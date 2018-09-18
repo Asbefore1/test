@@ -1,0 +1,13 @@
+<view>
+ <swiper indicator-dots="true"  autoplay='true'>
+    <swiper-item>
+      <image src="../../images/swiper/c1.jpg" class="swiper-img" />
+    </swiper-item>
+    <swiper-item>
+      <image src="../../images/swiper/c2.jpg" class="swiper-img" />
+    </swiper-item>
+    <swiper-item>
+      <image src="../../images/swiper/c3.jpg" class="swiper-img" />
+    </swiper-item>
+</swiper>    
+</view>
